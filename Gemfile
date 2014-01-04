@@ -23,6 +23,7 @@ end
 gem 'jquery-rails'
 
 gem 'devise'
+gem 'figaro'
 gem 'pg'
 
 # To use ActiveModel has_secure_password
