@@ -8,5 +8,8 @@ class User < ActiveRecord::Base
 
   include FlagShihTzu
   # The keys must not be changed once in use, or you will get incorrect results.
+  # maximum flag is 16
   has_flags 1 => :clean_tech, 2 => :health_care, 3 => :big_data, column: 'industries'
+
+  validates :type, inclusion: %w(mentor innovator committee)
 end
