@@ -3,8 +3,6 @@ development:
   encoding: unicode
   database: kairos_development
   pool: 5
-  username: kairos 
-  password:
   host: localhost
 
 test:
@@ -12,8 +10,6 @@ test:
   encoding: unicode  
   database: kairos_test
   pool: 5
-  username: kairos 
-  password:
   host: localhost
 
 production:
@@ -21,5 +17,3 @@ production:
   encoding: unicode  
   database: kairos_production
   pool: 5
-  username: kairos 
-  password:
