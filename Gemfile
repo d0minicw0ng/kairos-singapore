@@ -22,9 +22,11 @@ end
 
 gem 'jquery-rails'
 
-gem 'devise'
-gem 'figaro'
-gem 'pg'
+gem 'figaro' # For ENV variables
+gem 'pg' #postgresql
+
+gem 'devise' # user management
+gem 'flag_shih_tzu' # collection of boolean attributes in a single integer column
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -39,4 +41,4 @@ gem 'pg'
 # gem 'capistrano'
 
 # To use debugger
-# gem 'debugger'
+gem 'debugger'

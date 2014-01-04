@@ -4,8 +4,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable, :lockable
-
-  # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
-  # attr_accessible :title, :body
+
+  include FlagShihTze
+  # The keys must not be changed once in use, or you will get incorrect results.
+  has_flags 1 => :clean_tech, 2 => :health_care, 3 => :big_data, column: 'industries'
 end

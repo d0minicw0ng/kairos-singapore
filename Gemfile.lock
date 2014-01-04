@@ -39,6 +39,13 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
+    columnize (0.3.6)
+    debugger (1.6.3)
+      columnize (>= 0.3.1)
+      debugger-linecache (~> 1.2.0)
+      debugger-ruby_core_source (~> 1.2.4)
+    debugger-linecache (1.2.0)
+    debugger-ruby_core_source (1.2.4)
     devise (3.2.2)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
@@ -50,6 +57,8 @@ GEM
     figaro (0.7.0)
       bundler (~> 1.0)
       rails (>= 3, < 5)
+    flag_shih_tzu (0.3.2)
+      activerecord (>= 2.3.0)
     hike (1.2.3)
     i18n (0.6.9)
     journey (1.0.4)
@@ -120,8 +129,10 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 3.2.1)
+  debugger
   devise
   figaro
+  flag_shih_tzu
   jquery-rails
   pg
   rails (= 3.2.16)
