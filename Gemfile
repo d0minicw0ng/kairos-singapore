@@ -28,6 +28,9 @@ gem 'pg' #postgresql
 gem 'devise' # user management
 gem 'flag_shih_tzu' # collection of boolean attributes in a single integer column
 
+gem 'rails_12factor', group: :production # Logging and static assets config
+
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
@@ -42,3 +45,5 @@ gem 'flag_shih_tzu' # collection of boolean attributes in a single integer colum
 
 # To use debugger
 gem 'debugger'
+
+ruby '2.0.0'

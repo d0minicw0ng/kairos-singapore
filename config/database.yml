@@ -17,3 +17,5 @@ production:
   encoding: unicode  
   database: kairos_production
   pool: 5
+  username: kairos_singapore 
+  password: kairos_singapore
