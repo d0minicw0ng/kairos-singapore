@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140118093835) do
+ActiveRecord::Schema.define(:version => 20140118102643) do
 
   create_table "article_tags", :force => true do |t|
     t.integer  "article_id", :null => false
@@ -88,6 +88,10 @@ ActiveRecord::Schema.define(:version => 20140118093835) do
     t.datetime "updated_at",                             :null => false
     t.integer  "industries",             :default => 0,  :null => false
     t.string   "type",                                   :null => false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
