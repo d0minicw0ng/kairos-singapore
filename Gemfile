@@ -29,7 +29,6 @@ gem 'aws-sdk', '~> 1.32.0'
 
 gem 'rails_12factor', group: :production # Logging and static assets config
 
-
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

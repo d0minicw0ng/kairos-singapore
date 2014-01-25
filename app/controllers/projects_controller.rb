@@ -1,25 +1,34 @@
 class ProjectsController < ApplicationController
-	
-	def new
-	  @project = Project.new
-	end
+  
+  def new
+    @project = Project.new
+  end
 
-	def create
-	end
+  def create
+    @project = Project.new(params[:project])
 
-	def edit
-	end
+    if @project.save
+      flash[:notice] = t(:'projects.project_saved')
+      redirect_to project_url(@project)
+    else 
+      flash[:error] = t(:'common.error')
+      render :new
+    end
+  end
 
-	def update
-	end  
+  def edit
+  end
 
-	def index
-	end
+  def update
+  end  
 
-	def show
-	  @project = Project.find(params[:id])
-	end
+  def index
+  end
 
-	def destroy
-	end
+  def show
+    @project = Project.find(params[:id])
+  end
+
+  def destroy
+  end
 end

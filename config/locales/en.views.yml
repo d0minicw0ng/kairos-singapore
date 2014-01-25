@@ -2,4 +2,10 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  common:
+    create: Create!
+    save: Save!
+    error: 'Sorry, but something went wrong.'
+  projects:
+    new_project: New Project
+    project_saved: Your project has been saved!
