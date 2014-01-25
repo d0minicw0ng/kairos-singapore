@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Kairos</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+  <title>Kairos Society Singapore</title>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
 <% if notice %>
-	<p class="notice"><%= notice %></p>
+	<p class='notice'><%= notice %></p>
 <% elsif alert %>
-	<p class="alert"><%= alert %></p>	
+	<p class='alert'><%= alert %></p>	
 <% end %>
 
 <div class='container'><%= yield %></div>

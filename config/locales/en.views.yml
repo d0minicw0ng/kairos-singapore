@@ -9,3 +9,5 @@ en:
   projects:
     new_project: New Project
     project_saved: Your project has been saved!
+  images:
+    upload: Upload Images

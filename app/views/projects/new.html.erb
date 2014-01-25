@@ -21,8 +21,14 @@
       <%= content_tag :div, class: 'form-group' do %>
         <%= f.label :images_attributes %>
         <%= f.fields_for :images_attributes do |i| %>
-          <%= i.file_field :avatar %>
+          <%= i.file_field :avatar, style: 'display: none' %>
         <% end %>
+        <div class='form-group'>
+          <input id='upload-image' class='form-control' type='text'><br />
+          <button class='btn btn-primary upload-image-button'>
+            <%= t(:'images.upload') %>
+          </button>
+        </div>
       <% end %>
 
     	<%= f.submit t(:'common.create'), class: 'btn btn-primary' %>
