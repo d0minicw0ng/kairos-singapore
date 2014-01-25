@@ -11,3 +11,5 @@ en:
     project_saved: Your project has been saved!
   images:
     upload: Upload Images
+    remove: Remove Image
+    add: Add Image

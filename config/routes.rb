@@ -10,5 +10,7 @@ Kairos::Application.routes.draw do
     root :to => 'devise/sessions#new'
   end
 
-  resources :projects
+  resources :projects do
+    resources :images
+  end
 end

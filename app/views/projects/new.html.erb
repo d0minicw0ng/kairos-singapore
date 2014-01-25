@@ -2,7 +2,7 @@
   <div class='col-xs-12 col-sm-6 col-md-8'>
     <h1><%= t(:'projects.new_project') %></h1>
 
-    <%= form_for @project, html: { role: 'form' } do |f| %>
+    <%= nested_form_for @project, html: { role: 'form', multipart: true } do |f| %>
       <%= content_tag :div, class: 'form-group' do %>
     	  <%= f.label :title %>
     	  <%= f.text_field :title, class: 'form-control' %>
@@ -19,19 +19,30 @@
       <% end %>
 
       <%= content_tag :div, class: 'form-group' do %>
-        <%= f.label :images_attributes %>
-        <%= f.fields_for :images_attributes do |i| %>
-          <%= i.file_field :avatar, style: 'display: none' %>
+        <%= f.label :images %>
+        <%= f.fields_for :images do |i| %>
+          <% if i.object.new_record? %>
+            <%= i.file_field :avatar %>
+          <% else %>
+            <%= image_tag(i.url(:thumb)) %>
+            <%= i.hidden_field :_destroy %>
+            <%= i.link_to_remove t(:'images.remove') %>
+          <% end %>
         <% end %>
-        <div class='form-group'>
+        <!-- <div class='form-group'>
           <input id='upload-image' class='form-control' type='text'><br />
           <button class='btn btn-primary upload-image-button'>
-            <%= t(:'images.upload') %>
+            <%#= t(:'images.upload') %>
           </button>
-        </div>
+        </div> -->
       <% end %>
 
-    	<%= f.submit t(:'common.create'), class: 'btn btn-primary' %>
+      <%= f.link_to_add t(:'images.add'), :images %>
+
+      <%= content_tag :div, class: 'form-group' do %>
+    	 <%= f.submit t(:'common.create'), class: 'btn btn-primary' %>
+      <% end %>
     <% end %>
   </div>
 </div>
+

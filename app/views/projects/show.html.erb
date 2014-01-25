@@ -2,4 +2,12 @@
 
 <div><%= @project.description %></div>
 
-<iframe width='500' height='500' src=<%= @project.video_url %>></iframe>
+<embed width='500' 
+  height='500' 
+  src=<%= @project.video_url %>
+  frameborder='0'
+  allowfullscreen></embed>
+
+<% @project.images.each do |image| %>
+  <%= image_tag image.avatar.url(:medium) %>
+<% end %>

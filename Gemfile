@@ -21,6 +21,7 @@ gem 'devise' # user management
 gem 'flag_shih_tzu' # collection of boolean attributes in a single integer column
 gem 'paperclip', git: 'git://github.com/thoughtbot/paperclip.git' # file attachment tool
 gem 'aws-sdk', '~> 1.32.0'
+gem 'nested_form'
 
 gem 'rails_12factor', group: :production # Logging and static assets config
 
