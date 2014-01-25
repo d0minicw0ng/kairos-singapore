@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140125093112) do
+ActiveRecord::Schema.define(:version => 20140125100522) do
 
   create_table "article_tags", :force => true do |t|
     t.integer  "article_id", :null => false
@@ -96,11 +96,14 @@ ActiveRecord::Schema.define(:version => 20140125093112) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.string   "username",                               :null => false
+    t.string   "slug"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+  add_index "users", ["slug"], :name => "index_users_on_slug", :unique => true
 
   create_table "votes", :force => true do |t|
     t.integer  "user_id",    :null => false

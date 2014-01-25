@@ -28,4 +28,7 @@ class User < ActiveRecord::Base
       content_type: ['image/png', 'image/jpg', 'image/jpeg'] 
     },
     size: { :in => 0..2.megabytes }
+
+  extend FriendlyId
+  friendly_id :username, use: :slugged
 end
