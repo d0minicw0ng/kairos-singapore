@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140125052822) do
+ActiveRecord::Schema.define(:version => 20140125093112) do
 
   create_table "article_tags", :force => true do |t|
     t.integer  "article_id", :null => false
@@ -60,7 +60,10 @@ ActiveRecord::Schema.define(:version => 20140125052822) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.string   "video_url"
+    t.string   "slug"
   end
+
+  add_index "projects", ["slug"], :name => "index_projects_on_slug", :unique => true
 
   create_table "tags", :force => true do |t|
     t.string   "name",       :null => false

@@ -77,6 +77,8 @@ GEM
       rails (>= 3, < 5)
     flag_shih_tzu (0.3.2)
       activerecord (>= 2.3.0)
+    friendly_id (4.0.10.1)
+      activerecord (>= 3.0, < 4.0)
     hike (1.2.3)
     i18n (0.6.9)
     journey (1.0.4)
@@ -161,6 +163,7 @@ DEPENDENCIES
   devise
   figaro
   flag_shih_tzu
+  friendly_id (~> 4.0.10)
   jquery-rails
   nested_form
   paperclip!

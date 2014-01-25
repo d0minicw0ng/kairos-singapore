@@ -23,6 +23,8 @@ gem 'paperclip', git: 'git://github.com/thoughtbot/paperclip.git' # file attachm
 gem 'aws-sdk', '~> 1.32.0'
 gem 'nested_form'
 
+gem 'friendly_id', '~> 4.0.10'
+
 gem 'rails_12factor', group: :production # Logging and static assets config
 
 # To use ActiveModel has_secure_password
