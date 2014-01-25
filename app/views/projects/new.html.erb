@@ -10,5 +10,10 @@
 	<%= f.label :video_url %>
 	<%= f.text_field :video_url %>
 
+  <%= f.label :images_attributes %>
+  <%= f.fields_for :images_attributes do |i| %>
+    <%= i.file_field :avatar %>
+  <% end %>
+
 	<%= f.submit t(:'common.create') %>
 <% end %>
