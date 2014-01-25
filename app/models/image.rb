@@ -13,4 +13,6 @@ class Image < ActiveRecord::Base
 			content_type: ['image/png', 'image/jpg', 'image/jpeg'] 
 		},
 		size: { :in => 0..2.megabytes }
+
+	belongs_to :project
 end
