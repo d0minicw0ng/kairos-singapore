@@ -23,6 +23,7 @@ gem 'paperclip', git: 'git://github.com/thoughtbot/paperclip.git' # file attachm
 gem 'aws-sdk', '~> 1.32.0'
 gem 'nested_form'
 gem 'tinymce-rails'
+gem 'mailcatcher'
 
 gem 'friendly_id', '~> 4.0.10'
 

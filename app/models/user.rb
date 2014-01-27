@@ -4,14 +4,16 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable, :lockable
-  attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_accessible :username, :email, :password, :password_confirmation, :remember_me, :member_type
+
+  validates_uniqueness_of :username
 
   include FlagShihTzu
   # The keys must not be changed once in use, or you will get incorrect results.
   # maximum flag is 16
   has_flags 1 => :clean_tech, 2 => :health_care, 3 => :big_data, column: 'industries'
 
-  validates :type, inclusion: %w(mentor innovator committee)
+  validates :member_type, inclusion: %w(mentor innovator committee)
 
   attr_accessible :avatar
 

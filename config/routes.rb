@@ -12,7 +12,11 @@ Kairos::Application.routes.draw do
 
   resources :projects do
     resources :images
+    resources :comments
   end
 
-  resources :articles
+  resources :articles do
+    resources :comments
+  end
+
 end

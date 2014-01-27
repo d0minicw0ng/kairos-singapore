@@ -16,3 +16,5 @@ en:
   articles:
     new_article: New Article
     article_saved: Your article has been saved!
+  comments:
+    new_comment: Leave A Comment

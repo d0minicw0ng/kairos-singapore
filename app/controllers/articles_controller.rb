@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
 
-  # before_filter :authenticate_user!
+  before_filter :authenticate_user!
 
   def new
     @article = Article.new
@@ -19,5 +19,6 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
+    @comment = Comment.new
   end
 end
