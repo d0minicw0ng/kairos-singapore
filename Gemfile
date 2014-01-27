@@ -22,6 +22,7 @@ gem 'flag_shih_tzu' # collection of boolean attributes in a single integer colum
 gem 'paperclip', git: 'git://github.com/thoughtbot/paperclip.git' # file attachment tool
 gem 'aws-sdk', '~> 1.32.0'
 gem 'nested_form'
+gem 'tinymce-rails'
 
 gem 'friendly_id', '~> 4.0.10'
 

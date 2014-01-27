@@ -10,7 +10,7 @@
 
       <%= content_tag :div, class: 'form-group' do %>
     	  <%= f.label :description %>
-    	  <%= f.text_area :description, class: 'form-control' %>
+    	  <%= f.text_area :description, class: 'form-control tinymce' %>
       <% end %>
 
     	<%= content_tag :div, class: 'form-group' do %>  
@@ -45,4 +45,7 @@
     <% end %>
   </div>
 </div>
+
+<%= tinymce_assets %>
+<%= tinymce %>
 
