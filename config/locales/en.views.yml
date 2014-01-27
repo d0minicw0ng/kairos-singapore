@@ -13,3 +13,5 @@ en:
     upload: Upload Images
     remove: Remove Image
     add: Add Image
+  articles:
+    article_saved: Your article has been saved!
