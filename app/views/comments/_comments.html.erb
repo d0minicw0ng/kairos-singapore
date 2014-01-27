@@ -1,0 +1,5 @@
+<ul class='comments'>
+  <% comments.each do |comment| %>
+    <li id='comment_<%= comment.id %>' class='comment'><%= comment.content %></li>
+  <% end %>
+</ul>
