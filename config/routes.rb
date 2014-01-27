@@ -13,4 +13,6 @@ Kairos::Application.routes.draw do
   resources :projects do
     resources :images
   end
+
+  resources :articles
 end
