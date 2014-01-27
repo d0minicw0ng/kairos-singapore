@@ -6,6 +6,7 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(params[:article])
+    # @article = current_user.articles.build(params[:article])
 
     if @article.save
       flash[:notice] = t(:'articles.article_saved')
@@ -13,5 +14,9 @@ class ArticlesController < ApplicationController
     else
       render :new
     end
+  end
+
+  def show
+    @article = Article.find(params[:id])
   end
 end
