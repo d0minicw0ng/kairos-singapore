@@ -1,0 +1,16 @@
+<div class='row'>
+  <div class='col-xs-12 col-sm-6 col-md-8'>
+    <h1><%= t(:'comments.new_comment') %></h1>
+
+    <%= form_for [parent, @comment], remote: true, html: { role: 'form' } do |f| %>
+      <%= content_tag :div, class: 'form-group' do %>
+        <%= f.label :content %>
+        <%= f.text_field :content, class: 'form-control' %>
+      <% end %>
+
+      <%= content_tag :div, class: 'form-group' do %>
+       <%= f.submit t(:'common.create'), class: 'btn btn-primary' %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

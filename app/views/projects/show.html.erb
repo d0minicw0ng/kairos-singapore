@@ -11,3 +11,6 @@
 <% @project.images.each do |image| %>
   <%= image_tag image.avatar.url(:medium) %>
 <% end %>
+
+<%= render partial: 'comments/comments', object: @project.comments %>
+<%= render partial: 'comments/new', locals: { parent: @project } %>
