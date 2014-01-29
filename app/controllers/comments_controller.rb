@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
 
     if @comment.save
-      render json: @comment
+      render json: @comment.to_json(include: [:user])
     else
       render json: { errors: @comment.errors.full_messages }
     end

@@ -1,5 +1,15 @@
-<ul class='comments'>
+<ul class='media-list comments'>
   <% comments.each do |comment| %>
-    <li id='comment_<%= comment.id %>' class='comment'><%= comment.content %></li>
+    <%#= link_to user_url(comment.user_id) do %>
+    <li class='media'>
+      <a class='pull-left' href='#'>
+        <%= image_tag comment.user.avatar.url(:thumb), class: 'media-object' %>
+      </a>
+      <%# end %>
+      <div class='media-body comment' id='comment_<%= comment.id %>'>
+        <h4 class='media-heading'><%= comment.user.username %></h4>
+        <p><%= comment.content %></p>
+      </div>
+    </li>
   <% end %>
 </ul>
