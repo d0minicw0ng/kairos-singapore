@@ -3,5 +3,4 @@
 <div><%= @article.body.html_safe %></div>
 
 <%= render partial: 'comments/comments', object: @article.comments %>
-
 <%= render partial: 'comments/new', locals: { parent: @article } %>

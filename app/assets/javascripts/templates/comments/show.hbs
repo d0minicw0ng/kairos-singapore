@@ -1,3 +1,10 @@
-<li class='comment' id='{{comment.id}}'>
-  {{comment.content}}
+<li class='media comment' id='{{comment.id}}'>
+  <a class='pull-left' href='#'>
+    <img src='' class='media-object'>
+  </a>
+
+  <div class='media-body'>
+    <h4 class='media-heading'>{{comment.user.username}}</h4>
+    <p>{{comment.content}}</p>
+  </div>
 </li>
