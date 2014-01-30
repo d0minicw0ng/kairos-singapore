@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  
+
   $('#project-tag').select2();
   // $('.upload-image-button').click(function(e) {
   //   e.preventDefault();

@@ -38,13 +38,12 @@
       <% end %>
 
       <%= content_tag :div, class: 'form-group' do %>
-        <%= f.label :project_tag %>
-        <%= f.fields_for :project_tag do |t| %>
-          <select id='project-tag'>
-            <option value='cleantech'>Cleantech</option>
-            <option value='healthcare'>Healthcare</option>
-          </select>
-          <%#= %>
+        <%= f.label :project_tags %>
+        <%= f.fields_for 'project_tags_attributes', @project_tag do |t| %>
+          <%= t.select 'tag_id', 
+            @tags.collect { |t| [t.name, t.id] }, 
+            {}, 
+            { multiple: true, id: 'project-tag' } %>
         <% end %>
       <% end %>
 
