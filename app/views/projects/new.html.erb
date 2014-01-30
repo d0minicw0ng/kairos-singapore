@@ -37,6 +37,17 @@
         </div> -->
       <% end %>
 
+      <%= content_tag :div, class: 'form-group' do %>
+        <%= f.label :project_tag %>
+        <%= f.fields_for :project_tag do |t| %>
+          <select id='project-tag'>
+            <option value='cleantech'>Cleantech</option>
+            <option value='healthcare'>Healthcare</option>
+          </select>
+          <%#= %>
+        <% end %>
+      <% end %>
+
       <%= f.link_to_add t(:'images.add'), :images %>
 
       <%= content_tag :div, class: 'form-group' do %>
@@ -48,4 +59,3 @@
 
 <%= tinymce_assets %>
 <%= tinymce %>
-

@@ -18,3 +18,4 @@
 //= require bootstrap
 //= require jquery_nested_form
 //= require tinymce
+//= require select2

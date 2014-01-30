@@ -28,6 +28,7 @@ gem 'paperclip', git: 'git://github.com/thoughtbot/paperclip.git' # file attachm
 gem 'aws-sdk', '~> 1.32.0'
 gem 'nested_form' 
 gem 'tinymce-rails' # WYSIWYG editor
+gem 'select2-rails'
 
 gem 'friendly_id', '~> 4.0.10' # Friendly URL
 
