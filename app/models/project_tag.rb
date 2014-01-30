@@ -12,6 +12,6 @@ class ProjectTag < ActiveRecord::Base
   end
 
   def self.get_tag_ids(params)
-    params[:project].delete(:project_tags)[:tag_id].split(', ')[0]
+    params[:project].delete(:project_tags)[:tag_ids].split(', ')[0]
   end
 end

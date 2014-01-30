@@ -40,7 +40,7 @@
       <%= content_tag :div, class: 'form-group' do %>
         <%= f.label :project_tags %>
         <%= f.fields_for :project_tags do |pt| %>
-          <%= pt.select 'tag_id', 
+          <%= pt.select 'tag_ids', 
             @tags.collect { |t| [t.name, t.id] }, 
             {}, 
             { multiple: true, id: 'project-tag' } %>
