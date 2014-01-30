@@ -5,20 +5,17 @@ class ProjectsController < ApplicationController
   def new
     @project = Project.new
     @tags = Tag.all
-    @project_tag = @project.project_tags.build
   end
 
   def create
+    tag_ids = ProjectTag.get_tag_ids(params)
     @project = Project.new(params[:project])
-    debugger
 
     if @project.save
+      ProjectTag.create_from_multiple_tag_ids(@project.id, tag_ids)
       flash[:notice] = t(:'projects.project_saved')
       redirect_to project_url(@project)
     else 
-      p @project.errors.full_messages
-      p @project.project_tags
-
       @tags = Tag.all
       flash[:error] = t(:'common.error')
       render :new
