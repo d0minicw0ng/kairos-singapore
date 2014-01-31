@@ -1,6 +1,11 @@
-<h1><%= @project.title %></h1> 
+<ol class='breadcrumb'>
+  <li><%= link_to t(:'common.home'), root_url %></li>
+  <li><%= link_to t(:'projects.projects'), projects_url %></li>
+  <li class='active'><%= @project.title %></li>
+</ol>
 
-<div>
+<div class='page-header'>
+  <h1><%= @project.title %></h1> 
   <% @project.tags.each do |tag| %>
     <span class='label label-primary'><%= tag.name %></span>
   <% end %>

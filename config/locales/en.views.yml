@@ -3,12 +3,14 @@
 
 en:
   common:
+    home: Home 
     create: Create!
     save: Save!
     error: 'Sorry, but something went wrong.'
   projects:
     new_project: New Project
     project_saved: Your project has been saved!
+    projects: Projects
   images:
     upload: Upload Images
     remove: Remove Image
