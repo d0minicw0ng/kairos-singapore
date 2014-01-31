@@ -1,4 +1,10 @@
-<h1><%= @project.title %></h1>
+<h1><%= @project.title %></h1> 
+
+<div>
+  <% @project.tags.each do |tag| %>
+    <span class='label label-primary'><%= tag.name %></span>
+  <% end %>
+</div>
 
 <div><%= @project.description.html_safe %></div>
 
