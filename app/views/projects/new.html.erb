@@ -22,6 +22,7 @@
         <%= f.label :images %>
         <%= f.fields_for :images do |i| %>
           <% if i.object.new_record? %>
+            <!-- NOTE: Will multiple: true solve this problem? -->
             <%= i.file_field :avatar %>
           <% else %>
             <%= image_tag(i.url(:thumb)) %>

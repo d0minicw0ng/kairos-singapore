@@ -1,4 +1,14 @@
 Kairos::Application.routes.draw do
+
+  resources :projects do
+    resources :images
+    resources :comments
+  end
+
+  resources :articles do
+    resources :comments
+  end
+
   devise_for :users
   devise_scope :user do 
     authenticated :user do
@@ -8,14 +18,5 @@ Kairos::Application.routes.draw do
       root to: 'devise/sessions#new'
     end
     root to: 'devise/sessions#new'
-  end
-
-  resources :projects do
-    resources :images
-    resources :comments
-  end
-
-  resources :articles do
-    resources :comments
   end
 end
