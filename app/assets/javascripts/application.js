@@ -19,3 +19,10 @@
 //= require jquery_nested_form
 //= require tinymce
 //= require select2
+
+
+$(document).ready(function() {
+  $('select').select2({
+    width: 200
+  });
+})
