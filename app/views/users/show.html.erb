@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-lg-5">
+    <div class="media">
+      <a class="pull-left" href="#">
+        <%= image_tag @user.avatar.url(:thumb), class:'media-object dp' %>
+      </a>
+      <div class="media-body">
+        <h4 class="media-heading"><%= @user.username %></h4>
+        <hr style="margin:8px auto">
+
+        <span class="label label-primary"><%= @user.member_type %></span>
+        <% @user.industries.each do |industry| %>
+          <span class='label label-success'><%= industry %></span>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

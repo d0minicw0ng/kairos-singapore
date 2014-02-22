@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
 
   before_filter :authenticate_user!
-  
+
   def new
     @project = Project.new
     @tags = Tag.all
@@ -26,7 +26,7 @@ class ProjectsController < ApplicationController
   end
 
   def update
-  end  
+  end
 
   def index
   end

@@ -12,21 +12,26 @@ class User < ActiveRecord::Base
   # The keys must not be changed once in use, or you will get incorrect results.
   # maximum flag is 16
   has_flags 1 => :clean_tech, 2 => :health_care, 3 => :big_data, column: 'industries'
+  INDUSTRIES = {
+    'clean_tech' => 'Clean Tech',
+    'health_care' => 'Healthcare',
+    'big_data' => 'Big Data'
+  }
 
   validates :member_type, inclusion: %w(mentor innovator committee)
 
   attr_accessible :avatar
 
-  has_attached_file :avatar, 
-    styles: { 
+  has_attached_file :avatar,
+    styles: {
       medium: '300x300>',
       thumb: '100x100>'
-    }, 
+    },
     default_url: 'images/missing_user.png'
 
-  validates_attachment :avatar, 
+  validates_attachment :avatar,
     presence: true,
-    content_type: { 
+    content_type: {
       content_type: ['image/png', 'image/jpg', 'image/jpeg'] 
     },
     size: { :in => 0..2.megabytes }
@@ -35,4 +40,13 @@ class User < ActiveRecord::Base
   friendly_id :username, use: :slugged
 
   has_many :comments
+  has_many :articles
+
+  def industries
+    industries = []
+    INDUSTRIES.each do |key, industry|
+      industries << industry if self.send(key)
+    end
+    industries
+  end
 end
