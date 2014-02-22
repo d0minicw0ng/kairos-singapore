@@ -24,5 +24,6 @@ Kairos::Application.routes.draw do
     end
     root to: 'statics#about'
   end
+  resources :users, only: [:show]
 
 end
