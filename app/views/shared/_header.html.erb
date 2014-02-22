@@ -8,16 +8,16 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#"><%= image_tag 'logo.jpeg' %></a>
+      <%= link_to image_tag('logo.jpeg'), root_url, class: 'navbar-brand' %>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="#"><%= t(:'common.about') %></a></li>
-        <li><a href="#"><%= t(:'common.fellows') %></a></li>
-        <li><a href="#"><%= t(:'common.news') %></a></li>
-        <li><a href="#"><%= t(:'common.contact') %></a></li>
+        <li><%= link_to t(:'common.about'), about_url %></li>
+        <li><%= link_to t(:'common.fellows'), fellows_url %></li>
+        <li><%= link_to t(:'common.news'), '#' %></li>
+        <li><%= link_to t(:'common.contact'), contact_url %></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">

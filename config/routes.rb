@@ -1,5 +1,10 @@
 Kairos::Application.routes.draw do
 
+  # Static Pages
+  get '/about', to: 'statics#about', as: 'about'
+  get '/fellows', to: 'statics#fellows', as: 'fellows'
+  get '/contact', to: 'statics#contact', as: 'contact'
+
   resources :projects do
     resources :images
     resources :comments
@@ -19,4 +24,5 @@ Kairos::Application.routes.draw do
     end
     root to: 'devise/sessions#new'
   end
+
 end
