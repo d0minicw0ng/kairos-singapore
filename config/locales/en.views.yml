@@ -3,9 +3,14 @@
 
 en:
   common:
-    home: Home 
+    home: Home
+    about: About
+    fellows: Fellows
+    news: News
+    contact: Contact
     create: Create!
     save: Save!
+    sign_in: Sign In
     error: 'Sorry, but something went wrong.'
   projects:
     new_project: New Project

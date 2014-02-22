@@ -8,15 +8,18 @@
 </head>
 <body>
 
+<%= render partial: 'shared/header' %>
 <div class='container'>
   <% if notice %>
     <div class='alert alert-success'><%= notice %></div>
   <% elsif alert %>
-    <div class='alert alert-danger'><%= alert %></div> 
+    <div class='alert alert-danger'><%= alert %></div>
   <% end %>
-  
   <%= yield %>
 </div>
 
+<%= render partial: 'shared/footer' %>
+
+<div class='container'> 
 </body>
 </html>
