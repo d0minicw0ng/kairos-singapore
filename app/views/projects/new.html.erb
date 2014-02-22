@@ -4,18 +4,18 @@
 
     <%= nested_form_for @project, html: { role: 'form', multipart: true } do |f| %>
       <%= content_tag :div, class: 'form-group' do %>
-    	  <%= f.label :title %>
-    	  <%= f.text_field :title, class: 'form-control' %>
+        <%= f.label :title %>
+        <%= f.text_field :title, class: 'form-control' %>
       <% end %>
 
       <%= content_tag :div, class: 'form-group' do %>
-    	  <%= f.label :description %>
-    	  <%= f.text_area :description, class: 'form-control tinymce' %>
+        <%= f.label :description %>
+        <%= f.text_area :description, class: 'form-control tinymce' %>
       <% end %>
 
-    	<%= content_tag :div, class: 'form-group' do %>  
+      <%= content_tag :div, class: 'form-group' do %>  
         <%= f.label :video_url %>
-    	  <%= f.text_field :video_url, class: 'form-control' %>
+        <%= f.text_field :video_url, class: 'form-control' %>
       <% end %>
 
       <%= content_tag :div, class: 'form-group' do %>
@@ -51,7 +51,7 @@
       <%= f.link_to_add t(:'images.add'), :images %>
 
       <%= content_tag :div, class: 'form-group' do %>
-    	 <%= f.submit t(:'common.create'), class: 'btn btn-primary' %>
+        <%= f.submit t(:'common.create'), class: 'btn btn-primary' %>
       <% end %>
     <% end %>
   </div>
