@@ -23,7 +23,7 @@
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
           <li><a href="#"><%= current_user.username %></a></li>
-          <li><%= link_to t(:'common.sign_out'), destroy_user_session_url %></li>
+          <li><%= link_to t(:'common.sign_out'), destroy_user_session_url, method: :delete %></li>
         <% else %>
           <li><%= link_to t(:'common.sign_in'), new_user_session_url %></li>
         <% end %>
