@@ -17,12 +17,12 @@ Kairos::Application.routes.draw do
   devise_for :users
   devise_scope :user do 
     authenticated :user do
-      root to: 'devise/sessions#new'
+      root to: 'statics#about'
     end
     unauthenticated :user do
-      root to: 'devise/sessions#new'
+      root to: 'statics#about'
     end
-    root to: 'devise/sessions#new'
+    root to: 'statics#about'
   end
 
 end
