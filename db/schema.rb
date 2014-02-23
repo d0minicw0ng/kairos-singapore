@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140223103552) do
+ActiveRecord::Schema.define(:version => 20140223122642) do
 
   create_table "article_tags", :force => true do |t|
     t.integer  "article_id", :null => false
@@ -57,6 +57,14 @@ ActiveRecord::Schema.define(:version => 20140223103552) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.integer  "project_id",          :null => false
+  end
+
+  create_table "project_event_registrations", :force => true do |t|
+    t.integer  "project_id",                        :null => false
+    t.integer  "event_id",                          :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
+    t.string   "state",      :default => "pending", :null => false
   end
 
   create_table "project_tags", :force => true do |t|
@@ -121,10 +129,10 @@ ActiveRecord::Schema.define(:version => 20140223103552) do
   add_index "users", ["slug"], :name => "index_users_on_slug", :unique => true
 
   create_table "votes", :force => true do |t|
-    t.integer  "user_id",    :null => false
-    t.integer  "project_id", :null => false
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "user_id",                       :null => false
+    t.integer  "project_event_registration_id", :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
   end
 
 end

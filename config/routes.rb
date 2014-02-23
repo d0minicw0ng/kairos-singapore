@@ -25,6 +25,9 @@ Kairos::Application.routes.draw do
     root to: 'statics#about'
   end
   resources :users, only: [:show]
+
   resources :events, only: [:new, :create, :show]
+  resources :project_event_registrations, only: [:create]
+  resources :votes, only: [:create, :destroy]
 
 end

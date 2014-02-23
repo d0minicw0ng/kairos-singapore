@@ -1,0 +1,2 @@
+module ProjectEventRegistrationsHelper
+end
