@@ -1,18 +1,38 @@
-<div class="row">
-  <div class="col-lg-5">
-    <div class="media">
-      <a class="pull-left" href="#">
-        <%= image_tag @user.avatar.url(:thumb), class:'media-object dp' %>
-      </a>
-      <div class="media-body">
-        <h4 class="media-heading"><%= @user.username %></h4>
-        <hr style="margin:8px auto">
+<div class='jumbotron'>
+  <div class="container">
+    <div class="pull-left">
+      <%= image_tag @user.avatar.url(:medium), style: 'width: 200px; height: 200px;' %>
+    </div>
+    <div class="pull-right">
+      <h2 class="media-heading"><%= @user.username %></h2>
+      <h4><%= @user.job_title %> at <%= @user.company %></h4>
+      <hr style="margin:8px auto">
 
-        <span class="label label-primary"><%= @user.member_type %></span>
-        <% @user.industries.each do |industry| %>
-          <span class='label label-success'><%= industry %></span>
-        <% end %>
-      </div>
+      <span class="label label-primary"><%= @user.member_type %></span>
+      <% @user.industries.each do |industry| %>
+        <span class='label label-success'><%= industry %></span>
+      <% end %>
     </div>
   </div>
 </div>
+
+<% if @user.biography %>
+  <div class='row'>
+    <div class='col-lg-5'>
+      <h2><%= t(:'users.biography') %></h2>
+      <%= @user.biography %>
+    </div>
+  </div>
+<% end %>
+
+<% if @user.articles.length > 0 %>
+  <div class='row'>
+    <div class='col-lg-5'>
+      <h2><%= t(:'users.articles') %></h2>
+      <% @user.articles.each do |article| %>
+        <h3><%= article.title %></h3>
+        <div><%= @article.body.html_safe %></div>
+      <% end %>
+    </div>
+  </div>
+<% end %>

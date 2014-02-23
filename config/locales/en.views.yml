@@ -1,6 +1,3 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-
 en:
   common:
     home: Home
@@ -11,7 +8,7 @@ en:
     create: Create!
     save: Save!
     sign_in: Sign In
-    error: 'Sorry, but something went wrong.'
+    error: Sorry, but something went wrong.
   projects:
     new_project: New Project
     project_saved: Your project has been saved!
@@ -23,5 +20,8 @@ en:
   articles:
     new_article: New Article
     article_saved: Your article has been saved!
+    articles: Articles
   comments:
     new_comment: Leave A Comment
+  users:
+    biography: Biography

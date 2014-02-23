@@ -18,6 +18,14 @@ class User < ActiveRecord::Base
     'big_data' => 'Big Data'
   }
 
+  def industries
+    industries = []
+    INDUSTRIES.each do |key, industry|
+      industries << industry if self.send(key)
+    end
+    industries
+  end
+
   validates :member_type, inclusion: %w(mentor innovator committee)
   validates_presence_of :company, :job_title, :biography
 
@@ -43,11 +51,4 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :articles
 
-  def industries
-    industries = []
-    INDUSTRIES.each do |key, industry|
-      industries << industry if self.send(key)
-    end
-    industries
-  end
 end
