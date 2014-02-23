@@ -31,7 +31,6 @@ gem 'tinymce-rails' # WYSIWYG editor
 gem 'select2-rails'
 
 gem 'friendly_id', '~> 4.0.10' # Friendly URL
-gem 'state_machine' # for project event registrations' states
 
 gem 'rails_12factor', group: :production # Logging and static assets config
 
