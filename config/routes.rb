@@ -15,7 +15,7 @@ Kairos::Application.routes.draw do
   end
 
   devise_for :users
-  devise_scope :user do 
+  devise_scope :user do
     authenticated :user do
       root to: 'statics#about'
     end
@@ -25,5 +25,6 @@ Kairos::Application.routes.draw do
     root to: 'statics#about'
   end
   resources :users, only: [:show]
+  resources :events, only: [:new, :create, :show]
 
 end

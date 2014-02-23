@@ -1,0 +1,43 @@
+<div class='row'>
+  <div class='col-xs-12 col-sm-6 col-md-8'>
+    <h1><%= t(:'events.new_event') %></h1>
+
+    <%= form_for @event, html: { role: 'form' } do |f| %>
+      <%= content_tag :div, class: 'form-group' do %>
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'form-control' %>
+      <% end %>
+
+      <%= content_tag :div, class: 'form-group' do %>
+        <%= f.label :description %>
+        <%= f.text_area :description, class: 'form-control tinymce' %>
+      <% end %>
+
+
+      <%= content_tag :div, class: 'form-group' do %>
+        <%= f.label :starts_at %><br />
+        <%= f.date_select :starts_at %>
+      <% end %>
+
+      <%= content_tag :div, class: 'form-group' do %>
+        <%= f.time_select :starts_at, ignore_date: true %>
+      <% end %>
+
+      <%= content_tag :div, class: 'form-group' do %>
+        <%= f.label :ends_at %><br />
+        <%= f.date_select :ends_at %>
+      <% end %>
+
+      <%= content_tag :div, class: 'form-group' do %>
+        <%= f.time_select :ends_at, ignore_date: true %>
+      <% end %>
+
+      <%= content_tag :div, class: 'form-group' do %>
+       <%= f.submit t(:'common.create'), class: 'btn btn-primary' %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+<%= tinymce_assets %>
+<%= tinymce %>
