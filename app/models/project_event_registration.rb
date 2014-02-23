@@ -24,17 +24,20 @@ class ProjectEventRegistration < ActiveRecord::Base
   private
 
   def self.process_result(event_id)
-    result = get_results(event_id)
+    result = get_result(event_id)
     accepted_registrations = []
 
-    result.first(5).each do |registration_id, _|
-      process_registration(registration_id, 'accepted')
+    result.first(5).each do |registration_id_count_pair|
+      registration_id = registration_id_count_pair[0]
+      registration = find(registration_id)
+      registration.update_attributes(state: 'accepted')
       result.delete(registration_id)
-      accepted_registrations << find(registration_id)
+      accepted_registrations << registration
     end
 
-    result.each do |registration_id, _|
-      process_registration(registration_id, 'rejected')
+    result.each do |registration_id_count_pair|
+      registration = find(registration_id_count_pair[0])
+      registration.update_attributes(state: 'rejected')
     end
 
     accepted_registrations
@@ -48,10 +51,5 @@ class ProjectEventRegistration < ActiveRecord::Base
       result[registration_id] = votes_count
     end
     result.sort_by {|_, count| -count}
-  end
-
-  def self.process_registration(registration_id, state)
-    registration = find(registration_id)
-    registration.update_attributes(state: state)
   end
 end
