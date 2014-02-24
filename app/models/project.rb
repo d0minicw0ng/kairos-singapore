@@ -11,6 +11,9 @@ class Project < ActiveRecord::Base
   has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true
 
+  has_many :project_event_registrations
+  has_many :registered_events, through: :project_event_registrations, source: :event
+
   extend FriendlyId
   friendly_id :title, use: :slugged
 end

@@ -28,6 +28,7 @@ Kairos::Application.routes.draw do
 
   resources :events, only: [:new, :create, :show]
   resources :project_event_registrations, only: [:create]
+  resources :user_event_registrations, only: [:create]
   resources :votes, only: [:create, :destroy]
 
 end

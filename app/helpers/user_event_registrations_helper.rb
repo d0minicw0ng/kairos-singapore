@@ -1,0 +1,2 @@
+module UserEventRegistrationsHelper
+end

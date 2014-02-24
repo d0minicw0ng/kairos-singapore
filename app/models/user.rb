@@ -51,4 +51,7 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :articles
 
+  has_many :user_event_registrations
+  has_many :registered_events, through: :user_event_registrations, source: :event
+
 end
