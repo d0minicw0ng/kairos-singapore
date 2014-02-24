@@ -1,1 +1,48 @@
-<%= @event %>
+<h1><%= @event.name %></h1>
+<div class='register'>
+  <!-- FIXME: get that register/unregister logic done! -->
+  <%#= if user hasn't registered for event %>
+    <%= link_to t(:'register.individual'), '#', class: 'btn btn-primary user-register-event' %>
+  <%# else %>
+    <%# unregister button %>
+  <%# end %>
+
+  <%#= if user hasn't registered for event %>
+    <%= link_to t(:'register.project'), '#', class: 'btn btn-success project-register-event' %>
+  <%# else %>
+  <%# end %>
+</div>
+
+
+<script type='text/javascript'>
+    $(document).ready(function (){
+        $('.user-register-event').click(function(event) {
+            event.preventDefault();
+            $.ajax({
+                url: '/user_event_registrations',
+                type: 'POST',
+                data: {user_event_registration: {user_id: <%= current_user.id %>, event_id: <%= @event.id %>}},
+                dataType: 'json',
+                success: function(event, data) {
+                    $('.user-register-event').remove();
+                    $('.register').prepend("<a href='#' class='btn btn-warning user-unregister-event'>Unregister Event</a>");
+                }
+            });
+        });
+
+        $('.project-register-event').click(function(event) {
+            event.preventDefault();
+            $.ajax({
+                url: '/project_event_registrations',
+                type: 'POST',
+                // FIXME: for now user's relationship with project is yet to be defined, need to be fixed
+                data: {project_event_registration: {project_id: 1, event_id: <%= @event.id %>}},
+                dataType: 'json',
+                success: function(event, data) {
+                    $('.project-register-event').remove();
+                    $('.register').append("<a href='#' class='btn btn-warning project-unregister-event'>Unregister Event</a>");
+                }
+            });
+        });
+    });
+</script>

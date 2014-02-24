@@ -27,3 +27,6 @@ en:
     new_comment: Leave A Comment
   users:
     biography: Biography
+  register:
+    individual: Register as an Individual
+    project: Register for Your Startup
