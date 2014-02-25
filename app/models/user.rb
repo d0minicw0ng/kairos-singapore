@@ -53,6 +53,9 @@ class User < ActiveRecord::Base
   has_many :user_event_registrations
   has_many :registered_events, through: :user_event_registrations, source: :event
 
+  has_many :user_projects
+  has_many :projects, through: :user_projects
+
   def registered_for_event?(event)
     user_event_registrations.map(&:event_id).include?(event.id)
   end

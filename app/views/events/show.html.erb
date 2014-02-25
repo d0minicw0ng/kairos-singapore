@@ -7,14 +7,17 @@
   <% end %>
 
   <!-- FIXME: get that register/unregister logic done! -->
-  <%#= if user hasn't registered for event %>
+  <%#= if project hasn't registered for event %>
     <%= link_to t(:'register.project'), '#', class: 'btn btn-success project-register-event' %>
   <%# else %>
   <%# end %>
+
+  <%= select_tag 'Projects', options_from_collection_for_select(current_user.projects, 'id', 'title') %>
 </div>
 
 
 <script type='text/javascript'>
+    //FIXME: this should be a backbone view, but later!!!
     $(document).ready(function (){
         $('div.register').on('click', 'a.user-register-event', function(event) {
             event.preventDefault();
@@ -32,21 +35,22 @@
             });
         });
 
-          $('div.register').on('click', 'a.user-unregister-event', function(event) {
-              event.preventDefault();
-              var regId = $(this).attr('data-id');
-              $.ajax({
-                  url: '/user_event_registrations/' + regId,
-                  type: 'DELETE',
-                  dataType: 'json',
-                  success: function(data, event) {
-                      $('.user-unregister-event').remove();
-                      var register = $("<a href='#' class='btn btn-primary user-register-event'>Register as an Individual</a>");
-                      $('.register').prepend(register);
-                  }
-              });
-          });
-       //  $('.project-register-event').click(function(event) {
+        $('div.register').on('click', 'a.user-unregister-event', function(event) {
+            event.preventDefault();
+            var regId = $(this).attr('data-id');
+            $.ajax({
+                url: '/user_event_registrations/' + regId,
+                type: 'DELETE',
+                dataType: 'json',
+                success: function(data, event) {
+                    $('.user-unregister-event').remove();
+                    var register = $("<a href='#' class='btn btn-primary user-register-event'>Register as an Individual</a>");
+                    $('.register').prepend(register);
+                }
+            });
+        });
+
+       // $('div.register').on('click', 'a.project-register-event', function(event) {
        //      event.preventDefault();
        //      $.ajax({
        //          url: '/project_event_registrations',
