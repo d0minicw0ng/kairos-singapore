@@ -6,4 +6,10 @@ class ProjectEventRegistrationsController < ApplicationController
     @registration = ProjectEventRegistration.create(params[:project_event_registration])
     render json: @registration
   end
+
+  def destroy
+    @registration = ProjectEventRegistration.find(params[:id])
+    @registration.destroy
+    render json: {}
+  end
 end
