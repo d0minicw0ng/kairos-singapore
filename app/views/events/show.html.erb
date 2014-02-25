@@ -1,13 +1,12 @@
 <h1><%= @event.name %></h1>
 <div class='register'>
-  <!-- FIXME: get that register/unregister logic done! -->
-  <%#= if user hasn't registered for event %>
-  <%# if !current_user.registration_for?(@event)? %>
+  <% if !current_user.registered_for_event?(@event) %>
     <%= link_to t(:'register.individual'), '#', class: 'btn btn-primary user-register-event' %>
-  <%# else %>
-    <%# unregister button %>
-  <%# end %>
+  <% else %>
+    <%= link_to t(:'unregister.individual'), '#', class: 'btn btn-warning user-unregister-event', data: {id: @user_registration_id} %>
+  <% end %>
 
+  <!-- FIXME: get that register/unregister logic done! -->
   <%#= if user hasn't registered for event %>
     <%= link_to t(:'register.project'), '#', class: 'btn btn-success project-register-event' %>
   <%# else %>

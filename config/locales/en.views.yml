@@ -30,3 +30,6 @@ en:
   register:
     individual: Register as an Individual
     project: Register for Your Startup
+  unregister:
+    individual: Unregister
+    project: Unregister for Your Startup
