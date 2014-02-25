@@ -12,7 +12,9 @@
   <%# else %>
   <%# end %>
 
-  <%= select_tag 'Projects', options_from_collection_for_select(current_user.projects, 'id', 'title') %>
+  <%= select_tag 'Projects', options_from_collection_for_select(current_user.projects, 'id', 'title'), id: 'project-event-select' %>
+  <%= link_to t(:'register.choose_project'), '#', class: 'project-register-event-final' %>
+
 </div>
 
 
@@ -48,6 +50,12 @@
                     $('.register').prepend(register);
                 }
             });
+        });
+
+        $('div.register').on('click', 'a.project-register-event', function(event) {
+            event.preventDefault();
+            // FIXME: SELECT2 BOX as well
+            $('.project-register-event-final').show();
         });
 
        // $('div.register').on('click', 'a.project-register-event', function(event) {
