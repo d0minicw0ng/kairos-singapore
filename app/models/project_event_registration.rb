@@ -13,7 +13,7 @@ class ProjectEventRegistration < ActiveRecord::Base
     user = User.find(user_id)
     registrations = user.projects.map(&:project_event_registrations).flatten
     return registrations.select do |registration|
-      registration.event_id == event_id
+      registration.event_id == event_id.to_i
     end.first
   end
 
