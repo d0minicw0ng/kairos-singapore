@@ -10,6 +10,14 @@ class ProjectEventRegistration < ActiveRecord::Base
 
   has_many :votes
 
+  def self.of_user_and_event(user_id, event_id)
+    user = User.find(user_id)
+    registrations = user.projects.map(&:project_event_registrations).flatten
+    return registrations.select do |registration|
+      registration.event_id == event_id
+    end.first
+  end
+
   def self.accepted_projects_of_event(event_id)
     accepted_registrations = accepted_registrations_of_event(event_id)
     projects = accepted_registrations.map do |registration|

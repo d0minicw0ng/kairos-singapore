@@ -1,20 +1,26 @@
 <h1><%= @event.name %></h1>
 <div class='register'>
-  <% if !current_user.registered_for_event?(@event) %>
-    <%= link_to t(:'register.individual'), '#', class: 'btn btn-primary user-register-event' %>
-  <% else %>
-    <%= link_to t(:'unregister.individual'), '#', class: 'btn btn-warning user-unregister-event', data: {id: @user_registration_id} %>
-  <% end %>
+  <div class='user-event'>
+    <% if @user_registration_id == 0 %>
+      <%= link_to t(:'register.individual'), '#', class: 'btn btn-primary user-register-event' %>
+    <% else %>
+      <%= link_to t(:'unregister.individual'), '#', class: 'btn btn-warning user-unregister-event', data: {id: @user_registration_id} %>
+    <% end %>
+  </div>
 
   <!-- FIXME: get that register/unregister logic done! -->
-  <%#= if project hasn't registered for event %>
-    <%= link_to t(:'register.project'), '#', class: 'btn btn-success project-register-event' %>
-    <div id='select-project-form'>
-      <%= select_tag 'Projects', options_from_collection_for_select(current_user.projects, 'id', 'title'), id: 'project-event-select' %>
-      <%= link_to t(:'register.choose_project'), '#', class: 'btn btn-success project-register-event-final' %>
-    </div>
-  <%# else %>
-  <%# end %>
+  <div class='project-event'>
+    <% if @project_registration_id == 0 %>
+      <%= link_to t(:'register.project'), '#', class: 'btn btn-success project-register-event' %>
+    <% else %>
+      <%= link_to t(:'unregister.project'), '#', class: 'btn btn-warning project-unregister-event', data:{id: @project_registration_id} %>
+    <% end %>
+  </div>
+
+  <div id='select-project-form'>
+    <%= select_tag 'Projects', options_from_collection_for_select(current_user.projects, 'id', 'title'), id: 'project-event-select' %>
+    <%= link_to t(:'register.choose_project'), '#', class: 'btn btn-primary project-register-event-final' %>
+  </div>
 
 </div>
 
@@ -22,7 +28,7 @@
 <script type='text/javascript'>
     //FIXME: this should be a backbone view, but later!!!
     $(document).ready(function (){
-        $('div.register').on('click', 'a.user-register-event', function(event) {
+        $('div.register').on('click', '.user-register-event', function(event) {
             event.preventDefault();
             $.ajax({
                 url: '/user_event_registrations',
@@ -38,7 +44,7 @@
             });
         });
 
-        $('div.register').on('click', 'a.user-unregister-event', function(event) {
+        $('div.register').on('click', '.user-unregister-event', function(event) {
             event.preventDefault();
             var regId = $(this).attr('data-id');
             $.ajax({
@@ -53,12 +59,12 @@
             });
         });
 
-        $('div.register').on('click', 'a.project-register-event', function(event) {
+        $('div.register').on('click', '.project-register-event', function(event) {
             event.preventDefault();
             $('#select-project-form').show();
         });
 
-        $('div.register').on('click', 'a.project-register-event-final', function(event) {
+        $('div.register').on('click', '.project-register-event-final', function(event) {
             event.preventDefault();
             var projectId = $('#project-event-select option:selected').val();
             $.ajax({
@@ -67,14 +73,14 @@
                 data: {project_event_registration: {project_id: projectId, event_id: <%= @event.id %>}},
                 dataType: 'json',
                 success: function(data) {
-                    $('.project-register-event').hide();
+                    $('.project-register-event').remove();
                     $('#select-project-form').hide();
-                    $('div.register').append("<a href='#' class='btn btn-warning project-unregister-event' data-id=" + data.id + ">Unregister Event</a>");
+                    $('div.project-event').append("<a href='#' class='btn btn-warning project-unregister-event' data-id=" + data.id + ">Unregister Event</a>");
                 }
             });
         });
 
-        $('div.register').on('click', 'a.project-unregister-event', function(event) {
+        $('div.register').on('click', '.project-unregister-event', function(event) {
             event.preventDefault();
             var regId = $(this).attr('data-id');
             $.ajax({
@@ -82,7 +88,7 @@
                 type: 'DELETE',
                 dataType: 'json',
                 success: function(data) {
-                    $('.project-register-event').show();
+                    $('div.project-event').append("<a href='#' class='btn btn-success project-register-event'>Register for Your Startup</a>");
                     $('.project-unregister-event').remove();
                 }
             });
