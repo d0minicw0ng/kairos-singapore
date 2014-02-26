@@ -33,6 +33,11 @@
 <div class='event-project-registrants'>
   <% @event.projects.each do |project| %>
     <%= project.title %>
+    <% if !current_user.has_voted_for?(project, @event) %>
+      <%#= %>Vote for this project
+    <% else %>
+      <%#= %>Unvote for this project
+    <% end %>
   <% end %>
 </div>
 

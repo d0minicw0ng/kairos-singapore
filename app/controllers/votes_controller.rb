@@ -8,5 +8,7 @@ class VotesController < ApplicationController
   end
 
   def destroy
+    @vote = Vote.find(params[:id])
+    render json: {}
   end
 end
