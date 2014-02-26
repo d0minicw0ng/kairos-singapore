@@ -9,11 +9,12 @@
   <!-- FIXME: get that register/unregister logic done! -->
   <%#= if project hasn't registered for event %>
     <%= link_to t(:'register.project'), '#', class: 'btn btn-success project-register-event' %>
+    <div id='select-project-form'>
+      <%= select_tag 'Projects', options_from_collection_for_select(current_user.projects, 'id', 'title'), id: 'project-event-select' %>
+      <%= link_to t(:'register.choose_project'), '#', class: 'btn btn-success project-register-event-final' %>
+    </div>
   <%# else %>
   <%# end %>
-
-  <%= select_tag 'Projects', options_from_collection_for_select(current_user.projects, 'id', 'title'), id: 'project-event-select' %>
-  <%= link_to t(:'register.choose_project'), '#', class: 'project-register-event-final' %>
 
 </div>
 
@@ -54,37 +55,37 @@
 
         $('div.register').on('click', 'a.project-register-event', function(event) {
             event.preventDefault();
-            // FIXME: SELECT2 BOX as well
-            $('.project-register-event-final').show();
+            $('#select-project-form').show();
         });
 
-       // $('div.register').on('click', 'a.project-register-event', function(event) {
-       //      event.preventDefault();
-       //      $.ajax({
-       //          url: '/project_event_registrations',
-       //          type: 'POST',
-       //          // FIXME: for now user's relationship with project is yet to be defined, need to be fixed
-       //          data: {project_event_registration: {project_id: 1, event_id: <%= @event.id %>}},
-       //          dataType: 'json',
-       //          success: function(event, data) {
-       //              $('.project-register-event').remove();
-       //              $('.register').append("<a href='#' class='btn btn-warning project-unregister-event'>Unregister Event</a>");
-       //          }
-       //      });
-       //  });
+        $('div.register').on('click', 'a.project-register-event-final', function(event) {
+            event.preventDefault();
+            var projectId = $('#project-event-select option:selected').val();
+            $.ajax({
+                url: '/project_event_registrations',
+                type: 'POST',
+                data: {project_event_registration: {project_id: projectId, event_id: <%= @event.id %>}},
+                dataType: 'json',
+                success: function(data) {
+                    $('.project-register-event').hide();
+                    $('#select-project-form').hide();
+                    $('div.register').append("<a href='#' class='btn btn-warning project-unregister-event' data-id=" + data.id + ">Unregister Event</a>");
+                }
+            });
+        });
 
-       //  $('div.register > .project-unregister-event').click(function(event) {
-       //      event.preventDefault();
-       //      $.ajax({
-       //          url: '/project_event_registrations',
-       //          type: 'DELETE',
-       //          data: {id: 1},
-       //          dataType: 'json',
-       //          success: function(event, data) {
-       //              $('.project-unregister-event').remove();
-       //              $('.register').append("<a href='#' class='btn btn-success project-register-event'>Register for Your Startup</a>");
-       //          }
-       //      });
-       //  });
+        $('div.register').on('click', 'a.project-unregister-event', function(event) {
+            event.preventDefault();
+            var regId = $(this).attr('data-id');
+            $.ajax({
+                url: '/project_event_registrations/' + regId,
+                type: 'DELETE',
+                dataType: 'json',
+                success: function(data) {
+                    $('.project-register-event').show();
+                    $('.project-unregister-event').remove();
+                }
+            });
+        });
     });
 </script>
