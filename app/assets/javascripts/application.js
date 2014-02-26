@@ -19,6 +19,8 @@
 //= require jquery_nested_form
 //= require tinymce
 //= require select2
+//= require underscore-min
+//= require gmaps/google
 
 
 $(document).ready(function() {

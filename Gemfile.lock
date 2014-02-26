@@ -80,6 +80,7 @@ GEM
     flag_shih_tzu (0.3.10)
     friendly_id (5.0.0.rc2)
       activerecord (~> 4.0.0)
+    gmaps4rails (2.1.2)
     haml (4.0.5)
       tilt
     handlebars_assets (0.15)
@@ -210,6 +211,7 @@ DEPENDENCIES
   figaro
   flag_shih_tzu
   friendly_id (= 5.0.0.rc2)
+  gmaps4rails
   handlebars_assets
   jquery-rails
   mailcatcher
