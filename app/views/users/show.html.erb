@@ -31,7 +31,7 @@
       <h2><%= t(:'users.articles') %></h2>
       <% @user.articles.each do |article| %>
         <h3><%= article.title %></h3>
-        <div><%= @article.body.html_safe %></div>
+        <div><%= article.body.html_safe %></div>
       <% end %>
     </div>
   </div>

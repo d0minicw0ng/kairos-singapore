@@ -1,9 +1,12 @@
 Kairos::Application.routes.draw do
 
+
   # Static Pages
   get '/about', to: 'statics#about', as: 'about'
   get '/fellows', to: 'statics#fellows', as: 'fellows'
   get '/contact', to: 'statics#contact', as: 'contact'
+
+  root to: 'statics#about'
 
   resources :projects do
     resources :images
@@ -15,15 +18,14 @@ Kairos::Application.routes.draw do
   end
 
   devise_for :users
-  devise_scope :user do
-    authenticated :user do
-      root to: 'statics#about'
-    end
-    unauthenticated :user do
-      root to: 'statics#about'
-    end
-    root to: 'statics#about'
-  end
+#   devise_scope :user do
+#     authenticated :user do
+#       root to: 'statics#about'
+#     end
+#     unauthenticated :user do
+#       root to: 'statics#about'
+#     end
+#   end
   resources :users, only: [:show]
 
   resources :events, only: [:new, :create, :show]
