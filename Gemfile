@@ -5,9 +5,6 @@ gem 'rails', '3.2.16'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
-
-
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -34,11 +31,9 @@ gem 'jquery-rails'
 # Deploy with Capistrano
 # gem 'capistrano'
 
-# To use debugger
-# gem 'debugger'
 gem 'rails', '3.2.16'
-  gem 'mailcatcher' # Send e-mails in development environment
-  gem 'handlebars_assets' # JS template engine
+gem 'mailcatcher' # Send e-mails in development environment
+gem 'handlebars_assets' # JS template engine
 gem 'figaro' # For ENV variables
 gem 'pg' #postgresql
 gem 'devise' # user management
@@ -51,6 +46,7 @@ gem 'select2-rails'
 gem 'friendly_id', '~> 4.0.10' # Friendly URL
 gem 'rails_12factor', group: :production # Logging and static assets config
 gem 'debugger'
+
 group :development, :test do
   gem 'rspec-rails'
 end
