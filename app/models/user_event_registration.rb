@@ -1,5 +1,4 @@
 class UserEventRegistration < ActiveRecord::Base
-  attr_accessible :event_id, :user_id
 
   validates_presence_of :event_id, :user_id
   validates_uniqueness_of :user_id, scope: :event_id

@@ -7,7 +7,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @article = current_user.articles.build(params[:article])
+    @article = current_user.articles.build(article_params)
 
     if @article.save
       flash[:notice] = t(:'articles.article_saved')
@@ -20,5 +20,10 @@ class ArticlesController < ApplicationController
   def show
     @article = Article.includes(comments: :user).find(params[:id])
     @comment = Comment.new
+  end
+
+  private
+  def article_params
+    params.require(:article).permit(:title, :body, :user_id)
   end
 end

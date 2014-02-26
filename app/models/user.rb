@@ -3,7 +3,6 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :lockable
-  attr_accessible :username, :email, :password, :password_confirmation, :remember_me, :member_type, :company, :job_title, :biography
 
   validates_uniqueness_of :username
 
@@ -28,7 +27,6 @@ class User < ActiveRecord::Base
   validates :member_type, inclusion: %w(mentor innovator committee)
   validates_presence_of :company, :job_title, :biography
 
-  attr_accessible :avatar
 
   has_attached_file :avatar,
     styles: {

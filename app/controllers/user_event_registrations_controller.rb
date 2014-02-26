@@ -3,7 +3,7 @@ class UserEventRegistrationsController < ApplicationController
   before_filter :authenticate_user!
 
   def create
-    @registration = UserEventRegistration.create(params[:user_event_registration])
+    @registration = UserEventRegistration.create(user_event_registration_params)
     render json: @registration
   end
 
@@ -11,5 +11,10 @@ class UserEventRegistrationsController < ApplicationController
     @registration = UserEventRegistration.find(params[:id])
     @registration.destroy
     render json: {}
+  end
+
+  private
+  def user_event_registration_params
+    params.require(:user_event_registration).permit(:event_id, :user_id)
   end
 end

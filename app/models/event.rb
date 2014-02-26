@@ -1,5 +1,4 @@
 class Event < ActiveRecord::Base
-  attr_accessible :name, :description, :starts_at, :ends_at
   MAX_PROJECT_PARTICIPANTS = 5
   MAX_PARTICIPANTS = 40
 

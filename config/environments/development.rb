@@ -16,9 +16,6 @@ Kairos::Application.configure do
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = false
 
-  # Send email via mailcatcher
-  config.action_mailer.default_url_options = { host: 'smtp://localhost:1025' }
-
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
 
@@ -37,14 +34,4 @@ Kairos::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
-
-  config.paperclip_defaults = {
-    storage: :s3,
-    s3_credentials: {
-      bucket: ENV['S3_BUCKET_NAME'],
-      access_key_id: ENV['AWS_ACCESS_KEY_ID'],
-      secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
-      s3_host_name: ENV['S3_HOSTNAME']
-    }
-  }
 end

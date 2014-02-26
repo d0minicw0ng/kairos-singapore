@@ -1,5 +1,4 @@
 class Project < ActiveRecord::Base
-  attr_accessible :title, :description, :video_url, :images_attributes
 
   validates_presence_of :title, :description, :video_url
 

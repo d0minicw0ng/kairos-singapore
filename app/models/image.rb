@@ -1,5 +1,4 @@
 class Image < ActiveRecord::Base
-	attr_accessible :avatar
 	has_attached_file :avatar, 
 		styles: { 
 			large: '500x500>', 

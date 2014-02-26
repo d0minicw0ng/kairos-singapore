@@ -9,7 +9,7 @@ class ProjectsController < ApplicationController
 
   def create
     tag_ids = ProjectTag.get_tag_ids(params)
-    @project = Project.new(params[:project])
+    @project = Project.new(project_params)
 
     if @project.save
       ProjectTag.create_from_multiple_tag_ids(@project.id, tag_ids)
@@ -37,5 +37,10 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+  def project_params
+    params.require(:project).permit(:title, :description, :video_url, :images_attributes)
   end
 end
