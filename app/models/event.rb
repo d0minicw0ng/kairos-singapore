@@ -11,7 +11,15 @@ class Event < ActiveRecord::Base
 
   has_many :comments, as: :commentable, dependent: :destroy
 
+
   def starts_at_must_be_before_ends_at
     errors.add(:starts_at, 'must be before ends at') unless starts_at < ends_at
+  end
+
+  geocoded_by :address
+  after_validation :geocode
+
+  def address
+    [street_one, street_two, city, state, country, zip_code].compact.join(', ')
   end
 end
