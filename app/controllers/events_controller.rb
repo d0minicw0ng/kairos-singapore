@@ -18,6 +18,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.includes(:projects).find(params[:id])
+    @comment = Comment.new
 
     @user_registration_id = UserEventRegistration.find_by_user_id_and_event_id(current_user.id, params[:id]).try(:id) || 0
     @project_registration_id = ProjectEventRegistration.of_user_and_event(current_user.id, params[:id]).try(:id) || 0
