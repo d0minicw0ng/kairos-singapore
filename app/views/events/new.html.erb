@@ -33,6 +33,41 @@
       <% end %>
 
       <%= content_tag :div, class: 'form-group' do %>
+        <%= f.label :venue_name %><br />
+        <%= f.text_field :venue_name, class: 'form-control' %>
+      <% end %>
+
+      <%= content_tag :div, class: 'form-group' do %>
+        <%= f.label :address_line_one %><br />
+        <%= f.text_field :address_line_one, class: 'form-control' %>
+      <% end %>
+
+      <%= content_tag :div, class: 'form-group' do %>
+        <%= f.label :address_line_two %><br />
+        <%= f.text_field :address_line_two, class: 'form-control' %>
+      <% end %>
+
+      <%= content_tag :div, class: 'form-group' do %>
+        <%= f.label :city %><br />
+        <%= f.text_field :city, class: 'form-control' %>
+      <% end %>
+
+      <%= content_tag :div, class: 'form-group' do %>
+        <%= f.label :state %><br />
+        <%= f.text_field :state, class: 'form-control' %>
+      <% end %>
+
+      <%= content_tag :div, class: 'form-group' do %>
+        <%= f.label :country %><br />
+        <%= f.text_field :country, class: 'form-control' %>
+      <% end %>
+
+      <%= content_tag :div, class: 'form-group' do %>
+        <%= f.label :zip_code %><br />
+        <%= f.text_field :zip_code, class: 'form-control' %>
+      <% end %>
+
+      <%= content_tag :div, class: 'form-group' do %>
        <%= f.submit t(:'common.create'), class: 'btn btn-primary' %>
       <% end %>
     <% end %>
