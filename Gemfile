@@ -29,7 +29,6 @@ gem 'jquery-rails'
 # gem 'capistrano'
 
 gem 'rails', '4.0.0'
-gem 'mailcatcher' # Send e-mails in development environment
 gem 'handlebars_assets' # JS template engine
 gem 'figaro' # For ENV variables
 gem 'pg' #postgresql

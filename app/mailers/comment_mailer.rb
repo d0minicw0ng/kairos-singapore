@@ -12,7 +12,7 @@ class CommentMailer < ActionMailer::Base
 
   private
 
-  def self.receivers(comment)
+  def self.get_receivers(comment)
     case comment.commentable_type
     when 'Project'
       receivers = comment.project.users

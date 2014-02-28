@@ -7,6 +7,8 @@ class CommentsController < ApplicationController
     @comment = @commentable.comments.build(comment_params)
     @comment.user_id = current_user.id
 
+    CommentMailer.new_comment_notification(@comment).deliver
+
     if @comment.save
       render json: @comment.to_json(include: [:user])
     else
