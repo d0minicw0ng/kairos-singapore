@@ -44,6 +44,7 @@ gem 'rails_12factor', group: :production # Logging and static assets config
 gem 'debugger'
 gem 'gmaps4rails'
 gem 'geocoder'
+gem 'font-awesome-rails'
 
 group :development, :test do
   gem 'rspec-rails'

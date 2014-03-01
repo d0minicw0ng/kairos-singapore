@@ -76,6 +76,8 @@ GEM
       bundler (~> 1.0)
       rails (>= 3, < 5)
     flag_shih_tzu (0.3.10)
+    font-awesome-rails (4.0.3.1)
+      railties (>= 3.2, < 5.0)
     friendly_id (5.0.0.rc2)
       activerecord (~> 4.0.0)
     geocoder (1.1.9)
@@ -181,6 +183,7 @@ DEPENDENCIES
   devise
   figaro
   flag_shih_tzu
+  font-awesome-rails
   friendly_id (= 5.0.0.rc2)
   geocoder
   gmaps4rails
