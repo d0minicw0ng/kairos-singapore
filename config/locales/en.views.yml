@@ -13,6 +13,8 @@ en:
     new_project: New Project
     project_saved: Your project has been saved!
     projects: Projects
+    youtube_url: Youtube URL (It must be an embed URL)
+    tags: Tags
   events:
     new_event: New Event
   images:
