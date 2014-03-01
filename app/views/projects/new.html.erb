@@ -4,6 +4,9 @@
       <h1><%= t(:'projects.new_project') %></h1>
       <div class='well'>
         <%= nested_form_for @project, html: { role: 'form', multipart: true } do |f| %>
+
+          <%= render partial: 'shared/errors', locals: {object: @project} %>
+
           <%= content_tag :div, class: 'form-group' do %>
             <%= f.label :title %>
             <%= f.text_field :title, class: 'form-control' %>
