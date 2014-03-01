@@ -1,6 +1,8 @@
-<h1><%= @article.title %></h1>
+<div class='container'>
+  <h1><%= @article.title %></h1>
+  <br /><br /><br />
+  <div><%= @article.body.html_safe %></div>
 
-<div><%= @article.body.html_safe %></div>
-
-<%= render partial: 'comments/comments', object: @article.comments %>
-<%= render partial: 'comments/new', locals: { parent: @article } %>
+  <%= render partial: 'comments/comments', object: @article.comments %>
+  <%= render partial: 'comments/new', locals: { parent: @article } %>
+</div>

@@ -26,6 +26,7 @@ en:
     article_saved: Your article has been saved!
     articles: Articles
   comments:
+    comments: Comments
     new_comment: Leave A Comment
   users:
     biography: Biography
