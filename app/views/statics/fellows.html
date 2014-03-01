@@ -1,6 +1,73 @@
-<html>
-	<body>
-		<img src="http://wp.streetwise.co/wp-content/blogs.dir/2/files/2012/11/34d75103740ba3ee9a4f9a514d365504.png" alt="..." class="img-circle">
-	</body>
-	</html>
-	
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item active">
+      <%= image_tag 'kairos.png', style: 'width: 100%;' %>
+      <div class="carousel-caption">
+        Kairos Society
+      </div>
+    </div>
+    <div class="item">
+      <%= image_tag 'kairos.png', style: 'width: 100%;' %>
+      <div class="carousel-caption">
+        Kairos Society
+      </div>
+    </div>
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+    <i class="fa fa-toggle-left"></i>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+    <i class="fa fa-toggle-right"></i>
+  </a>
+</div>
+
+<div class='container'>
+  <!-- START THE FEATURETTES -->
+  <hr class="featurette-divider">
+
+  <div class="row featurette">
+    <div class="col-md-7">
+      <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
+      <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+    </div>
+    <div class="col-md-5">
+      <%= image_tag 'lujie2.jpg', class: 'featurette-image img-responsive', data: {src:"holder.js/500x500/auto"} %>
+    </div>
+  </div>
+
+  <hr class="featurette-divider">
+
+  <div class="row featurette">
+    <div class="col-md-5">
+      <%= image_tag 'lujie2.jpg', class: 'featurette-image img-responsive', data: {src:"holder.js/500x500/auto"} %>
+    </div>
+    <div class="col-md-7">
+      <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
+      <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+    </div>
+  </div>
+
+  <hr class="featurette-divider">
+
+  <div class="row featurette">
+    <div class="col-md-7">
+      <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
+      <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+    </div>
+    <div class="col-md-5">
+      <%= image_tag 'lujie2.jpg', class: 'featurette-image img-responsive', data: {src:"holder.js/500x500/auto"} %>
+    </div>
+  </div>
+
+  <hr class="featurette-divider">
+  <!-- /END THE FEATURETTES -->
+</div>
