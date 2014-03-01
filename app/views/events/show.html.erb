@@ -27,24 +27,25 @@
     </div>
   </div>
 
-  <!-- FIXME: hella messy, need to clean up!!!! -->
   <div style='width: 100%;'>
     <div id="map" style='width: 100%; height: 400px;'></div>
   </div>
 
-
-  <ul class='event-project-registrants'>
-    <% @event.projects.each do |project| %>
-      <li class='project-registrant' id='project-"<%= project.id %>"'>
-        <%= project.title %>
-        <% if !current_user.has_voted_for?(project, @event) %>
-          <a class='btn btn-info vote' data-event-id="<%= @event.id %>" data-project-id="<%= project.id %>">Vote for This Project</a>
-        <% else %>
-          <a class='btn btn-info unvote' data-event-id="<%= @event.id %>" data-project-id="<%= project.id %>">Unvote for This Project</a>
-        <% end %>
-      </li>
-    <% end %>
-  </ul>
+  <% if @event.projects.length > 0 %>
+    <h3><%= t(:'register.event_registrants') %></h3>
+    <ul class='event-project-registrants'>
+      <% @event.projects.each do |project| %>
+        <li class='project-registrant' id='project-"<%= project.id %>"'>
+          <%= link_to project.title, project_url(project) %>
+          <% if !current_user.has_voted_for?(project, @event) %>
+            <a class='btn btn-info vote' data-event-id="<%= @event.id %>" data-project-id="<%= project.id %>">Vote for This Project</a>
+          <% else %>
+            <a class='btn btn-info unvote' data-event-id="<%= @event.id %>" data-project-id="<%= project.id %>">Unvote for This Project</a>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
 
   <%= render partial: 'comments/comments', object: @event.comments %>
   <%= render partial: 'comments/new', locals: { parent: @event } %>

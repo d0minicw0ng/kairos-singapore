@@ -33,6 +33,7 @@ en:
   register:
     individual: Register as an Individual
     project: Register for Your Startup
+    event_registrants: Startups that are competing for a seat 
   unregister:
     individual: Unregister
     project: Unregister for Your Startup
