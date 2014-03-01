@@ -22,12 +22,12 @@ class CommentsController < ApplicationController
   def destroy
   end
 
-  private 
+  private
 
   def find_commentable
     params.each do |name, value|
       if name =~ /(.+)_id$/ && name != 'user_id'
-        return $1.classify.constantize.find(value)
+        return $1.classify.constantize.friendly.find(value)
       end
     end
     nil

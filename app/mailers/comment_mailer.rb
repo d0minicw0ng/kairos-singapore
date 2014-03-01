@@ -15,12 +15,17 @@ class CommentMailer < ActionMailer::Base
   def self.get_receivers(comment)
     case comment.commentable_type
     when 'Project'
-      receivers = comment.project.users
+      receivers = comment.commentable.users
     when 'Article'
-      receivers = [comment.article.user]
+      article = comment.commentable
+      author = article.user
+      receivers = article.comments.map(&:user).reject {|user| user == author}
+      receivers << author
     when 'Event'
-      #FIXME: who should receive an e-mail when a comment is left?
-      receivers = []
+      jian_min = User.find_by_email('jian.sim@kairossociety.org')
+      event = comment.commentable
+      receivers = event.comments.map(&:user)
+      receivers << jian_min if jian_min
     else
       receivers = []
     end
