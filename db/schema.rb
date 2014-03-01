@@ -116,8 +116,8 @@ ActiveRecord::Schema.define(version: 20140227162237) do
   create_table "user_projects", force: true do |t|
     t.integer  "user_id",    null: false
     t.integer  "project_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
