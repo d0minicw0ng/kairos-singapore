@@ -2,60 +2,61 @@
   <div class='row'>
     <div class='col-xs-12 col-sm-6 col-md-8'>
       <h1><%= t(:'projects.new_project') %></h1>
+      <div class='well'>
+        <%= nested_form_for @project, html: { role: 'form', multipart: true } do |f| %>
+          <%= content_tag :div, class: 'form-group' do %>
+            <%= f.label :title %>
+            <%= f.text_field :title, class: 'form-control' %>
+          <% end %>
 
-      <%= nested_form_for @project, html: { role: 'form', multipart: true } do |f| %>
-        <%= content_tag :div, class: 'form-group' do %>
-          <%= f.label :title %>
-          <%= f.text_field :title, class: 'form-control' %>
-        <% end %>
+          <%= content_tag :div, class: 'form-group' do %>
+            <%= f.label :description %>
+            <%= f.text_area :description, class: 'form-control tinymce tinymce-text-area' %>
+          <% end %>
 
-        <%= content_tag :div, class: 'form-group' do %>
-          <%= f.label :description %>
-          <%= f.text_area :description, class: 'form-control tinymce tinymce-text-area' %>
-        <% end %>
+          <%= content_tag :div, class: 'form-group' do %>  
+            <%= f.label :video_url, t(:'projects.youtube_url') %>
+            <%= f.text_field :video_url, class: 'form-control' %>
+          <% end %>
 
-        <%= content_tag :div, class: 'form-group' do %>  
-          <%= f.label :video_url, t(:'projects.youtube_url') %>
-          <%= f.text_field :video_url, class: 'form-control' %>
-        <% end %>
+          <%= content_tag :div, class: 'form-group' do %>
+            <%= f.label :images %>
+            <%= f.fields_for :images do |i| %>
+              <% if i.object.new_record? %>
+                <!-- NOTE: Will multiple: true solve this problem? -->
+                <%= i.file_field :avatar %>
+              <% else %>
+                <%= image_tag(i.url(:thumb)) %>
+                <%= i.hidden_field :_destroy %>
+                <%= i.link_to_remove t(:'images.remove') %>
+              <% end %>
+            <% end %>
+            <!-- <div class='form-group'>
+              <input id='upload-image' class='form-control' type='text'><br />
+              <button class='btn btn-primary upload-image-button'>
+                <%#= t(:'images.upload') %>
+              </button>
+            </div> -->
+          <% end %>
 
-        <%= content_tag :div, class: 'form-group' do %>
-          <%= f.label :images %>
-          <%= f.fields_for :images do |i| %>
-            <% if i.object.new_record? %>
-              <!-- NOTE: Will multiple: true solve this problem? -->
-              <%= i.file_field :avatar %>
-            <% else %>
-              <%= image_tag(i.url(:thumb)) %>
-              <%= i.hidden_field :_destroy %>
-              <%= i.link_to_remove t(:'images.remove') %>
+          <%= f.link_to_add t(:'images.add'), :images, class: 'btn btn-primary' %>
+          <br /><br />
+
+          <%= content_tag :div, class: 'form-group' do %>
+            <%= f.label :project_tags, t(:'projects.tags') %><br />
+            <%= f.fields_for :project_tags do |pt| %>
+              <%= pt.select 'tag_ids',
+                @tags.collect { |t| [t.name, t.id] },
+                {},
+                { multiple: true, id: 'project-tag' } %>
             <% end %>
           <% end %>
-          <!-- <div class='form-group'>
-            <input id='upload-image' class='form-control' type='text'><br />
-            <button class='btn btn-primary upload-image-button'>
-              <%#= t(:'images.upload') %>
-            </button>
-          </div> -->
-        <% end %>
 
-        <%= f.link_to_add t(:'images.add'), :images, class: 'btn btn-primary' %>
-        <br /><br />
-
-        <%= content_tag :div, class: 'form-group' do %>
-          <%= f.label :project_tags, t(:'projects.tags') %><br />
-          <%= f.fields_for :project_tags do |pt| %>
-            <%= pt.select 'tag_ids',
-              @tags.collect { |t| [t.name, t.id] },
-              {},
-              { multiple: true, id: 'project-tag' } %>
+          <%= content_tag :div, class: 'form-group' do %>
+            <%= f.submit t(:'common.create'), class: 'btn btn-primary' %>
           <% end %>
         <% end %>
-
-        <%= content_tag :div, class: 'form-group' do %>
-          <%= f.submit t(:'common.create'), class: 'btn btn-primary' %>
-        <% end %>
-      <% end %>
+      </div>
     </div>
   </div>
 </div>
