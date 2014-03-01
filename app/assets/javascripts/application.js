@@ -21,6 +21,7 @@
 //= require select2
 //= require underscore-min
 //= require gmaps/google
+//= require knockout
 
 
 $(document).ready(function() {

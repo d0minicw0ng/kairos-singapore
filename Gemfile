@@ -45,6 +45,7 @@ gem 'debugger'
 gem 'gmaps4rails'
 gem 'geocoder'
 gem 'font-awesome-rails'
+gem 'knockoutjs-rails'
 
 group :development, :test do
   gem 'rspec-rails'
