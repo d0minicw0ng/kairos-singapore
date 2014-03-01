@@ -2,17 +2,17 @@
   <h1 class='pull-left'><%= @event.name %></h1>
   <div class='register pull-right'>
     <div class='row user-project-register'>
-      <div class='user-event col-md-5'>
+      <div class='user-event col-md-5' data-bind='with: UserRegisterEventViewModel'>
         <% if @user_registration_id == 0 %>
-          <%= link_to t(:'register.individual'), '#', class: 'btn btn-primary user-register-event' %>
+          <%= link_to t(:'register.individual'), '#', class: 'btn btn-primary user-register-event', data: {bind: 'click: register'} %>
         <% else %>
           <%= link_to t(:'unregister.individual'), '#', class: 'btn btn-warning user-unregister-event', data: {id: @user_registration_id} %>
         <% end %>
       </div>
 
-      <div class='project-event col-md-5'>
+      <div class='project-event col-md-5' data-bind='with: ProjectRegisterEventViewModel'>
         <% if @project_registration_id == 0 %>
-          <%= link_to t(:'register.project'), '#', class: 'btn btn-success project-register-event' %>
+          <%= link_to t(:'register.project'), '#', class: 'btn btn-success project-register-event', data: {bind: 'click: showSelectProjectForm'} %>
         <% else %>
           <%= link_to t(:'unregister.project'), '#', class: 'btn btn-warning project-unregister-event', data:{id: @project_registration_id} %>
         <% end %>
@@ -58,21 +58,21 @@
     //FIXME: this should be a backbone view, but later!!!
     $(document).ready(function (){
         // User Register for Event
-        $('div.register').on('click', '.user-register-event', function(event) {
-            event.preventDefault();
-            $.ajax({
-                url: '/user_event_registrations',
-                type: 'POST',
-                data: {user_event_registration: {user_id: <%= current_user.id %>, event_id: <%= @event.id %>}},
-                dataType: 'json',
-                success: function(data) {
-                    $('.user-register-event').remove();
-                    var unRegister = $("<a href='#' class='btn btn-warning user-unregister-event' data-remote='true' data-id=" + data.id + ">Unregister Event</a>");
-                    $('.user-event').prepend(unRegister);
-
-                }
-            });
-        });
+       //  $('div.register').on('click', '.user-register-event', function(event) {
+       //      event.preventDefault();
+       //      $.ajax({
+       //          url: '/user_event_registrations',
+       //          type: 'POST',
+       //          data: {user_event_registration: {user_id: <%= current_user.id %>, event_id: <%= @event.id %>}},
+       //          dataType: 'json',
+       //          success: function(data) {
+       //              $('.user-register-event').remove();
+       //              var unRegister = $("<a href='#' class='btn btn-warning user-unregister-event' data-remote='true' data-id=" + data.id + ">Unregister Event</a>");
+       //              $('.user-event').prepend(unRegister);
+        //
+       //          }
+       //      });
+       //  });
         // User Unregister for Event
         $('div.register').on('click', '.user-unregister-event', function(event) {
             event.preventDefault();
@@ -88,11 +88,7 @@
                 }
             });
         });
-        // Show select project form
-        $('div.register').on('click', '.project-register-event', function(event) {
-            event.preventDefault();
-            $('#select-project-form').show();
-        });
+
         // Project register for event
         $('div.register').on('click', '.project-register-event-final', function(event) {
             event.preventDefault();
@@ -163,6 +159,14 @@
 
         var latitude = <%= @event.latitude %>
         var longitude = <%= @event.longitude %>
-        ko.applyBindings(new EventMapViewModel(latitude, longitude));
+        var currentUserId = <%= @current_user.id %>
+        var eventId = <%= @event.id %>
+        var data = {
+            latitude: latitude,
+            longitude: longitude,
+            currentUserId: currentUserId,
+            eventId: eventId
+        }
+        ko.applyBindings(new EventShowViewModel(data));
     });
 </script>
