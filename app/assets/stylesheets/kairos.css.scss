@@ -1,0 +1,31 @@
+// events/show.html.erb
+.register {
+  margin-top: 25px;
+}
+
+#select-project-form {
+  display: none;
+  margin: 20px;
+}
+
+.project-register-event-final {
+  margin-left: 10px;
+}
+
+.project-register-event, .project-unregister-event {
+  width: 215px;
+}
+
+.user-register-event, .user-unregister-event {
+  width: 190px;
+}
+
+// projects/new.html.erb
+#project-tag {
+  width: 200px;
+}
+
+// comments/comments partial
+ul.comments {
+  margin-top: 100px;
+}
