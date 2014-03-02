@@ -6,11 +6,11 @@
           <%= link_to t(:'register.individual'),
             '#',
             class: 'btn btn-primary user-register-event',
-            data: {bind: 'click: register', 'user-id' => current_user.id, 'event-id' => @event.id} %>
+            data: {bind: 'click: registerUser, visible: noRegisteredEvent()', 'user-id' => current_user.id, 'event-id' => @event.id} %>
           <%= link_to t(:'unregister.individual'),
             '#',
             class: 'btn btn-warning user-unregister-event',
-            data: {bind: 'click: unregister', id: @user_registration_id} %>
+            data: {bind: 'click: unregisterUser, visible: !noRegisteredEvent()', id: @user_registration_id} %>
       </div>
 
       <div class='project-event col-md-5' data-bind='with: ProjectRegisterEventViewModel'>
@@ -18,7 +18,7 @@
           <%= link_to t(:'unregister.project'),
             '#',
             class: 'btn btn-warning project-unregister-event',
-            data:{bind: 'click: unregister', id: @project_registration_id} %>
+            data:{bind: 'click: unregisterProject', id: @project_registration_id} %>
       </div>
       <br />
     </div>

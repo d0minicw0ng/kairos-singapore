@@ -7,18 +7,18 @@ function EventShowViewModel(data) {
 
 function UserRegisterEventViewModel() {
     var self = this;
-    self.currentUserId = $('.user-register-event').data('user-id');
-    self.eventId = $('.user-register-event').data('event-id');
-    self.postData = { user_event_registration: {user_id: self.currentUserId, event_id: self.eventId}}
-
-    //FIXME: Should use visible binding
-    if (parseInt($('.user-unregister-event').data('id')) == 0){
-        $('.user-unregister-event').hide();
-    } else {
-        $('.user-register-event').hide();
+    self.postData = { 
+        user_event_registration: {
+            user_id: $('.user-register-event').data('user-id'),
+            event_id:  $('.user-register-event').data('event-id')
+        }
     }
 
-    self.register = function() {
+    self.noRegisteredEvent = function(){
+        return parseInt($('.user-unregister-event').data('id')) == 0;
+    }
+
+    self.registerUser = function() {
         $.post('/user_event_registrations',
                self.postData,
                function(data) {
@@ -29,7 +29,7 @@ function UserRegisterEventViewModel() {
         );
     }
 
-    self.unregister = function() {
+    self.unregisterUser = function() {
         $.ajax({
             url: '/user_event_registrations/' + $('.user-unregister-event').data('id'),
             type: 'DELETE',
@@ -58,7 +58,7 @@ function ProjectRegisterEventViewModel() {
         $('#select-project-form').toggle();
     }
 
-    self.unregister = function() {
+    self.unregisterProject = function() {
         var regId = $('.project-unregister-event').data('id');
         $.ajax({
             url: '/project_event_registrations/' + regId,
