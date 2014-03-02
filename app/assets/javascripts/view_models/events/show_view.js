@@ -7,14 +7,14 @@ function EventShowViewModel(data) {
 
 function UserRegisterEventViewModel() {
     var self = this;
-    self.postData = { 
+    self.postData = {
         user_event_registration: {
             user_id: $('.user-register-event').data('user-id'),
             event_id:  $('.user-register-event').data('event-id')
         }
     }
 
-    self.noRegisteredEvent = function(){
+    self.noUserRegisteredEvent = function(){
         return parseInt($('.user-unregister-event').data('id')) == 0;
     }
 
@@ -47,11 +47,8 @@ function UserRegisterEventViewModel() {
 function ProjectRegisterEventViewModel() {
     var self = this;
 
-    //FIXME: Should use visible binding
-    if (parseInt($('.project-unregister-event').data('id')) == 0){
-        $('.project-unregister-event').hide();
-    } else {
-        $('.project-register-event').hide();
+    self.noProjectRegisteredEvent = function(){
+        return parseInt($('.project-unregister-event').data('id')) == 0;
     }
 
     self.showSelectProjectForm = function() {
