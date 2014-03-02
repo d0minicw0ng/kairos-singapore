@@ -1,42 +1,45 @@
 function EventShowViewModel(data) {
     var self = this;
-    self.currentUserId = data.currentUserId;
-    self.eventId = data.eventId;
 
     new EventMapViewModel(data.latitude, data.longitude);
     new ProjectRegisterEventViewModel();
-    new UserRegisterEventViewModel(self.currentUserId, self.eventId);
 }
 
 
-function UserRegisterEventViewModel(currentUserId, eventId) {
+function UserRegisterEventViewModel() {
     var self = this;
-    //FIXME: There must be some parsing error that screws up the json data. 
-    self.postData = ko.toJSON({ user_event_registration: {user_id: currentUserId, event_id: eventId}});
-    self.currentUserId = currentUserId;
-    self.eventId = eventId;
+    self.currentUserId = $('.user-register-event').data('current-user-id');
+    self.eventId = $('.user-register-event').data('event-id');
+    self.postData = { user_event_registration: {user_id: self.currentUserId, event_id: self.eventId}}
+
+    if (parseInt($('.user-unregister-event').data('id')) == 0){
+        $('.user-unregister-event').hide();
+    } else {
+        $('.user-register-event').hide();
+    }
 
     self.register = function() {
         $.post('/user_event_registrations',
                self.postData,
                function(data) {
-                   $('.user-register-event').remove();
-                   var unRegister = $("<a href='#' class='btn btn-warning user-unregister-event' data-remote='true' data-id=" + data.id + ">Unregister Event</a>");
-                   $('.user-event').prepend(unRegister);
-               });
+                   $('.user-register-event').hide();
+                   $('.user-unregister-event').data('id', data.id);
+                   $('.user-unregister-event').show()
+               }
+        );
+    }
 
-
-       //  $.ajax({
-       //      url: '/user_event_registrations',
-       //      type: 'POST',
-       //      data: {user_event_registration: {user_id: self.currentUserId, event_id: eventId}},
-       //      dataType: 'json',
-       //      success: function(data) {
-       //          $('.user-register-event').remove();
-       //          var unRegister = $("<a href='#' class='btn btn-warning user-unregister-event' data-remote='true' data-id=" + data.id + ">Unregister Event</a>");
-       //          $('.user-event').prepend(unRegister);
-       //      }
-       //  });
+    self.unregister = function() {
+        $.ajax({
+            url: '/user_event_registrations/' + $('.user-unregister-event').data('id'),
+            type: 'DELETE',
+            dataType: 'json',
+            success: function(data, event) {
+                $('.user-unregister-event').data('id', 0)
+                $('.user-unregister-event').hide();
+                $('.user-register-event').show();
+            }
+        });
     }
 }
 

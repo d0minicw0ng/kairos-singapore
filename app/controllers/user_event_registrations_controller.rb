@@ -14,8 +14,8 @@ class UserEventRegistrationsController < ApplicationController
   end
 
   private
+
   def user_event_registration_params
-    debugger
     params.require(:user_event_registration).permit(:event_id, :user_id)
   end
 end

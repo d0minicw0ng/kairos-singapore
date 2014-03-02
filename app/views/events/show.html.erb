@@ -3,11 +3,14 @@
   <div class='register pull-right'>
     <div class='row user-project-register'>
       <div class='user-event col-md-5' data-bind='with: UserRegisterEventViewModel'>
-        <% if @user_registration_id == 0 %>
-          <%= link_to t(:'register.individual'), '#', class: 'btn btn-primary user-register-event', data: {bind: 'click: register'} %>
-        <% else %>
-          <%= link_to t(:'unregister.individual'), '#', class: 'btn btn-warning user-unregister-event', data: {id: @user_registration_id} %>
-        <% end %>
+          <%= link_to t(:'register.individual'),
+            '#',
+            class: 'btn btn-primary user-register-event',
+            data: {bind: 'click: register', 'current-user-id' => current_user.id, 'event-id' => @event.id} %>
+          <%= link_to t(:'unregister.individual'),
+            '#',
+            class: 'btn btn-warning user-unregister-event',
+            data: {bind: 'click: unregister', id: @user_registration_id} %>
       </div>
 
       <div class='project-event col-md-5' data-bind='with: ProjectRegisterEventViewModel'>
@@ -55,40 +58,7 @@
 <script src='//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js' type='text/javascript'></script>
 
 <script type='text/javascript'>
-    //FIXME: this should be a backbone view, but later!!!
     $(document).ready(function (){
-        // User Register for Event
-       //  $('div.register').on('click', '.user-register-event', function(event) {
-       //      event.preventDefault();
-       //      $.ajax({
-       //          url: '/user_event_registrations',
-       //          type: 'POST',
-       //          data: {user_event_registration: {user_id: <%= current_user.id %>, event_id: <%= @event.id %>}},
-       //          dataType: 'json',
-       //          success: function(data) {
-       //              $('.user-register-event').remove();
-       //              var unRegister = $("<a href='#' class='btn btn-warning user-unregister-event' data-remote='true' data-id=" + data.id + ">Unregister Event</a>");
-       //              $('.user-event').prepend(unRegister);
-        //
-       //          }
-       //      });
-       //  });
-        // User Unregister for Event
-        $('div.register').on('click', '.user-unregister-event', function(event) {
-            event.preventDefault();
-            var regId = $(this).attr('data-id');
-            $.ajax({
-                url: '/user_event_registrations/' + regId,
-                type: 'DELETE',
-                dataType: 'json',
-                success: function(data, event) {
-                    $('.user-unregister-event').remove();
-                    var register = $("<a href='#' class='btn btn-primary user-register-event'>Register as an Individual</a>");
-                    $('.user-event').prepend(register);
-                }
-            });
-        });
-
         // Project register for event
         $('div.register').on('click', '.project-register-event-final', function(event) {
             event.preventDefault();
@@ -159,13 +129,9 @@
 
         var latitude = <%= @event.latitude %>
         var longitude = <%= @event.longitude %>
-        var currentUserId = <%= @current_user.id %>
-        var eventId = <%= @event.id %>
         var data = {
             latitude: latitude,
-            longitude: longitude,
-            currentUserId: currentUserId,
-            eventId: eventId
+            longitude: longitude
         }
         ko.applyBindings(new EventShowViewModel(data));
     });
