@@ -36,8 +36,11 @@
     </div>
   </div>
 
-  <div style='width: 100%;'>
-    <div id="map" style='width: 100%; height: 400px;'></div>
+  <div style='width: 100%;' data-bind='with: EventMapViewModel'>
+    <div id="event-map"
+      style='width: 100%; height: 400px;'
+      data-latitude='<%= @event.latitude %>' data-longitude='<%= @event.longitude %>'>
+    </div>
   </div>
 
   <% if @event.projects.length > 0 %>
@@ -102,12 +105,6 @@
             });
         });
 
-        var latitude = <%= @event.latitude %>
-        var longitude = <%= @event.longitude %>
-        var data = {
-            latitude: latitude,
-            longitude: longitude
-        }
-        ko.applyBindings(new EventShowViewModel(data));
+        ko.applyBindings();
     });
 </script>

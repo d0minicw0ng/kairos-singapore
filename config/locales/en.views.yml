@@ -37,3 +37,6 @@ en:
   unregister:
     individual: Unregister
     project: Unregister for Your Startup
+  votes:
+    vote: Vote for This Project
+    unvote: Unvote for This Project

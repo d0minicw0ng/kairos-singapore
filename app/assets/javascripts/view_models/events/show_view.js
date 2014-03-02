@@ -1,10 +1,3 @@
-function EventShowViewModel(data) {
-    var self = this;
-
-    new EventMapViewModel(data.latitude, data.longitude);
-}
-
-
 function UserRegisterEventViewModel() {
     var self = this;
     self.postData = {
@@ -92,18 +85,13 @@ function ProjectRegisterEventViewModel() {
 }
 
 
-function UserVoteViewModel() {
-    var self = this;
-}
-
-
 function EventMapViewModel(latitude, longitude) {
     handler = Gmaps.build('Google');
-    handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+    handler.buildMap({ provider: {}, internal: {id: 'event-map'}}, function(){
         markers = handler.addMarkers([
             {
-                "lat": latitude,
-                "lng": longitude,
+                "lat": $('#event-map').data('latitude'),
+                "lng": $('#event-map').data('longitude'),
                 "picture": {
                     "url": "https://addons.cdn.mozilla.net/img/uploads/addon_icons/13/13028-64.png",
                     "width":  36,
