@@ -25,7 +25,10 @@
     <div class='row'>
       <div id='select-project-form'>
         <%= select_tag 'Projects', options_from_collection_for_select(current_user.projects, 'id', 'title'), id: 'project-event-select' %>
-        <%= link_to t(:'register.choose_project'), '#', class: 'btn btn-primary project-register-event-final' %>
+        <%= link_to t(:'register.choose_project'), 
+          '#', 
+          class: 'btn btn-primary project-register-event-final',
+          data: {'event-id' => @event.id} %>
       </div>
     </div>
   </div>
@@ -59,24 +62,6 @@
 
 <script type='text/javascript'>
     $(document).ready(function (){
-        // Project register for event
-        $('div.register').on('click', '.project-register-event-final', function(event) {
-            event.preventDefault();
-            var projectId = $('#project-event-select option:selected').val();
-            $.ajax({
-                url: '/project_event_registrations',
-                type: 'POST',
-                data: {project_event_registration: {project_id: projectId, event_id: <%= @event.id %>}},
-                dataType: 'json',
-                success: function(data) {
-                    $('.project-register-event').hide();
-                    $('.project-unregister-event').data('id', data.id);
-                    $('.project-unregister-event').show();
-                    $('#select-project-form').hide();
-                }
-            });
-        });
-
         $('.project-registrant').on('click', '.vote', function(event) {
             var that = this;
             event.preventDefault();

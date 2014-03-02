@@ -11,6 +11,7 @@ function UserRegisterEventViewModel() {
     self.eventId = $('.user-register-event').data('event-id');
     self.postData = { user_event_registration: {user_id: self.currentUserId, event_id: self.eventId}}
 
+    //FIXME: Should use visible binding
     if (parseInt($('.user-unregister-event').data('id')) == 0){
         $('.user-unregister-event').hide();
     } else {
@@ -46,6 +47,7 @@ function UserRegisterEventViewModel() {
 function ProjectRegisterEventViewModel() {
     var self = this;
 
+    //FIXME: Should use visible binding
     if (parseInt($('.project-unregister-event').data('id')) == 0){
         $('.project-unregister-event').hide();
     } else {
@@ -57,8 +59,9 @@ function ProjectRegisterEventViewModel() {
     }
 
     self.unregister = function() {
+        var regId = $('.project-unregister-event').data('id');
         $.ajax({
-            url: '/project_event_registrations/' + $('.project-unregister-event').data('id'),
+            url: '/project_event_registrations/' + regId,
             type: 'DELETE',
             dataType: 'json',
             success: function(data) {
@@ -69,6 +72,26 @@ function ProjectRegisterEventViewModel() {
         });
     }
 
+    //FIXME: Project register for event (it should not be done this way, obviously, but
+    // when I move this block nested under the project register event div, it breaks the CSS.
+    // Given how 'genius' I am in CSS, I would rather make this look ugly for now until I figure
+    // a way to make the form look nice. Thanks :) )
+    $('div.register').on('click', '.project-register-event-final', function(event) {
+        event.preventDefault();
+        var projectId = $('#project-event-select option:selected').val();
+        $.ajax({
+            url: '/project_event_registrations',
+            type: 'POST',
+            data: {project_event_registration: {project_id: projectId, event_id: $('.project-register-event-final').data('event-id')}},
+            dataType: 'json',
+            success: function(data) {
+                $('.project-register-event').hide();
+                $('.project-unregister-event').data('id', data.id);
+                $('.project-unregister-event').show();
+                $('#select-project-form').hide();
+            }
+        });
+    });
 }
 
 
