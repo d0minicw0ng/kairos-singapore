@@ -2,13 +2,12 @@ function EventShowViewModel(data) {
     var self = this;
 
     new EventMapViewModel(data.latitude, data.longitude);
-    new ProjectRegisterEventViewModel();
 }
 
 
 function UserRegisterEventViewModel() {
     var self = this;
-    self.currentUserId = $('.user-register-event').data('current-user-id');
+    self.currentUserId = $('.user-register-event').data('user-id');
     self.eventId = $('.user-register-event').data('event-id');
     self.postData = { user_event_registration: {user_id: self.currentUserId, event_id: self.eventId}}
 
@@ -47,9 +46,29 @@ function UserRegisterEventViewModel() {
 function ProjectRegisterEventViewModel() {
     var self = this;
 
+    if (parseInt($('.project-unregister-event').data('id')) == 0){
+        $('.project-unregister-event').hide();
+    } else {
+        $('.project-register-event').hide();
+    }
+
     self.showSelectProjectForm = function() {
         $('#select-project-form').toggle();
     }
+
+    self.unregister = function() {
+        $.ajax({
+            url: '/project_event_registrations/' + $('.project-unregister-event').data('id'),
+            type: 'DELETE',
+            dataType: 'json',
+            success: function(data) {
+                $('.project-unregister-event').data('id', 0);
+                $('.project-unregister-event').hide();
+                $('.project-register-event').show();
+            }
+        });
+    }
+
 }
 
 
