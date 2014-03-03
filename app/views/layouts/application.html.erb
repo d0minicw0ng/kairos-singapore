@@ -11,11 +11,16 @@
   <body>
     <%= render partial: 'shared/header' %>
 
-    <% if notice %>
-      <div class='alert alert-success'><%= notice %></div>
-    <% elsif alert %>
-      <div class='alert alert-danger'><%= alert %></div>
-    <% end %>
+    <div class='container'>
+      <div id='notification'>
+        <% if notice %>
+          <div class='alert alert-success'><%= notice %></div>
+        <% elsif alert %>
+          <div class='alert alert-danger'><%= alert %></div>
+        <% end %>
+      </div>
+    </div>
+
     <%= yield %>
 
     <%= render partial: 'shared/footer' %>

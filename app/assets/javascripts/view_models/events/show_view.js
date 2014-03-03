@@ -18,6 +18,8 @@ function UserRegisterEventViewModel() {
                    $('.user-register-event').hide();
                    $('.user-unregister-event').data('id', data.id);
                    $('.user-unregister-event').show()
+                   $('#notification').append('<div class="alert alert-success">You have registered for the event!</div>');
+                   clearNotification();
                }
         );
     }
@@ -31,6 +33,8 @@ function UserRegisterEventViewModel() {
                 $('.user-unregister-event').data('id', 0)
                 $('.user-unregister-event').hide();
                 $('.user-register-event').show();
+                $('#notification').append('<div class="alert alert-danger">You have unregistered for the event!</div>');
+                clearNotification();
             }
         });
     }
@@ -58,6 +62,8 @@ function ProjectRegisterEventViewModel() {
                 $('.project-unregister-event').data('id', 0);
                 $('.project-unregister-event').hide();
                 $('.project-register-event').show();
+                $('#notification').append('<div class="alert alert-danger">Your startup have unregistered for the event!</div>');
+                clearNotification();
             }
         });
     }
@@ -79,6 +85,8 @@ function ProjectRegisterEventViewModel() {
                 $('.project-unregister-event').data('id', data.id);
                 $('.project-unregister-event').show();
                 $('#select-project-form').hide();
+                $('#notification').append('<div class="alert alert-success">Your startup have registered for the event!</div>');
+                clearNotification();
             }
         });
     });

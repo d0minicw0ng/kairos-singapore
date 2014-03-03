@@ -7,7 +7,7 @@ class ProjectEventRegistration < ActiveRecord::Base
   belongs_to :project
   belongs_to :event
 
-  has_many :votes
+  has_many :votes, dependent: :destroy
 
   def self.of_user_and_event(user_id, event_id)
     user = User.find(user_id)

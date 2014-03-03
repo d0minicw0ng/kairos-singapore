@@ -29,3 +29,12 @@ $(document).ready(function() {
       width: 200
     });
 });
+
+function clearNotification() {
+  setTimeout(function() {
+      $('#notification').slideUp(1000, function() {
+          $('#notification').empty();
+      });
+  }, 4000);
+}
+
