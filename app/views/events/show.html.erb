@@ -83,6 +83,27 @@
       </div>
     </div>
 
+    <div id='event-attendees' class='panel panel-info'>
+      <div class='panel-heading'>
+        <h4 class='panel-title'>
+          <a data-toggle='collapse' data-parent='#accordion' href='#collapseThree'>
+            <%= t(:'events.attendees') %>
+          </a>
+        </h4>
+      </div>
+      <div id='collapseThree' class='panel-collpase collapse'>
+        <div class='panel-body'>
+          <% @event_attendees.each do |attendee| %>
+            <%= link_to user_url(attendee) do %>
+              <%= image_tag attendee.thumb_url,
+                class: 'event-attendee',
+                data: {toggle: 'tooltip', placement: 'bottom', title: attendee.username} %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
   </div>
 
   <% if @event.projects.length > 0 %>
@@ -146,5 +167,7 @@
                 }
             });
         });
+
+        $('.event-attendee').tooltip();
     });
 </script>

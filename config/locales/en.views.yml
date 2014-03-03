@@ -19,6 +19,7 @@ en:
     new_event: New Event
     location: Location
     description: Details
+    attendees: People Who Have Registered to Attend
   images:
     upload: Upload Images
     remove: Remove Image
