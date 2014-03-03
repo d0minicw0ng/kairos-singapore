@@ -17,6 +17,8 @@ en:
     tags: Tags
   events:
     new_event: New Event
+    location: Location
+    description: Details
   images:
     upload: Upload Images
     remove: Remove Image

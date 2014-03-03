@@ -22,4 +22,6 @@ class Event < ActiveRecord::Base
   def address
     [street_one, street_two, city, state, country, zip_code].compact.join(', ')
   end
+
+  ADDRESS_COMPONENTS = [:street_one, :street_two, :city, :state, :country, :zip_code]
 end
