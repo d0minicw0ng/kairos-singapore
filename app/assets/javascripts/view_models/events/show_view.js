@@ -1,3 +1,4 @@
+//FIXME: You need to add/remove user/project to the registered users/events sections on success callback
 function UserRegisterEventViewModel() {
     var self = this;
     self.postData = {
