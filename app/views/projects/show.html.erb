@@ -1,3 +1,14 @@
+<div style="position: fixed; z-index: -99; width: 100%; height: 500px">
+  <iframe frameborder="0" height="100%" width="100%"
+    src=<%#= "#{@project.video_url}?autoplay=1&controls=0&showinfo=0&autohide=1" %>>
+  </iframe>
+</div>
+<!-- <embed width='100%' -->
+<!--   height='500px' -->
+<!--   src=<%#= "#{@project.video_url}?autoplay=1&#38;controls=0&#38;loop=1&#38;modestbranding=1&#38;showinfo=0" %> -->
+<!--   frameborder='0' -->
+<!--   controls=2 -->
+<!--   allowfullscreen></embed> -->
 <div class='container'>
   <ol class='breadcrumb'>
     <li><%= link_to t(:'common.home'), root_url %></li>
@@ -10,52 +21,6 @@
     <% @project.tags.each do |tag| %>
       <span class='label label-primary'><%= tag.name %></span>
     <% end %>
-  </div>
-
-  <ul class='nav nav-tabs'>
-    <li class='active'><a href='#description' data-toggle='tab'>Description</a></li>
-    <li><a href='#video' data-toggle='tab'>Video</a></li>
-    <li><a href='#images' data-toggle='tab'>Images</a></li>
-  </ul>
-
-  <div class='tab-content'>
-    <div class='tab-pane active' id='description'>
-      <%= @project.description.html_safe %>
-    </div>
-    <div class='tab-pane' id='video'>
-      <embed width='500' 
-        height='500' 
-        src=<%= @project.video_url %>
-        frameborder='0'
-        allowfullscreen></embed>
-    </div>
-    <div class='tab-pane' id='images'>
-      <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-          <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-          <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-          <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-        </ol>
-
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner">
-          <% @project.images.each do |image| %>
-            <div class='item <%= "active" if image == @project.images.first %>'>
-              <%= image_tag image.avatar.url(:large) %>
-            </div>
-          <% end %>
-        </div>
-
-        <!-- Controls -->
-        <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-          <span class="glyphicon glyphicon-chevron-left"></span>
-        </a>
-        <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-          <span class="glyphicon glyphicon-chevron-right"></span>
-        </a>
-      </div>
-    </div>
   </div>
 
   <%= render partial: 'comments/comments', object: @project.comments %>
