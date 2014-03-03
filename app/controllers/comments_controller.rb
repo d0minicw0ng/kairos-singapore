@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
     CommentMailer.new_comment_notification(@comment).deliver
 
     if @comment.save
-      render json: @comment.to_json(include: [:user])
+      render json: @comment.to_json(include: {user: {methods: [:thumb_url]}})
     else
       render json: { errors: @comment.errors.full_messages }
     end

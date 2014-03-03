@@ -42,6 +42,10 @@ class User < ActiveRecord::Base
     },
     size: { :in => 0..2.megabytes }
 
+  def thumb_url
+    avatar.url(:thumb)
+  end
+
   extend FriendlyId
   friendly_id :username, use: :slugged
 
@@ -64,4 +68,5 @@ class User < ActiveRecord::Base
     registration = ProjectEventRegistration.find_by_project_id_and_event_id(project.id, event.id)
     Vote.where(project_event_registration_id: registration.id, user_id: id).count != 0
   end
+
 end

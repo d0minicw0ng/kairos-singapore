@@ -3,14 +3,13 @@
   <h1><%= t(:'comments.comments') %></h1>
   <ul class='media-list comments'>
     <% comments.each do |comment| %>
-      <%#= link_to user_url(comment.user_id) do %>
       <li class='media comment' id='comment_<%= comment.id %>'>
         <a class='pull-left' href='#'>
           <%= image_tag comment.user.avatar.url(:thumb), class: 'media-object' %>
         </a>
         <%# end %>
         <div class='media-body'>
-          <h4 class='media-heading'><%= comment.user.username %></h4>
+          <h4 class='media-heading'><%= link_to comment.user.username, user_url(comment.user) %></h4>
           <p><%= comment.content %></p>
         </div>
       </li>
