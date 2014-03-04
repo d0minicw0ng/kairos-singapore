@@ -13,6 +13,7 @@
  *= require bootstrap
  *= require select2
  *= require font-awesome
+ *= require YTPlayer
  */
 
 @font-face {

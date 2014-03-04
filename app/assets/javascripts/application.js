@@ -22,6 +22,7 @@
 //= require underscore-min
 //= require gmaps/google
 //= require knockout
+//= require jquery.mb.YTPlayer
 
 
 $(document).ready(function() {
