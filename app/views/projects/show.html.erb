@@ -1,4 +1,4 @@
-<div style='width: 100%; height: 500px;' id='project-video'>
+<div id='project-video'>
   <a id="bgndVideo"
     class="player"
     data-property="{
@@ -15,23 +15,26 @@
   </a>
 </div>
 
-<div style='position: fixed; left: 10px; top: 50px;' onclick="$('#bgndVideo').unmuteYTPVolume()">
-  <i class="fa fa-volume-up fa-3x"></i>
+<!-- FIXME: ProjectVideoViewModel -->
+<div id='project-video-controls'>
+  <div onclick="$('#bgndVideo').unmuteYTPVolume()" class='volume-on'>
+    <i class="fa fa-volume-up fa-3x"></i>
+  </div>
+
+  <div onclick="$('#bgndVideo').muteYTPVolume()" class='volume-off'>
+    <i class="fa fa-volume-off fa-3x"></i>
+  </div>
+
+  <div onclick="$('#bgndVideo').pauseYTP()" class='pause'>
+    <i class="fa fa-pause fa-3x"></i>
+  </div>
+
+  <div onclick="$('#bgndVideo').playYTP()" class='play'>
+    <i class="fa fa-play fa-3x"></i>
+  </div>
 </div>
 
-<div style='position: fixed; left: 70px; top: 50px;' onclick="$('#bgndVideo').muteYTPVolume()">
-  <i class="fa fa-volume-off fa-3x"></i>
-</div>
-
-<div style='position: fixed; left: 110px; top: 50px;' onclick="$('#bgndVideo').pauseYTP()">
-  <i class="fa fa-pause fa-3x"></i>
-</div>
-
-<div style='position: fixed; left: 170px; top: 50px;' onclick="$('#bgndVideo').playYTP()">
-  <i class="fa fa-play fa-3x"></i>
-</div>
-
-<div class='container' style='background-color: #2b3e50; padding: 30px;'>
+<div class='container' id='project-container'>
   <ol class='breadcrumb'>
     <li><%= link_to t(:'common.home'), root_url %></li>
     <li><%= link_to t(:'projects.projects'), projects_url %></li>
@@ -39,11 +42,31 @@
   </ol>
 
   <div class='page-header'>
-    <h1><%= @project.title %></h1> 
+    <span class='startup-name'><%= @project.title %></span>
     <% @project.tags.each do |tag| %>
-      <span class='label label-primary'><%= tag.name %></span>
+      <span class='label label-info startup-tag'><%= tag.name %></span>
     <% end %>
   </div>
+
+  <h1><%= t(:'projects.description') %></h1>
+  <div class='well'>
+    <%= @project.description.html_safe %>
+  </div>
+
+  <% if @project.contact_email || @project_number %>
+    <hr class="featurette-divider">
+    <h1><%= t(:'projects.contact_us') %></h1>
+    <div class='list-group'>
+      <a class='list-group-item list-group-item-warning'>
+        <h4 class='list-group-item-heading'><%= t(:'common.email') %></h4>
+        <p class='list-group-item-text'><%= @project.contact_email || t(:'projects.no_email') %></p>
+      </a>
+      <a class='list-group-item list-group-item-success'>
+        <h4 class='list-group-item-heading'><%= t(:'common.number') %></h4>
+        <p class='list-group-item-text'><%= @project.contact_number || t(:'projects.no_number') %></p>
+      </a>
+    </div>
+  <% end %>
 
   <%= render partial: 'comments/comments', object: @project.comments %>
   <%= render partial: 'comments/new', locals: { parent: @project } %>

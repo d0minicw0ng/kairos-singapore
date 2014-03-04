@@ -28,9 +28,52 @@
   font-size: 25px;
 }
 
+.startup-name, .startup-tag {
+  font-size: 20px !important;
+}
+
+.startup-name {
+  margin-right: 10px;
+}
+
 // projects/new.html.erb
 #project-tag {
   width: 200px;
+}
+
+#project-container {
+  background-color: #2b3e50;
+  padding: 30px;
+}
+
+#project-video {
+  width: 100%;
+  height: 500px;
+}
+
+.project-tag {
+  font-size: 20px !important;
+}
+
+.volume-on, .volume-off, .play, .pause {
+  position: fixed;
+  top: 50px;
+}
+
+.volume-on {
+  left: 20px;
+}
+
+.volume-off {
+  left: 80px;
+}
+
+.play {
+  left: 120px;
+}
+
+.pause {
+  left: 180px;
 }
 
 // comments/comments partial
