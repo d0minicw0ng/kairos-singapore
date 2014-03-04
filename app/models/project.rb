@@ -19,4 +19,8 @@ class Project < ActiveRecord::Base
 
   extend FriendlyId
   friendly_id :title, use: :slugged
+
+  def youtube_video_id
+    self.video_url.split('/').last
+  end
 end
