@@ -28,12 +28,13 @@
   font-size: 25px;
 }
 
-.startup-name, .startup-tag {
-  font-size: 20px !important;
+.startup-name {
+  font-size: 40px;
+  margin-right: 20px;
 }
 
-.startup-name {
-  margin-right: 10px;
+.startup-tag {
+  font-size: 20px !important;
 }
 
 // projects/new.html.erb

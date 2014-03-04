@@ -53,6 +53,18 @@
     <%= @project.description.html_safe %>
   </div>
 
+  <% if @project.users.length > 0 %>
+    <hr class="featurette-divider">
+    <h1><%= t(:'projects.team') %></h1>
+    <% @project.users.each do |user| %>
+      <%= link_to user_url(user) do %>
+        <%= image_tag user.thumb_url,
+          class: 'project-member',
+          data: {toggle: 'tooltip', placement: 'bottom', title: user.username} %>
+      <% end %>
+    <% end %>
+  <% end %>
+
   <% if @project.contact_email || @project_number %>
     <hr class="featurette-divider">
     <h1><%= t(:'projects.contact_us') %></h1>
@@ -68,6 +80,9 @@
     </div>
   <% end %>
 
+
+
+
   <%= render partial: 'comments/comments', object: @project.comments %>
   <%= render partial: 'comments/new', locals: { parent: @project } %>
 </div>
@@ -75,5 +90,6 @@
 <script type='text/javascript'>
     $(document).ready(function() {
         $('.player').mb_YTPlayer();
+        $('.project-member').tooltip();
     });
 </script>
