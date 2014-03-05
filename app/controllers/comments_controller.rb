@@ -7,7 +7,8 @@ class CommentsController < ApplicationController
     @comment = @commentable.comments.build(comment_params)
     @comment.user_id = current_user.id
 
-    CommentMailer.new_comment_notification(@comment).deliver
+    #FIXME: If we have other mailers, we need to set a ActionMailer default_url_options instead
+    CommentMailer.new_comment_notification(@comment, request).deliver
 
     if @comment.save
       render json: @comment.to_json(include: {user: {methods: [:thumb_url]}})

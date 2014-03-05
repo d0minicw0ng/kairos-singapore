@@ -1,1 +1,16 @@
-<h1>Hey! You have a new notification!</h1>
+<%= image_tag 'kairos_flag.png' %>
+
+<h3>Hello, <%= @receiver.username %>!</h3>
+
+<% if @is_creator %>
+  <p>Your <%= @event_type %> has a new comment!</p>
+<% else %>
+  <p>The <%= @event_type %> you have previously commented on has a new comment!</p>
+<% end %>
+
+<p>Click <a href='<%= @comment_url %>'>here</a> to go to the comment</p>
+
+<div>
+  <p>Your Sincerely,</p>
+  <p>Kairos Society ASEAN</p>
+</div>

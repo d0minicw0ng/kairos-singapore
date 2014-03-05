@@ -11,6 +11,9 @@ class Event < ActiveRecord::Base
 
   has_many :comments, as: :commentable, dependent: :destroy
 
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+
 
   def starts_at_must_be_before_ends_at
     errors.add(:starts_at, 'must be before ends at') unless starts_at < ends_at
