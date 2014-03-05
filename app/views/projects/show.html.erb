@@ -17,20 +17,20 @@
 </div>
 
 <!-- FIXME: ProjectVideoViewModel -->
-<div id='project-video-controls'>
-  <div onclick="$('#bgndVideo').unmuteYTPVolume()" class='volume-on'>
+<div id='project-video-controls' data-bind='with: ProjectVideoViewModel'>
+  <div class='volume-on' data-bind='click: unmute'>
     <i class="fa fa-volume-up fa-3x"></i>
   </div>
 
-  <div onclick="$('#bgndVideo').muteYTPVolume()" class='volume-off'>
+  <div class='volume-off' data-bind='click: mute'>
     <i class="fa fa-volume-off fa-3x"></i>
   </div>
 
-  <div onclick="$('#bgndVideo').pauseYTP()" class='pause'>
+  <div class='pause' data-bind='click: pause'>
     <i class="fa fa-pause fa-3x"></i>
   </div>
 
-  <div onclick="$('#bgndVideo').playYTP()" class='play'>
+  <div class='play' data-bind='click: play'>
     <i class="fa fa-play fa-3x"></i>
   </div>
 </div>
