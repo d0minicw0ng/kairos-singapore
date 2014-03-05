@@ -77,6 +77,18 @@
   left: 180px;
 }
 
+a.project-image {
+  float: left;
+  margin-right: 10px;
+  padding: 5px;
+  border: 1px solid #808080;
+
+  img {
+    width: 100px;
+    height: 60px;
+  }
+}
+
 // comments/comments partial
 ul.comments {
   margin-top: 100px;

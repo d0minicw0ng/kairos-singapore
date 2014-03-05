@@ -87,6 +87,10 @@ GEM
       multi_json
       sprockets (>= 2.0.3)
       tilt
+    hermitage (0.0.6)
+      coffee-rails
+      jquery-rails
+      rails (>= 3.2)
     hike (1.2.3)
     i18n (0.6.9)
     jquery-rails (3.1.0)
@@ -190,6 +194,7 @@ DEPENDENCIES
   geocoder
   gmaps4rails
   handlebars_assets
+  hermitage
   jquery-rails
   knockoutjs-rails
   nested_form

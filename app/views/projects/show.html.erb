@@ -49,10 +49,17 @@
     <% end %>
   </div>
 
+
   <h1><%= t(:'projects.description') %></h1>
   <div class='well'>
     <%= @project.description.html_safe %>
   </div>
+
+  <% if @project.images.length > 0 %>
+    <hr class="featurette-divider">
+    <h1><%= t(:'projects.gallery') %><h1>
+    <%= render_gallery_for @project.images %><br /><br />
+  <% end %>
 
   <% if @project.users.length > 0 %>
     <hr class="featurette-divider">
