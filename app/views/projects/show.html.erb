@@ -92,5 +92,8 @@
     $(document).ready(function() {
         $('.player').mb_YTPlayer();
         $('.project-member').tooltip();
+        //FIXME: This fixes the problem with the margin between the project content and footer,
+        // showing parts of the video. But probably not the best solution?
+        $('div#footer').css('margin-top', '0px');
     });
 </script>
