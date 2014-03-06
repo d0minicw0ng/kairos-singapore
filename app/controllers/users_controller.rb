@@ -6,6 +6,9 @@ class UsersController < ApplicationController
     @user = User.includes(:articles).friendly.find(params[:id])
   end
 
+  def dashboard
+  end
+
   private
   def user_params
     params.require(:user).permit(:username, :email, :password, :password_confirmation, :remember_me, :member_type, :company, :job_title, :biography, :avatar)

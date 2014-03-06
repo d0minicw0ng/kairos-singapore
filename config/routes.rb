@@ -27,6 +27,7 @@ Kairos::Application.routes.draw do
 #     end
 #   end
   resources :users, only: [:show]
+  get '/dashboard', to: 'users#dashboard'
 
   resources :events, only: [:new, :create, :show] do
     resources :comments
