@@ -2,17 +2,28 @@ en:
   common:
     home: Home
     about: About
+    about_us: About Us
     fellows: Fellows
     news: News
     contact: Contact
     create: Create!
     save: Save!
+    send: Send!
     sign_in: Sign In
     error: Sorry, but something went wrong.
     email: E-mail
     number: Contact Number
     no_email: Oops. Looks like these guys don't want to get their seed fundings?
     no_number: Oops. Looks like these guys don't want to be called when they are coding.
+  about_us:
+    leadership_team: Leadership Team
+    president: President
+    vice_president: Vice President
+    it_director: IT Director
+  contact_us:
+    contact_us: Contact Us
+    subject_placeholder: Please enter your subject here
+    message_placeholder: Please enter your message here
   projects:
     new_project: New Project
     project_saved: Your project has been saved!

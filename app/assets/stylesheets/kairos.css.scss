@@ -1,3 +1,36 @@
+// statics/about.html
+#intro {
+  height: 520px;
+  .intro-p {
+    font-size: 30px;
+  }
+}
+
+#leadership {
+  background-color: #FFFFFF;
+  #leadership-interior {
+    padding: 30px;
+  }
+  .leadership-img {
+    max-height: 140px;
+  }
+}
+
+#intro-video {
+  height: 400px;
+}
+
+#contact-us {
+  background-color: #FFFFFF;
+  height: 330px;
+}
+
+// statics/fellows.html
+.kairos-fellow {
+  width: 350px;
+  height: 350px;
+}
+
 // events/show.html.erb
 .register {
   margin-top: 25px;
@@ -58,7 +91,7 @@
 
 .volume-on, .volume-off, .play, .pause {
   position: fixed;
-  top: 50px;
+  top: 80px;
 }
 
 .volume-on {

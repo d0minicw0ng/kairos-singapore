@@ -50,7 +50,7 @@
       <div class='panel-heading'>
         <h4 class='panel-title'>
           <a data-toggle='collapse' data-parent='#accordion' href='#collapseOne'>
-            <%= t(:'events.description') %>
+            <%= t(:'events.description') %><i class="fa fa-arrow-down pull-right"></i>
           </a>
         </h4>
       </div>
@@ -65,7 +65,7 @@
       <div class='panel-heading'>
         <h4 class='panel-title'>
           <a data-toggle='collapse' data-parent='#accordion' href='#collapseTwo'>
-            <%= t(:'events.location') %>
+            <%= t(:'events.location') %><i class="fa fa-arrow-down pull-right"></i>
           </a>
         </h4>
       </div>
@@ -87,7 +87,7 @@
       <div class='panel-heading'>
         <h4 class='panel-title'>
           <a data-toggle='collapse' data-parent='#accordion' href='#collapseThree'>
-            <%= t(:'events.attendees') %>
+            <%= t(:'events.attendees') %><i class="fa fa-arrow-down pull-right"></i>
           </a>
         </h4>
       </div>
@@ -170,5 +170,11 @@
         });
 
         $('.event-attendee').tooltip();
+
+        $('.panel-heading').on('click', function() {
+            var arrow = $(this).find('.fa');
+            arrow.toggleClass('fa-arrow-up');
+            arrow.toggleClass('fa-arrow-down');
+        });
     });
 </script>

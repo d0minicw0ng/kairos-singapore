@@ -30,13 +30,15 @@ $(document).ready(function() {
     $('select').select2({
       width: 200
     });
+
+    $(".player").mb_YTPlayer();
 });
 
 function clearNotification() {
   setTimeout(function() {
-      $('#notification').slideUp(1000, function() {
+     /*  $('#notification').slideUp(1000, function() { */
           $('#notification').empty();
-      });
+     /*  }); */
   }, 4000);
 }
 

@@ -1,51 +1,82 @@
-<<<<<<< Local Changes
-<html>
-	<head>
-		<title> Kairos ASEAN</title>
-	</head>
-	<body>
 <%= image_tag 'kairos.png', style: 'min-width: 100%; height: auto; margin-top: -20px;' %>
 
-<div class='row' style='height: 500px;'>
-	<div class='container'>
-      <p style="color:white;font-size:20px;">Founded in 2008, the Kairos Society is a non-profit 501(c)3 organization based in the United States. We work to find and empower the young pioneers who will push the world forward through entrepreneurship and innovation</p> 
-	  <p style="color:white;font-size:20px;">Kairos Society ASEAN is a regional chapter of Kairos Society which aims to facilitate the establishment of the ecosystem of innovators and mentors in the South-East Asia region. Our mission lies in bringing the best innovations and tech companies in the region, thereby creating a collective ASEAN technology hub. </p>
+<div class='row' id='intro'>
+  <div class='container' style='padding-top: 20px;'>
+    <h1><i class="fa fa-globe"></i> <%= t(:'common.about_us') %></h1>
+    <p class='intro-p'>Founded in 2008, the Kairos Society is a non-profit 501(c)3 organization based in the United States. We work to find and empower the young pioneers who will push the world forward through entrepreneurship and innovation</p> 
+    <p class='intro-p'>Kairos Society ASEAN is a regional chapter of Kairos Society which aims to facilitate the establishment of the ecosystem of innovators and mentors in the South-East Asia region. Our mission lies in bringing the best innovations and tech companies in the region, thereby creating a collective ASEAN technology hub. </p>
   </div>
 </div>
 
 
-<div class='row' style='height: 500px; background-color: #FFFFFF'>
-	<div class="container">
-	<h1 align="center">Leadership Team</h1>
+<div class='row' id='leadership'>
+  <div class="container" id='leadership-interior'>
+    <h1><i class="fa fa-users"></i> <%= t(:'about_us.leadership_team') %></h1><br />
     <!-- Three columns of text below the carousel -->
-      <div class="col-lg-4">
-		  <%= image_tag 'jianmin-2.jpg', class: 'img-circle', style: 'height: 100px' %>
-        <h2>President</h2>
-        <p>Sim Jian Min is the President of Kairos Society ASEAN. Having done his undergraduate studies at both Oxford and Princeton, Jian Min graduated with a Top First Class Honours in Masters in Engineering. He is working at the Agency for Science, Technology and Research.</p>
-        <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-      </div><!-- /.col-lg-4 -->
-      <div class="col-lg-4">
-       <%= image_tag 'lujie2.jpg', class: 'img-circle', style: 'height:100px' %>
-        <h2>Vice President</h2>
-        <p>Lujie is ...</p>
-        <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-      </div><!-- /.col-lg-4 -->
-      <div class="col-lg-4">
-        <img class="img-circle" data-src="holder.js/140x140" alt="Generic placeholder image">
-        <h2>IT Director</h2>
-        <p>Dominic Wong graduated from ...</p>
-        <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-      </div><!-- /.col-lg-4 -->
-    </div><!-- /.row -->
+    <div class="col-lg-4 col-md-4">
+      <%= image_tag 'jianmin.png', class: 'img-circle leadership-img' %>
+      <h2><%= t(:'about_us.president') %></h2>
+      <p>Sim Jian Min is the President of Kairos Society ASEAN. Having done his undergraduate studies at both Oxford and Princeton, Jian Min graduated with a Top First Class Honours in Masters in Engineering. He is working at the Agency for Science, Technology and Research.</p>
+      <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+    </div><!-- /.col-lg-4 -->
+    <div class="col-lg-4 col-md-4">
+     <%= image_tag 'lujie.png', class: 'img-circle leadership-img' %>
+      <h2><%= t(:'about_us.vice_president') %></h2>
+      <p>Sim Jian Min is the President of Kairos Society ASEAN. Having done his undergraduate studies at both Oxford and Princeton, Jian Min graduated with a Top First Class Honours in Masters in Engineering. He is working at the Agency for Science, Technology and Research.</p>
+      <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+    </div><!-- /.col-lg-4 -->
+    <div class="col-lg-4 col-md-4">
+      <%= image_tag 'dominic.png', class: 'img-circle leadership-img' %>
+      <h2><%= t(:'about_us.it_director') %></h2>
+      <p>Sim Jian Min is the President of Kairos Society ASEAN. Having done his undergraduate studies at both Oxford and Princeton, Jian Min graduated with a Top First Class Honours in Masters in Engineering. He is working at the Agency for Science, Technology and Research.</p>
+      <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+    </div><!-- /.col-lg-4 -->
+  </div><!-- /.row -->
 </div>
 </div>
 
-<iframe style='min-width: 100%; height: 500px;' src="//www.youtube.com/embed/ZsErija8olI" frameborder="0" allowfullscreen></iframe>
+<div id='intro-video'></div>
 
-<div class='row' style='height: 500px; background-color: #FFFFFF;'>
+<div id="P1"
+  class="player"
+  style="display:block; margin: auto; background: rgba(0,0,0,0.5)"
+  data-property="{
+    videoURL:'http://youtu.be/ZsErija8olI',
+    containment:'#intro-video',
+    startAt:0,
+    mute:false,
+    autoPlay:false,
+    quality:'hd1080',
+    loop:false,
+    opacity:1}">
 </div>
-	</body>
-</html>
+
+<div class='row' id='contact-us'>
+  <div class='container'>
+    <h1><i class='fa fa-keyboard-o'></i> <%= t(:'contact_us.contact_us') %></h1>
+    <%= form_tag({}, {method: :post}) do %>
+      <%= content_tag :div, class: 'form-group' do %>
+        <%= text_field_tag 'subject', nil, class: 'form-control', placeholder: t(:'contact_us.subject_placeholder') %>
+      <% end %>
+
+      <%= content_tag :div, class: 'form-group' do %>
+        <%= text_area_tag 'body', nil, class: 'form-control', rows: 4, placeholder: t(:'contact_us.message_placeholder') %>
+      <% end %>
+
+      <%= content_tag :div, class: 'form-group' do %>
+        <%= submit_tag t(:'common.send'), class: 'btn btn-success' do %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+<script type='text/javascript'>
+    $(document).ready(function() {
+        $('div#footer').css('margin-top', '0px');
+    });
+</script>
+
 
 
 <!-- <div id="header"> -->
@@ -78,4 +109,3 @@
 <!-- <li>Artificial Intelligence</li> -->
 <!-- </ul> -->
 <!-- </div> -->
->>>>>>> External Changes
