@@ -31,6 +31,7 @@ $(document).ready(function() {
       width: 200
     });
 
+    clearNotification();
     $(".player").mb_YTPlayer();
 });
 

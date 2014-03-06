@@ -11,6 +11,16 @@
       <% end %>
 
       <%= content_tag :div, class: 'form-group' do %>
+        <%= f.label :first_name %><br />
+        <%= f.text_field :first_name, class: 'form-control' %>
+      <% end %>
+
+      <%= content_tag :div, class: 'form-group' do %>
+        <%= f.label :last_name %><br />
+        <%= f.text_field :last_name, class: 'form-control' %>
+      <% end %>
+
+      <%= content_tag :div, class: 'form-group' do %>
         <%= f.label :email %><br />
         <%= f.email_field :email, class: 'form-control' %>
       <% end %>
