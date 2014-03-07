@@ -26,6 +26,20 @@ class EventsController < ApplicationController
     @event_attendees = UserEventRegistration.includes(:user).where(event_id: params[:id]).map(&:user)
   end
 
+  def edit
+    @event = Event.friendly.find(params[:id])
+  end
+
+  def update
+    @event = Event.friendly.find(params[:id])
+    if @event.update_attributes(event_params)
+      flash[:notice] = t(:'events.event_updated')
+      redirect_to event_url(@event)
+    else
+      render :edit
+    end
+  end
+
   private
 
   def event_params

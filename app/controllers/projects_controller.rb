@@ -15,7 +15,7 @@ class ProjectsController < ApplicationController
       ProjectTag.create_from_multiple_tag_ids(@project.id, tag_ids)
       flash[:notice] = t(:'projects.project_saved')
       redirect_to project_url(@project)
-    else 
+    else
       @tags = Tag.all
       flash[:error] = t(:'common.error')
       render :new
@@ -23,9 +23,18 @@ class ProjectsController < ApplicationController
   end
 
   def edit
+    @project = Project.friendly.find(params[:id])
+    @tags = Tag.all
   end
 
   def update
+    @project = Project.friendly.find(params[:id])
+    if @project.update_attributes(project_params)
+      flash[:notice] = t(:'projects.project_updated')
+      redirect_to project_url(@project)
+    else
+      render :edit
+    end
   end
 
   def index

@@ -32,6 +32,10 @@ li {
   width: 970px !important;
 }
 
+.navbar, #footer {
+ min-width: 970px;
+}
+
 .tinymce-text-area {
   height: 350px !important;
 }

@@ -9,12 +9,12 @@ Kairos::Application.routes.draw do
 
   root to: 'statics#about'
 
-  resources :projects do
+  resources :projects, except: [:destroy] do
     resources :images
     resources :comments
   end
 
-  resources :articles do
+  resources :articles, except: [:destroy] do
     resources :comments
   end
 
@@ -27,10 +27,10 @@ Kairos::Application.routes.draw do
 #       root to: 'statics#about'
 #     end
 #   end
-  resources :users, only: [:show]
+  resources :users, only: [:show, :edit, :update]
   get '/dashboard', to: 'users#dashboard'
 
-  resources :events, only: [:new, :create, :show] do
+  resources :events, except: [:destroy] do
     resources :comments
   end
 
