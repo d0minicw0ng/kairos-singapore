@@ -1,0 +1,91 @@
+<div class='container'>
+  <h1><%= t(:'events.edit_event') %></h1>
+  <div class='well'>
+    <div class='row'>
+      <div class='col-xs-12 col-sm-6 col-md-10'>
+
+        <%= form_for @event, html: { role: 'form' } do |f| %>
+
+          <%= render partial: 'shared/errors', locals: {object: @event} %>
+
+          <%= content_tag :div, class: 'form-group' do %>
+            <%= f.label :name %>
+            <%= f.text_field :name, class: 'form-control' %>
+          <% end %>
+
+          <%= content_tag :div, class: 'form-group' do %>
+            <%= f.label :description %>
+            <%= f.text_area :description, class: 'form-control tinymce tinymce-text-area' %>
+          <% end %>
+
+          <%= content_tag :div, class: 'form-group' do %>
+            <%= f.label :starts_at %><br />
+            <%= f.date_select :starts_at, start_year: Time.now.year, end_year: Time.now.year + 5 %>
+          <% end %>
+
+          <%= content_tag :div, class: 'form-group' do %>
+            <%= f.time_select :starts_at,
+              ignore_date: true,
+              minute_step: 15,
+              ampm: true %>
+          <% end %>
+
+          <%= content_tag :div, class: 'form-group' do %>
+            <%= f.label :ends_at %><br />
+            <%= f.date_select :ends_at, start_year: Time.now.year, end_year: Time.now.year + 5 %>
+          <% end %>
+
+          <%= content_tag :div, class: 'form-group' do %>
+            <%= f.time_select :ends_at,
+              ignore_date: true,
+              minute_step: 15,
+              ampm: true %>
+          <% end %>
+
+          <%= content_tag :div, class: 'form-group' do %>
+            <%= f.label :venue_name %><br />
+            <%= f.text_field :venue_name, class: 'form-control' %>
+          <% end %>
+
+          <%= content_tag :div, class: 'form-group' do %>
+            <%= f.label :street_one %><br />
+            <%= f.text_field :street_one, class: 'form-control' %>
+          <% end %>
+
+          <%= content_tag :div, class: 'form-group' do %>
+            <%= f.label :street_two %><br />
+            <%= f.text_field :street_two, class: 'form-control' %>
+          <% end %>
+
+          <%= content_tag :div, class: 'form-group' do %>
+            <%= f.label :city %><br />
+            <%= f.text_field :city, class: 'form-control' %>
+          <% end %>
+
+          <%= content_tag :div, class: 'form-group' do %>
+            <%= f.label :state %><br />
+            <%= f.text_field :state, class: 'form-control' %>
+          <% end %>
+
+          <%= content_tag :div, class: 'form-group' do %>
+            <%= f.label :country %><br />
+            <%= f.text_field :country, class: 'form-control' %>
+          <% end %>
+
+          <%= content_tag :div, class: 'form-group' do %>
+            <%= f.label :zip_code %><br />
+            <%= f.text_field :zip_code, class: 'form-control' %>
+          <% end %>
+
+          <%= content_tag :div, class: 'form-group' do %>
+           <%= f.submit t(:'common.save'), class: 'btn btn-primary' %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= tinymce_assets %>
+<%= tinymce %>
+

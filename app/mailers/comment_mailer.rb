@@ -1,23 +1,23 @@
 class CommentMailer < ActionMailer::Base
   default from: "notification@kairossociety.com.sg"
 
-  def new_comment_notification(comment, request)
-    receivers = CommentMailer.get_receivers(comment)
-    @event_type = comment.commentable_type.downcase
-    @comment = comment
-    @comment_url = CommentMailer.generate_comment_url(@comment, request)
+  def new_comment_notification(data)
+    @comment = Comment.find(data['comment_id'])
+    receivers = CommentMailer.get_receivers(@comment)
+    @event_type = @comment.commentable_type.downcase
+    @comment_url = CommentMailer.generate_comment_url(@comment, data['host_with_port'])
     receivers.each do |receiver|
       @receiver = receiver
       @is_creator = false
-      @is_creator = true if CommentMailer.is_creator?(comment, @receiver)
+      @is_creator = true if CommentMailer.is_creator?(@comment, @receiver)
       mail(to: @receiver.email, subject: "Your #{@event_type} has a new comment!")
     end
   end
 
   private
 
-  def self.generate_comment_url(comment, request)
-    "#{request.host_with_port}/#{comment.commentable_type.downcase.pluralize}/#{comment.commentable.id}"
+  def self.generate_comment_url(comment, host_with_port)
+    "#{host_with_port}/#{comment.commentable_type.downcase.pluralize}/#{comment.commentable.id}"
   end
 
   def self.is_creator?(comment, receiver)

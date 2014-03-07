@@ -37,18 +37,13 @@ class ProjectsController < ApplicationController
     end
   end
 
-  def index
-  end
-
   def show
     @project = Project.includes(:tags).friendly.find(params[:id])
     @comment = Comment.new
   end
 
-  def destroy
-  end
-
   private
+
   def project_params
     params.require(:project).permit(:title, :description, :video_url, :images_attributes)
   end
