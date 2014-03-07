@@ -5,6 +5,7 @@ Kairos::Application.routes.draw do
   get '/about', to: 'statics#about', as: 'about'
   get '/fellows', to: 'statics#fellows', as: 'fellows'
   get '/contact', to: 'statics#contact', as: 'contact'
+  post '/contact_us', to: 'statics#contact_us'
 
   root to: 'statics#about'
 
