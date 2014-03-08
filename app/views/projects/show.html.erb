@@ -44,8 +44,7 @@
 
 <div class='row' id='project-container'>
   <ol class='breadcrumb'>
-    <li><%= link_to t(:'common.home'), root_url %></li>
-    <li><%= link_to t(:'projects.projects'), projects_url %></li>
+    <li><%= t(:'projects.projects') %></li>
     <li class='active'><%= @project.title %></li>
   </ol>
 
@@ -75,7 +74,7 @@
       <%= link_to user_url(user) do %>
         <%= image_tag user.thumb_url,
           class: 'project-member',
-          data: {toggle: 'tooltip', placement: 'bottom', title: user.username} %>
+          data: {toggle: 'tooltip', placement: 'bottom', title: "#{user.first_name} #{user.last_name}"} %>
       <% end %>
     <% end %>
   <% end %>

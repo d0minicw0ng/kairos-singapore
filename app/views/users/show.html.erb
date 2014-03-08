@@ -31,9 +31,17 @@
       <%= @user.biography.html_safe %>
     </div>
     <div class="tab-pane" id="projects">
-      <% @user.projects.each do |project| %>
-        <h5><%= link_to project.title, project_url(project) %></h5>
-      <% end %>
+      <ul id='user-projects'>
+        <% @user.projects.each do |project| %>
+          <li class='user-project'>
+            <%= link_to project.title, project_url(project), class: 'user-project-link' %>
+            <% project.tags.each do |tag| %>
+              <span class='label label-info'><%= tag.name %></span>
+            <% end %>
+            <hr class="featurette-divider">
+          </li>
+        <% end %>
+      </ul>
     </div>
     <div class="tab-pane" id="articles">
       <ul id='user-articles'>
@@ -45,6 +53,7 @@
               <%= image_tag 'default_article.jpg', class: 'user-article-image' %>
             <% end %>
             <%= link_to article.title, article_url(article) %>
+            <hr class="featurette-divider">
           </li>
         <% end %>
       </ul>
