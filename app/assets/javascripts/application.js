@@ -24,6 +24,7 @@
 //= require gmaps/google
 //= require knockout
 //= require jquery.mb.YTPlayer
+//= require owl.carousel.min
 
 
 $(document).ready(function() {

@@ -1,36 +1,9 @@
-<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-  </ol>
-
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner">
-    <div class="item active">
-      <%= image_tag 'kairos.png', style: 'width: 100%;' %>
-      <div class="carousel-caption">
-        Kairos Society
-      </div>
-    </div>
-    <div class="item">
-      <%= image_tag 'kairos.png', style: 'width: 100%;' %>
-      <div class="carousel-caption">
-        Kairos Society
-      </div>
-    </div>
-  </div>
-
-  <!-- Controls -->
-  <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-    <i class="fa fa-toggle-left"></i>
-  </a>
-  <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-    <i class="fa fa-toggle-right"></i>
-  </a>
-</div>
-
 <div class='container'>
+  <div id='fellows-carousel' class="owl-carousel owl-theme">
+    <div class="item"><%= image_tag 'P1060597.JPG' %></div>
+    <div class="item"><%= image_tag 'P1060599.JPG' %></div>
+    <div class="item"><%= image_tag 'P1060601.JPG' %></div>
+  </div>
   <!-- START THE FEATURETTES -->
   <hr class="featurette-divider">
 
@@ -71,3 +44,15 @@
   <hr class="featurette-divider">
   <!-- /END THE FEATURETTES -->
 </div>
+
+<script type='text/javascript'>
+    $(document).ready(function() {
+        $('#fellows-carousel').owlCarousel({
+            navigation: true,
+            slideSpeed: 300,
+            paginationSpeed: 400,
+            singleItem: true,
+            transitionStyle : "fade"
+        });
+    });
+</script>

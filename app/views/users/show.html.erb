@@ -32,13 +32,22 @@
     </div>
     <div class="tab-pane" id="projects">
       <% @user.projects.each do |project| %>
-        <h3><%= link_to project.title, project_url(project) %></h3>
+        <h5><%= link_to project.title, project_url(project) %></h5>
       <% end %>
     </div>
     <div class="tab-pane" id="articles">
-      <% @user.articles.each do |article| %>
-        <h3><%= link_to article.title, article_url(article) %></h3>
-      <% end %>
+      <ul id='user-articles'>
+        <% @user.articles.each do |article| %>
+          <li class='user-article'>
+            <% if img = article.images.first %>
+              <%= image_tag img.avatar.url(:thumb), class: 'user-article-image' %>
+            <% else %>
+              <%= image_tag 'default_article.jpg', class: 'user-article-image' %>
+            <% end %>
+            <%= link_to article.title, article_url(article) %>
+          </li>
+        <% end %>
+      </ul>
     </div>
   </div>
 </div>

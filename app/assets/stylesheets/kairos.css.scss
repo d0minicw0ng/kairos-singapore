@@ -149,3 +149,14 @@ ul.comments {
   padding: 20px;
   max-width: 650px;
 }
+
+ul#user-articles {
+  li.user-article {
+    margin-bottom: 30px;
+    .user-article-image {
+      height: 50px;
+      width: 50px;
+      margin-right: 10px;
+    }
+  }
+}

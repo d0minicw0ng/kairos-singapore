@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_filter :authenticate_user!, only: [:show]
 
   def show
-    @user = User.includes(:articles).friendly.find(params[:id])
+    @user = User.includes([{articles: :comments}, :projects]).friendly.find(params[:id])
   end
 
   def dashboard
