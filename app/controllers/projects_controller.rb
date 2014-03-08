@@ -14,7 +14,9 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
 
     if @project.save
+      #FIXME: There gotta be a rails way of doing this nested join table thing
       ProjectTag.create_from_multiple_tag_ids(@project.id, tag_ids)
+      UserProject.create_from_multiple_user_ids(@project.id, user_ids)
       flash[:notice] = t(:'projects.project_saved')
       redirect_to project_url(@project)
     else
