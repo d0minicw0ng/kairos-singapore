@@ -49,7 +49,7 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:title, :description, :video_url, :images_attributes)
+    params.require(:project).permit(:title, :description, :youtube_video_id, :images_attributes)
   end
 
   def get_nested_ids(nested_params, nested_params_ids)

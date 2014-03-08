@@ -1,6 +1,6 @@
 class Project < ActiveRecord::Base
 
-  validates_presence_of :title, :description, :video_url
+  validates_presence_of :title, :description, :youtube_video_id
 
   has_many :comments, as: :commentable, dependent: :destroy
 
@@ -19,8 +19,4 @@ class Project < ActiveRecord::Base
 
   extend FriendlyId
   friendly_id :title, use: :slugged
-
-  def youtube_video_id
-    self.video_url.split('/').last
-  end
 end
