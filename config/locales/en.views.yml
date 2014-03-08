@@ -26,7 +26,9 @@ en:
     message_placeholder: Please enter your message here
   projects:
     new_project: New Project
-    project_saved: Your project has been saved!
+    edit_project: Edit Project
+    project_saved: Your project has been created!
+    project_updated: Your project has been updated!
     projects: Projects
     youtube_url: Youtube URL (It must be an embed URL)
     tags: Tags
@@ -36,6 +38,9 @@ en:
     gallery: Gallery
   events:
     new_event: New Event
+    edit_event: Edit Event
+    event_saved: Your event has been created!
+    event_updated: Your event has been updated!
     location: Location
     description: Details
     attendees: People Who Have Registered to Attend
@@ -45,7 +50,9 @@ en:
     add: Add Image
   articles:
     new_article: New Article
-    article_saved: Your article has been saved!
+    edit_article: Edit Article
+    article_saved: Your article has been created!
+    article_updated: Your article has been updated!
     articles: Articles
   comments:
     comments: Comments
@@ -55,7 +62,7 @@ en:
   register:
     individual: Register as an Individual
     project: Register for Your Startup
-    event_registrants: Startups that are competing for a seat 
+    event_registrants: Startups that are competing for a seat
   unregister:
     individual: Unregister
     project: Unregister for Your Startup

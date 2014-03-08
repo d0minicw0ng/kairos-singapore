@@ -1,0 +1,32 @@
+<div class='container'>
+  <h1><%= t(:'articles.edit_article') %></h1>
+  <div class='well'>
+    <div class='row'>
+      <div class='col-xs-12 col-sm-6 col-md-8'>
+
+        <%= form_for @article, html: { role: 'form' } do |f| %>
+
+          <%= render partial: 'shared/errors', locals: {object: @article} %>
+
+          <%= content_tag :div, class: 'form-group' do %>
+            <%= f.label :title %>
+            <%= f.text_field :title, class: 'form-control' %>
+          <% end %>
+
+          <%= content_tag :div, class: 'form-group' do %>
+            <%= f.label :body %>
+            <%= f.text_area :body, class: 'form-control tinymce tinymce-text-area' %>
+          <% end %>
+
+          <%= content_tag :div, class: 'form-group' do %>
+           <%= f.submit t(:'common.save'), class: 'btn btn-primary' %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= tinymce_assets %>
+<%= tinymce %>
+

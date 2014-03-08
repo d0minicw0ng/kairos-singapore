@@ -47,6 +47,7 @@ gem 'geocoder'
 gem 'font-awesome-rails'
 gem 'knockoutjs-rails'
 gem 'hermitage'
+gem 'sidekiq'
 
 group :development, :test do
   gem 'rspec-rails'

@@ -1,3 +1,11 @@
+<% if @project.users.include?(current_user) %>
+  <div class='container'>
+    <div class='pull-right'>
+      <%= link_to t(:'projects.edit_project'), edit_project_url(@project), class: 'btn btn-info' %>
+    </div>
+  </div>
+<% end %>
+
 <!-- FIXME: make the content into sections of different color -->
 <div id='project-video'>
   <a id="bgndVideo"

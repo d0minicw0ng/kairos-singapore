@@ -1,4 +1,11 @@
 <div class='container'>
+  <% if @article.user_id == current_user.id %>
+    <div class='container'>
+      <div class='pull-right'>
+        <%= link_to t(:'articles.edit_article'), edit_article_url(@article), class: 'btn btn-info' %>
+      </div>
+    </div>
+  <% end %>
   <h1><%= @article.title %></h1>
   <br /><br /><br />
   <div><%= @article.body.html_safe %></div>

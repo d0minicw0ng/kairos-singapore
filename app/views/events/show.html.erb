@@ -1,3 +1,5 @@
+<!-- TODO: Who has the right to edit an event? -->
+
 <div class='container'>
   <h1 class='pull-left'><%= @event.name %></h1>
   <div class='register pull-right'>
@@ -146,6 +148,9 @@
                 success: function(data) {
                     $(that).after('<a class="btn btn-info unvote" data-project-id="' + projectId + '" data-event-id="' + eventId +'">Unvote for This Project</a>');
                     $(that).remove();
+                   $('#notification').append('<div class="alert alert-success">You have voted for the project!</div>');
+                   $('html,body').animate({scrollTop:0},0);
+                   clearNotification();
                 }
             });
         });
@@ -165,6 +170,9 @@
                 success: function(data) {
                     $(that).after('<a class="btn btn-info vote" data-project-id="' + projectId + '" data-event-id="' + eventId +'">Vote for This Project</a>');
                     $(that).remove();
+                   $('#notification').append('<div class="alert alert-warning">You have unvoted for the project!</div>');
+                   $('html,body').animate({scrollTop:0},0);
+                   clearNotification();
                 }
             });
         });

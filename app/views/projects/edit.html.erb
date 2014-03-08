@@ -1,0 +1,46 @@
+<div class='container'>
+  <div class='row'>
+    <div class='col-xs-12 col-sm-6 col-md-8'>
+      <h1><%= t(:'projects.edit_project') %></h1>
+      <div class='well'>
+        <%= nested_form_for @project, html: { role: 'form', multipart: true } do |f| %>
+
+          <%= render partial: 'shared/errors', locals: {object: @project} %>
+
+          <%= content_tag :div, class: 'form-group' do %>
+            <%= f.label :title %>
+            <%= f.text_field :title, class: 'form-control' %>
+          <% end %>
+
+          <%= content_tag :div, class: 'form-group' do %>
+            <%= f.label :description %>
+            <%= f.text_area :description, class: 'form-control tinymce tinymce-text-area' %>
+          <% end %>
+
+          <%= content_tag :div, class: 'form-group' do %>  
+            <%= f.label :video_url, t(:'projects.youtube_url') %>
+            <%= f.text_field :video_url, class: 'form-control' %>
+          <% end %>
+
+          <%= content_tag :div, class: 'form-group' do %>
+            <%= f.label :project_tags, t(:'projects.tags') %><br />
+            <%= f.fields_for :project_tags do |pt| %>
+              <%= pt.select 'tag_ids',
+                @tags.collect { |t| [t.name, t.id] },
+                {},
+                { multiple: true, id: 'project-tag' } %>
+            <% end %>
+          <% end %>
+
+          <%= content_tag :div, class: 'form-group' do %>
+            <%= f.submit t(:'common.save'), class: 'btn btn-primary' %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= tinymce_assets %>
+<%= tinymce %>
+

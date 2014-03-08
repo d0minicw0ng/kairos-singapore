@@ -38,7 +38,7 @@ $(document).ready(function() {
 function clearNotification() {
   setTimeout(function() {
      /*  $('#notification').slideUp(1000, function() { */
-          $('#notification').empty();
+      $('#notification').empty();
      /*  }); */
   }, 4000);
 }
