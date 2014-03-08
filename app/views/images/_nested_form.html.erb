@@ -1,0 +1,23 @@
+<%= content_tag :div, class: 'form-group' do %>
+  <%= f.label :images %>
+  <%= f.fields_for :images do |i| %>
+    <% if i.object.new_record? %>
+      <!-- NOTE: Will multiple: true solve this problem? -->
+      <%= i.file_field :avatar %>
+    <% else %>
+      <%= image_tag(i.url(:thumb)) %>
+      <%= i.hidden_field :_destroy %>
+      <%= i.link_to_remove t(:'images.remove') %>
+    <% end %>
+  <% end %>
+  <!-- <div class='form-group'>
+    <input id='upload-image' class='form-control' type='text'><br />
+    <button class='btn btn-primary upload-image-button'>
+      <%#= t(:'images.upload') %>
+    </button>
+  </div> -->
+<% end %>
+
+<%= f.link_to_add t(:'images.add'), :images, class: 'btn btn-primary' %>
+<br /><br />
+

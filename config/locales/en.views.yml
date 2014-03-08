@@ -29,8 +29,9 @@ en:
     edit_project: Edit Project
     project_saved: Your project has been created!
     project_updated: Your project has been updated!
+    project: Project
     projects: Projects
-    youtube_url: Youtube URL (It must be an embed URL)
+    youtube_video_id: Youtube Video ID
     tags: Tags
     description: How Are We Changing The World?
     contact_us: Interested? Talk to Us!
@@ -53,6 +54,7 @@ en:
     edit_article: Edit Article
     article_saved: Your article has been created!
     article_updated: Your article has been updated!
+    article: Article
     articles: Articles
   comments:
     comments: Comments

@@ -19,6 +19,7 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.includes(comments: :user).friendly.find(params[:id])
+    @image = Image.where(imageable_type: 'Article', imageable_id: @article.id).limit(1).try(:first)
     @comment = Comment.new
   end
 
@@ -39,6 +40,6 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:title, :body, :user_id)
+    params.require(:article).permit(:title, :body, :user_id, images_attributes: [:avatar])
   end
 end

@@ -18,8 +18,8 @@
           <% end %>
 
           <%= content_tag :div, class: 'form-group' do %>  
-            <%= f.label :video_url, t(:'projects.youtube_url') %>
-            <%= f.text_field :video_url, class: 'form-control' %>
+            <%= f.label :youtube_video_id, t(:'projects.youtube_video_id') %>
+            <%= f.text_field :youtube_video_id, class: 'form-control' %>
           <% end %>
 
           <%= content_tag :div, class: 'form-group' do %>
@@ -27,8 +27,18 @@
             <%= f.fields_for :project_tags do |pt| %>
               <%= pt.select 'tag_ids',
                 @tags.collect { |t| [t.name, t.id] },
-                {},
+                { selected: @project.tags.map(&:id) },
                 { multiple: true, id: 'project-tag' } %>
+            <% end %>
+          <% end %>
+
+          <%= content_tag :div, class: 'form-group' do %>
+            <%= f.label :user_projects, t(:'projects.team') %><br />
+            <%= f.fields_for :user_projects do |pt| %>
+              <%= pt.select 'user_ids',
+                @users.collect { |t| [t.username, t.id] },
+                { selected: @project.users.map(&:id) },
+                { multiple: true, id: 'project-user' } %>
             <% end %>
           <% end %>
 

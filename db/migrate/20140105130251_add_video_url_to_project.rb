@@ -1,5 +1,5 @@
 class AddVideoUrlToProject < ActiveRecord::Migration
   def change
-  	add_column :projects, :video_url, :string
+    add_column :projects, :video_url, :string
   end
 end

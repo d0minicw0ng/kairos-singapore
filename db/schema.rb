@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140306162429) do
+ActiveRecord::Schema.define(version: 20140308072053) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 20140306162429) do
     t.float    "latitude"
     t.float    "longitude"
     t.string   "slug"
+    t.integer  "user_id"
   end
 
   add_index "events", ["slug"], name: "index_events_on_slug", unique: true, using: :btree
@@ -71,7 +72,8 @@ ActiveRecord::Schema.define(version: 20140306162429) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
-    t.integer  "project_id",          null: false
+    t.integer  "imageable_id",        null: false
+    t.string   "imageable_type"
   end
 
   create_table "project_event_registrations", force: true do |t|
@@ -90,11 +92,11 @@ ActiveRecord::Schema.define(version: 20140306162429) do
   end
 
   create_table "projects", force: true do |t|
-    t.string   "title",          null: false
-    t.text     "description",    null: false
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-    t.string   "video_url"
+    t.string   "title",            null: false
+    t.text     "description",      null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.string   "youtube_video_id"
     t.string   "slug"
     t.string   "contact_email"
     t.string   "contact_number"

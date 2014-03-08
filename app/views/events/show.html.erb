@@ -1,4 +1,10 @@
-<!-- TODO: Who has the right to edit an event? -->
+<% if @event.user_id == current_user.id %>
+  <div class='container'>
+    <div class='pull-right'>
+      <%= link_to t(:'events.edit_event'), edit_event_url(@event), class: 'btn btn-info' %>
+    </div>
+  </div>
+<% end %>
 
 <div class='container'>
   <h1 class='pull-left'><%= @event.name %></h1>
