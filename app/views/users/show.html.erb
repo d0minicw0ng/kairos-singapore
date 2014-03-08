@@ -1,45 +1,44 @@
 <div class="container">
-  <div class='row'>
-    <div class='jumbotron col-md-8'>
-      <div class="pull-left">
-        <h2 class="media-heading"><%= @user.username %></h2>
-        <h4><%= @user.job_title %> at <%= @user.company %></h4>
-        <hr style="margin:8px auto">
+  <div class='jumbotron' id='user-profile'>
+    <div class="pull-left">
+      <h2 class="media-heading"><%= @user.first_name %> <%= @user.last_name %></h2>
+      <h4><%= @user.job_title %> at <%= @user.company %></h4>
+      <h4><%= @user.email %><h4>
+      <hr style="margin:8px auto">
 
-        <span class="label label-primary"><%= @user.member_type %></span>
-        <% @user.industries.each do |industry| %>
-          <span class='label label-success'><%= industry %></span>
-        <% end %>
-      </div>
-      <div class="pull-right">
-        <%= image_tag @user.avatar.url(:medium), style: 'width: 200px; height: 200px;' %>
-      </div>
+      <span class="label label-primary"><%= @user.member_type %></span>
+      <% @user.industries.each do |industry| %>
+        <span class='label label-success'><%= industry %></span>
+      <% end %>
     </div>
-    <div class='col-md-4'>
-      <h1>This column will be for articles/projects that the user has?</h1>
+    <div class="pull-right">
+      <%= image_tag @user.avatar.url(:medium), style: 'width: 200px; height: 200px;' %>
     </div>
   </div>
 </div>
 
 <div class='container'>
-  <% if @user.biography %>
-    <div class='row'>
-      <div class='col-lg-5'>
-        <h2><%= t(:'users.biography') %></h2>
-        <%= @user.biography.html_safe %>
-      </div>
-    </div>
-  <% end %>
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs nav-tabs-container">
+    <li class='active'><a href="#biography" data-toggle="tab">Biography</a></li>
+    <li><a href="#projects" data-toggle="tab"><%= t(:'projects.projects') %></a></li>
+    <li><a href="#articles" data-toggle="tab"><%= t(:'articles.articles') %></a></li>
+  </ul>
 
-  <% if @user.articles.length > 0 %>
-    <div class='row'>
-      <div class='col-lg-5'>
-        <h2><%= t(:'users.articles') %></h2>
-        <% @user.articles.each do |article| %>
-          <h3><%= article.title %></h3>
-          <div><%= article.body.html_safe %></div>
-        <% end %>
-      </div>
+  <!-- Tab panes -->
+  <div class="tab-content tab-content-container">
+    <div class="tab-pane active" id="biography">
+      <%= @user.biography.html_safe %>
     </div>
-  <% end %>
+    <div class="tab-pane" id="projects">
+      <% @user.projects.each do |project| %>
+        <h3><%= link_to project.title, project_url(project) %></h3>
+      <% end %>
+    </div>
+    <div class="tab-pane" id="articles">
+      <% @user.articles.each do |article| %>
+        <h3><%= link_to article.title, article_url(article) %></h3>
+      <% end %>
+    </div>
+  </div>
 </div>

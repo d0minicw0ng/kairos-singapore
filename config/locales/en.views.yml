@@ -29,6 +29,7 @@ en:
     edit_project: Edit Project
     project_saved: Your project has been created!
     project_updated: Your project has been updated!
+    project: Project
     projects: Projects
     youtube_video_id: Youtube Video ID
     tags: Tags
@@ -53,6 +54,7 @@ en:
     edit_article: Edit Article
     article_saved: Your article has been created!
     article_updated: Your article has been updated!
+    article: Article
     articles: Articles
   comments:
     comments: Comments

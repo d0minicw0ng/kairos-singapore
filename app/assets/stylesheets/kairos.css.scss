@@ -133,3 +133,19 @@ ul.comments {
   margin-right: 20px;
   margin-bottom: 20px;
 }
+
+// users/show
+#user-profile {
+  min-height: 300px;
+  max-width: 650px;
+}
+
+.nav-tabs-container {
+  max-width: 650px;
+}
+
+.tab-content-container {
+  background-color: #FFFFFF;
+  padding: 20px;
+  max-width: 650px;
+}
