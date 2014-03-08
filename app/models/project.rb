@@ -7,13 +7,13 @@ class Project < ActiveRecord::Base
   has_many :project_tags, dependent: :destroy, inverse_of: :project
   has_many :tags, through: :project_tags
 
-  has_many :images, dependent: :destroy
+  has_many :images, as: :imageable, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true
 
-  has_many :project_event_registrations
+  has_many :project_event_registrations, dependent: :destroy
   has_many :registered_events, through: :project_event_registrations, source: :event
 
-  has_many :user_projects
+  has_many :user_projects, dependent: :destroy
   #FIXME: Members of a project, need a better name, but later
   has_many :users, through: :user_projects
 
