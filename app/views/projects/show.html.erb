@@ -1,10 +1,29 @@
-<% if @project.users.include?(current_user) %>
-  <div class='container'>
-    <div class='pull-right'>
-      <%= link_to t(:'projects.edit_project'), edit_project_url(@project), class: 'btn btn-info' %>
+<div class='container'>
+  <div class='row'>
+    <div id='project-video-controls' data-bind='with: ProjectVideoViewModel'>
+      <span class='volume-on' data-bind='click: unmute'>
+        <i class="fa fa-volume-up fa-3x"></i>
+      </span>
+
+      <span class='volume-off' data-bind='click: mute'>
+        <i class="fa fa-volume-off fa-3x"></i>
+      </span>
+
+      <span class='pause' data-bind='click: pause'>
+        <i class="fa fa-pause fa-3x"></i>
+      </span>
+
+      <span class='play' data-bind='click: play'>
+        <i class="fa fa-play fa-3x"></i>
+      </span>
     </div>
+    <% if @project.users.include?(current_user) %>
+      <div class='pull-right' style='margin-top: -40px'>
+        <%= link_to t(:'projects.edit_project'), edit_project_url(@project), class: 'btn btn-info' %>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>
 
 <!-- FIXME: make the content into sections of different color -->
 <div id='project-video'>
@@ -24,23 +43,6 @@
   </a>
 </div>
 
-<div id='project-video-controls' data-bind='with: ProjectVideoViewModel'>
-  <div class='volume-on' data-bind='click: unmute'>
-    <i class="fa fa-volume-up fa-3x"></i>
-  </div>
-
-  <div class='volume-off' data-bind='click: mute'>
-    <i class="fa fa-volume-off fa-3x"></i>
-  </div>
-
-  <div class='pause' data-bind='click: pause'>
-    <i class="fa fa-pause fa-3x"></i>
-  </div>
-
-  <div class='play' data-bind='click: play'>
-    <i class="fa fa-play fa-3x"></i>
-  </div>
-</div>
 
 <div class='row' id='project-container'>
   <ol class='breadcrumb'>

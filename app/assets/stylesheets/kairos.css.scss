@@ -98,24 +98,13 @@
 }
 
 .volume-on, .volume-off, .play, .pause {
-  position: fixed;
-  top: 80px;
+  margin-right: 20px;
+  color: #FFFFFF;
 }
 
-.volume-on {
-  left: 20px;
-}
-
-.volume-off {
-  left: 80px;
-}
-
-.play {
-  left: 120px;
-}
-
-.pause {
-  left: 180px;
+#project-video-controls {
+  position: relative;
+  right: 65px;
 }
 
 a.project-image {
@@ -132,7 +121,12 @@ a.project-image {
 
 // comments/comments partial
 ul.comments {
-  margin-top: 100px;
+  background-color: #FFFFFF;
+  border-radius: 5px;
+  padding: 30px;
+  margin-top: 30px;
+  height: 500px;
+  overflow: scroll;
 }
 
 // articles/show
