@@ -5,10 +5,12 @@ class ProjectsController < ApplicationController
   def new
     @project = Project.new
     @tags = Tag.all
+    @users = User.all
   end
 
   def create
-    tag_ids = ProjectTag.get_tag_ids(params)
+    tag_ids = get_nested_ids(:project_tags, :tag_ids)
+    user_ids = get_nested_ids(:user_projects, :user_ids)
     @project = Project.new(project_params)
 
     if @project.save
@@ -46,5 +48,9 @@ class ProjectsController < ApplicationController
 
   def project_params
     params.require(:project).permit(:title, :description, :video_url, :images_attributes)
+  end
+
+  def get_nested_ids(nested_params, nested_params_ids)
+    params[:project].delete(nested_params)[nested_params_ids].split(', ')[0].reject(&:blank?)
   end
 end

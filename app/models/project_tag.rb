@@ -9,8 +9,4 @@ class ProjectTag < ActiveRecord::Base
       create(project_id: project_id, tag_id: tag_id)
     end
   end
-
-  def self.get_tag_ids(params)
-    params[:project].delete(:project_tags)[:tag_ids].split(', ')[0]
-  end
 end

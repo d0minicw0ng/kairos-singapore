@@ -17,7 +17,7 @@
             <%= f.text_area :description, class: 'form-control tinymce tinymce-text-area' %>
           <% end %>
 
-          <%= content_tag :div, class: 'form-group' do %>  
+          <%= content_tag :div, class: 'form-group' do %>
             <%= f.label :video_url, t(:'projects.youtube_url') %>
             <%= f.text_field :video_url, class: 'form-control' %>
           <% end %>
@@ -52,6 +52,16 @@
                 @tags.collect { |t| [t.name, t.id] },
                 {},
                 { multiple: true, id: 'project-tag' } %>
+            <% end %>
+          <% end %>
+
+          <%= content_tag :div, class: 'form-group' do %>
+            <%= f.label :user_projects, t(:'projects.team') %><br />
+            <%= f.fields_for :user_projects do |pt| %>
+              <%= pt.select 'user_ids',
+                @users.collect { |t| [t.username, t.id] },
+                {},
+                { multiple: true, id: 'project-user' } %>
             <% end %>
           <% end %>
 
