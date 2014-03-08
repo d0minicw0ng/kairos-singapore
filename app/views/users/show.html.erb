@@ -39,8 +39,8 @@
       <ul id='user-articles'>
         <% @user.articles.each do |article| %>
           <li class='user-article'>
-            <% if img = article.images.first %>
-              <%= image_tag img.avatar.url(:thumb), class: 'user-article-image' %>
+            <% if article.images.length > 0 %>
+              <%= image_tag article.images.first.avatar.url(:thumb), class: 'user-article-image' %>
             <% else %>
               <%= image_tag 'default_article.jpg', class: 'user-article-image' %>
             <% end %>
