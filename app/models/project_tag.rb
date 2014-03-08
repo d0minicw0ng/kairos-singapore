@@ -6,7 +6,11 @@ class ProjectTag < ActiveRecord::Base
 
   def self.create_from_multiple_tag_ids(project_id, tag_ids)
     tag_ids.each do |tag_id|
-      create(project_id: project_id, tag_id: tag_id)
+      where(project_id: project_id, tag_id: tag_id).first_or_create
     end
+  end
+
+  def self.destroy_multiple_tags(project_id, tag_ids)
+    where(project_id: project_id, tag_id: tag_ids).destroy_all
   end
 end

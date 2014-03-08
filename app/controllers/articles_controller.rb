@@ -40,10 +40,6 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(
-      :title,
-      :body,
-      :user_id,
-      images_attributes: [:avatar])
+    params.require(:article).permit(:title, :body, :user_id, images_attributes: [:avatar])
   end
 end
