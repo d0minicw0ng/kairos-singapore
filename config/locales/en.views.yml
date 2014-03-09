@@ -41,6 +41,7 @@ en:
     contact_us: Interested? Talk to Us!
     team: Team
     gallery: Gallery
+    startups: Startups
   events:
     upcoming: Upcoming Events
     events: Events
@@ -66,7 +67,7 @@ en:
     comments: Comments
     new_comment: Leave A Comment
   users:
-    members: Members
+    community: Community
     dashboard: Dashboard
     biography: Biography
   register:

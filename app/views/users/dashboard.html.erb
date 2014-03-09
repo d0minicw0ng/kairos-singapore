@@ -45,7 +45,7 @@
     <div class='col-md-7'>
       <div class="panel panel-success">
         <div class="panel-heading">
-          <h3 class="panel-title"><%= t(:'users.members') %></h3>
+          <h3 class="panel-title"><%= t(:'users.community') %></h3>
         </div>
         <div class="panel-body tab-content-container-fixed">
           <ul>
@@ -69,10 +69,10 @@
     <div class='col-md-5'>
       <div class='panel panel-info'>
         <div class='panel-heading'>
-          <h3 class='panel-title'><%= t(:'articles.articles') %></h3>
+          <h3 class='panel-title'><%= t(:'projects.startups') %></h3>
         </div>
         <div class='panel-body tab-content-container-fixed'>
-          <%= render partial: 'articles/articles_tab', locals: {articles: @articles} %>
+          <%= render partial: 'projects/projects_tab', locals: {projects: @projects} %>
         </div>
       </div>
     </div>

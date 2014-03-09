@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   def dashboard
     @events = Event.registerable.order('starts_at DESC')
     @users = User.all
-    @projects = Project.all
+    @projects = Project.all.order('created_at DESC')
     @articles = Article.all.order('created_at DESC')
   end
 
