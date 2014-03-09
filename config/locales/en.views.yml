@@ -15,6 +15,7 @@ en:
     number: Contact Number
     no_email: Oops. Looks like these guys don't want to get their seed fundings?
     no_number: Oops. Looks like these guys don't want to be called when they are coding.
+    at: at
   about_us:
     leadership_team: Leadership Team
     president: President
@@ -43,7 +44,6 @@ en:
   events:
     upcoming: Upcoming Events
     events: Events
-    at: at
     new_event: New Event
     edit_event: Edit Event
     event_saved: Your event has been created!
@@ -66,6 +66,7 @@ en:
     comments: Comments
     new_comment: Leave A Comment
   users:
+    members: Members
     dashboard: Dashboard
     biography: Biography
   register:

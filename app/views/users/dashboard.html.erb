@@ -14,7 +14,7 @@
                   <%= event.name %>
                   <span class='pull-right'>
                     <%= event.starts_at.to_date.to_formatted_s(:long) %>
-                    <%= t(:'events.at') %>
+                    <%= t(:'common.at') %>
                     <%= event.venue_name %>
                   </span>
                 <% end %>
@@ -36,9 +36,45 @@
       </div>
     </div>
   </div>
-
-  <div class='row'>
-    <div class='col-md-12'></div>
-  </div>
 </div>
 
+
+
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-7'>
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= t(:'users.members') %></h3>
+        </div>
+        <div class="panel-body tab-content-container-fixed">
+          <ul>
+            <% @users.each do |user| %>
+              <li>
+                <%= link_to user_url(user), style: 'font-size: 13px;' do %>
+                  <%= image_tag user.avatar.url(:thumb), class: 'small-img' %>
+                  <%= user.first_name && user.last_name ? "#{user.first_name} #{user.last_name}" : user.username %>
+                  <span style='margin-left: 30px;'>
+                    <%= "#{user.job_title} #{t(:'common.at')} #{user.company}" %>
+                    <span class='label label-success'><%= user.member_type %></span>
+                  </span>
+                <% end %>
+              </li>
+              <br />
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class='col-md-5'>
+      <div class='panel panel-info'>
+        <div class='panel-heading'>
+          <h3 class='panel-title'><%= t(:'articles.articles') %></h3>
+        </div>
+        <div class='panel-body tab-content-container-fixed'>
+          <%= render partial: 'articles/articles_tab', locals: {articles: @articles} %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

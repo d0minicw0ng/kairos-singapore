@@ -161,11 +161,6 @@ ul.comments {
 ul#user-articles {
   li.user-article {
     margin-bottom: 30px;
-    .user-article-image {
-      height: 50px;
-      width: 50px;
-      margin-right: 10px;
-    }
   }
 }
 
@@ -180,4 +175,10 @@ ul#user-projects {
 // users/dashboard
 .event-starts-at {
   margin-left: 30px;
+}
+
+.small-img {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
 }

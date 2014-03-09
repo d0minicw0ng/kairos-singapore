@@ -2,9 +2,9 @@
   <% articles.each do |article| %>
     <li class='user-article'>
       <% if article.images.length > 0 %>
-        <%= image_tag article.images.first.avatar.url(:thumb), class: 'user-article-image' %>
+        <%= image_tag article.images.first.avatar.url(:thumb), class: 'small-img' %>
       <% else %>
-        <%= image_tag 'default_article.jpg', class: 'user-article-image' %>
+        <%= image_tag 'default_article.jpg', class: 'small-img' %>
       <% end %>
       <%= link_to truncate(article.title, length: 18), article_url(article) %>
       <hr class="featurette-divider">
