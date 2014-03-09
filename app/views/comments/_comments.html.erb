@@ -1,18 +1,20 @@
 <hr class="featurette-divider">
 <h1><i class='fa fa-comments'></i> <%= t(:'comments.comments') %></h1>
-<ul class='media-list comments'>
-  <% if comments.length > 0 %>
-    <% comments.each do |comment| %>
-      <li class='media comment' id='comment_<%= comment.id %>'>
-        <a class='pull-left' href='#'>
-          <%= image_tag comment.user.avatar.url(:thumb), class: 'media-object' %>
-        </a>
-        <%# end %>
-        <div class='media-body'>
-          <h4 class='media-heading'><%= link_to comment.user.username, user_url(comment.user) %></h4>
-          <p><%= comment.content %></p>
-        </div>
-      </li>
+<div data-bind='with: CommentsListViewModel'>
+  <ul class='media-list comments-container' data-bind='css: { comments: hasComments() }'>
+    <% if comments.length > 0 %>
+      <% comments.each do |comment| %>
+        <li class='media comment' id='comment_<%= comment.id %>'>
+          <a class='pull-left' href='#'>
+            <%= image_tag comment.user.avatar.url(:thumb), class: 'media-object' %>
+          </a>
+          <%# end %>
+          <div class='media-body'>
+            <h4 class='media-heading'><%= link_to comment.user.username, user_url(comment.user) %></h4>
+            <p><%= comment.content %></p>
+          </div>
+        </li>
+      <% end %>
     <% end %>
-  <% end %>
-</ul>
+  </ul>
+</div>

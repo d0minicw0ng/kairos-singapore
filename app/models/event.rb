@@ -2,7 +2,7 @@ class Event < ActiveRecord::Base
   MAX_PROJECT_PARTICIPANTS = 5
   MAX_PARTICIPANTS = 40
 
-  validates_presence_of :name, :description, :starts_at, :ends_at
+  validates_presence_of :name, :description, :starts_at, :ends_at, :venue_name, :street_one, :city, :country, :user_id
   validate :starts_at_must_be_before_ends_at
 
   has_many :user_event_registrations
@@ -14,6 +14,7 @@ class Event < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name, use: :slugged
 
+  scope :registerable, -> {where('starts_at > ?', Date.today)}
 
   def starts_at_must_be_before_ends_at
     errors.add(:starts_at, 'must be before ends at') unless starts_at < ends_at

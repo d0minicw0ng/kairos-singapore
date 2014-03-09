@@ -44,19 +44,7 @@
       </ul>
     </div>
     <div class="tab-pane" id="articles">
-      <ul id='user-articles'>
-        <% @user.articles.each do |article| %>
-          <li class='user-article'>
-            <% if article.images.length > 0 %>
-              <%= image_tag article.images.first.avatar.url(:thumb), class: 'user-article-image' %>
-            <% else %>
-              <%= image_tag 'default_article.jpg', class: 'user-article-image' %>
-            <% end %>
-            <%= link_to article.title, article_url(article) %>
-            <hr class="featurette-divider">
-          </li>
-        <% end %>
-      </ul>
+      <%= render partial: 'articles/articles_tab', locals: {articles: @user.articles} %>
     </div>
   </div>
 </div>

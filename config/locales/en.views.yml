@@ -41,6 +41,9 @@ en:
     team: Team
     gallery: Gallery
   events:
+    upcoming: Upcoming Events
+    events: Events
+    at: at
     new_event: New Event
     edit_event: Edit Event
     event_saved: Your event has been created!
@@ -63,6 +66,7 @@ en:
     comments: Comments
     new_comment: Leave A Comment
   users:
+    dashboard: Dashboard
     biography: Biography
   register:
     individual: Register as an Individual
