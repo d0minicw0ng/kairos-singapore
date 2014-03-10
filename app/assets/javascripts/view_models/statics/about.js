@@ -7,7 +7,10 @@ function ContactUsViewModel() {
         $.post('/contact_us', {subject: self.subject(), message: self.message()}, function() {
             $('#contact-us #subject').val('');
             $('#contact-us #message').val('');
-            $('div#contact-us .container').prepend('<div class="alert alert-success">Your message has been sent! We will be in contact soon.</div>');
+            var message = HandlebarsTemplates['alerts/success']({
+              message: 'Your message has been sent! We will be in contact soon.'
+            });
+            $('div#contact-us .container').prepend(message);
             setTimeout(function() {
                 $('div.alert-success').remove();
             }, 5000);

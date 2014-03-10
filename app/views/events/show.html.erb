@@ -13,22 +13,22 @@
       <div class='user-event col-md-5' data-bind='with: UserRegisterEventViewModel'>
         <%= link_to t(:'register.individual'),
           '#',
-          class: 'btn btn-primary user-register-event',
+          class: 'btn btn-success user-register-event',
           data: {bind: 'click: registerUser, visible: noUserRegisteredEvent()', 'user-id' => current_user.id, 'event-id' => @event.id} %>
         <%= link_to t(:'unregister.individual'),
           '#',
-          class: 'btn btn-warning user-unregister-event',
+          class: 'btn btn-info user-unregister-event',
           data: {bind: 'click: unregisterUser, visible: !noUserRegisteredEvent()', id: @user_registration_id} %>
       </div>
 
       <div class='project-event col-md-5' data-bind='with: ProjectRegisterEventViewModel'>
         <%= link_to t(:'register.project'),
           '#',
-          class: 'btn btn-success project-register-event',
+          class: 'btn btn-info project-register-event',
           data: {bind: 'click: showSelectProjectForm, visible: noProjectRegisteredEvent()'} %>
         <%= link_to t(:'unregister.project'),
           '#',
-          class: 'btn btn-warning project-unregister-event',
+          class: 'btn btn-success project-unregister-event',
           data:{bind: 'click: unregisterProject, visible: !noProjectRegisteredEvent()', id: @project_registration_id} %>
       </div>
       <br />
@@ -38,7 +38,7 @@
         <%= select_tag 'Projects', options_from_collection_for_select(current_user.projects, 'id', 'title'), id: 'project-event-select' %>
         <%= link_to t(:'register.choose_project'), 
           '#', 
-          class: 'btn btn-primary project-register-event-final',
+          class: 'btn btn-success project-register-event-final',
           data: {'event-id' => @event.id} %>
       </div>
     </div>
@@ -121,7 +121,7 @@
         <li class='project-registrant' id='project-"<%= project.id %>"'>
           <%= link_to project.title, project_url(project) %>
           <% if !current_user.has_voted_for?(project, @event) %>
-            <a class='btn btn-info vote' data-event-id="<%= @event.id %>" data-project-id="<%= project.id %>">Vote for This Project</a>
+            <a class='btn btn-success vote' data-event-id="<%= @event.id %>" data-project-id="<%= project.id %>">Vote for This Project</a>
           <% else %>
             <a class='btn btn-info unvote' data-event-id="<%= @event.id %>" data-project-id="<%= project.id %>">Unvote for This Project</a>
           <% end %>
@@ -154,7 +154,10 @@
                 success: function(data) {
                     $(that).after('<a class="btn btn-info unvote" data-project-id="' + projectId + '" data-event-id="' + eventId +'">Unvote for This Project</a>');
                     $(that).remove();
-                   $('#notification').append('<div class="alert alert-success">You have voted for the project!</div>');
+                    var message = HandlebarsTemplates['alerts/success']({
+                      message: 'You have voted for the project!'
+                    });
+                   $('#notification').append(message);
                    $('html,body').animate({scrollTop:0},0);
                    clearNotification();
                 }
@@ -174,11 +177,14 @@
                 data: { vote: {project_id: projectId, event_id: eventId, user_id: <%= current_user.id %>}},
                 dataType: 'json',
                 success: function(data) {
-                    $(that).after('<a class="btn btn-info vote" data-project-id="' + projectId + '" data-event-id="' + eventId +'">Vote for This Project</a>');
+                    $(that).after('<a class="btn btn-success vote" data-project-id="' + projectId + '" data-event-id="' + eventId +'">Vote for This Project</a>');
                     $(that).remove();
-                   $('#notification').append('<div class="alert alert-warning">You have unvoted for the project!</div>');
-                   $('html,body').animate({scrollTop:0},0);
-                   clearNotification();
+                    var message = HandlebarsTemplates['alerts/danger']({
+                      message: 'You have unvoted for the project!'
+                    });
+                    $('#notification').append(message);
+                    $('html,body').animate({scrollTop:0},0);
+                    clearNotification();
                 }
             });
         });

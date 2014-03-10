@@ -41,6 +41,6 @@ function clearNotification() {
      /*  $('#notification').slideUp(1000, function() { */
       $('#notification').empty();
      /*  }); */
-  }, 4000);
+  }, 6000);
 }
 

@@ -18,8 +18,11 @@ function UserRegisterEventViewModel() {
                function(data) {
                    $('.user-register-event').hide();
                    $('.user-unregister-event').data('id', data.id);
-                   $('.user-unregister-event').show()
-                   $('#notification').append('<div class="alert alert-success">You have registered for the event!</div>');
+                   $('.user-unregister-event').show();
+                   var message = HandlebarsTemplates['alerts/success']({
+                     message: 'You have registered for the event!'
+                   })
+                   $('#notification').append(message);
                    clearNotification();
                }
         );
@@ -34,7 +37,10 @@ function UserRegisterEventViewModel() {
                 $('.user-unregister-event').data('id', 0)
                 $('.user-unregister-event').hide();
                 $('.user-register-event').show();
-                $('#notification').append('<div class="alert alert-danger">You have unregistered for the event!</div>');
+                var message = HandlebarsTemplates['alerts/danger']({
+                  message: 'You have uregistered for the event!'
+                });
+                $('#notification').append(message);
                 clearNotification();
             }
         });
@@ -63,7 +69,10 @@ function ProjectRegisterEventViewModel() {
                 $('.project-unregister-event').data('id', 0);
                 $('.project-unregister-event').hide();
                 $('.project-register-event').show();
-                $('#notification').append('<div class="alert alert-danger">Your startup have unregistered for the event!</div>');
+                var message = HandlebarsTemplates['alerts/danger']({
+                  message: 'Your startup has unregistered for the event!'
+                });
+                $('#notification').append(message);
                 clearNotification();
             }
         });
@@ -86,7 +95,10 @@ function ProjectRegisterEventViewModel() {
                 $('.project-unregister-event').data('id', data.id);
                 $('.project-unregister-event').show();
                 $('#select-project-form').hide();
-                $('#notification').append('<div class="alert alert-success">Your startup have registered for the event!</div>');
+                var message = HandlebarsTemplates['alerts/success']({
+                  message: 'Your startup has registered for the event!'
+                });
+                $('#notification').append(message);
                 clearNotification();
             }
         });
