@@ -1,0 +1,14 @@
+<ul id='user-projects'>
+  <% projects.each do |project| %>
+    <li class='user-project'>
+      <% if project.images.length > 0 %>
+        <%= image_tag project.images.first.avatar.url(:thumb), class: 'small-img' %>
+      <% else %>
+        <%= image_tag 'default_article.jpg', class: 'small-img' %>
+      <% end %>
+      <%= link_to truncate(project.title, length: 18), project_url(project) %>
+      <hr class="featurette-divider">
+    </li>
+  <% end %>
+</ul>
+
