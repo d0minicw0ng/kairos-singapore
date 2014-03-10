@@ -1,0 +1,72 @@
+<div class='container well'>
+  <div class='row'>
+    <div class='col-xs-12 col-sm-6 col-md-8'>
+      <h2><%= t(:'users.edit_profile') %></h2>
+
+      <%= form_for @user, html: { role: 'form', multipart: true } do |f| %>
+        <%= render partial: 'shared/errors', locals: {object: @user} %>
+
+        <%= content_tag :div, class: 'form-group' do %>
+          <%= f.label :first_name %><br />
+          <%= f.text_field :first_name, autofocus: true, class: 'form-control' %>
+        <% end %>
+
+        <%= content_tag :div, class: 'form-group' do %>
+          <%= f.label :last_name %><br />
+          <%= f.text_field :last_name, class: 'form-control' %>
+        <% end %>
+
+        <%= content_tag :div, class: 'form-group' do %>
+          <%= f.label :email %><br />
+          <%= f.email_field :email, class: 'form-control' %>
+        <% end %>
+
+       <!-- NOTE: I am not going to bother with editing password for now -->
+       <%#  <%= content_tag :div, class: 'form-group' do %>
+       <%#    <%= f.label :password %><!--<br />-->
+       <%#    <%= f.password_field :password, class: 'form-control' %>
+       <%#  <% end %>
+        <%#
+       <%#  <%= content_tag :div, class: 'form-group' do %>
+         <%#    <%= f.label :password_confirmation %><!--<br />-->
+       <%#    <%= f.password_field :password_confirmation, class: 'form-control' %>
+       <%#  <% end %>
+
+        <%= content_tag :div, class: 'form-group' do %>
+          <%= f.label :member_type %><br />
+          <%= f.select :member_type, options_for_select(%w{mentor innovator committee}, 'innovator'), class: 'member-type' %>
+        <% end %>
+
+        <%= content_tag :div, class: 'form-group' do %>
+          <%= f.label :company %><br />
+          <%= f.text_field :company, class: 'form-control' %>
+        <% end %>
+
+        <%= content_tag :div, class: 'form-group' do %>
+          <%= f.label :job_title %><br />
+          <%= f.text_field :job_title, class: 'form-control' %>
+        <% end %>
+
+        <%= content_tag :div, class: 'form-group' do %>
+          <%= f.label :biography %>
+          <%= f.text_area :biography, class: 'form-control tinymce tinymce-text-area' %>
+        <% end %>
+
+       <!-- NOTE: I think we should always store one photo only -->
+       <%#  <%= content_tag :div, class: 'form-group' do %>
+       <%#    <%= f.label :avatar %>
+       <%#    <%= f.file_field :avatar %>
+       <%#  <% end %>
+
+        <div>
+          <%= f.submit t(:'common.save'), class: 'btn btn-success' %>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>
+
+<%= tinymce_assets %>
+<%= tinymce %>
+

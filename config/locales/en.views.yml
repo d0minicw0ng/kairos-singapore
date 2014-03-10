@@ -70,6 +70,8 @@ en:
     community: Community
     dashboard: Dashboard
     biography: Biography
+    profile_updated: Your profile has been updated!
+    edit_profile: Edit Your Profile
   register:
     individual: Register as an Individual
     project: Register for Your Startup
