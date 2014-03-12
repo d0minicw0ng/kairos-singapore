@@ -51,3 +51,11 @@ li {
   width: 100%;
   height: auto;
 }
+
+#notification-container {
+   z-index:10;
+   width: 75%;
+   position: fixed;
+   left: 50%;
+   margin: 0 0 0 -37.5%;
+}

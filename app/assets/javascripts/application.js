@@ -38,9 +38,8 @@ $(document).ready(function() {
 
 function clearNotification() {
   setTimeout(function() {
-     /*  $('#notification').slideUp(1000, function() { */
-      $('#notification').empty();
-     /*  }); */
-  }, 6000);
+      $('#notification').children().fadeOut(6000, function() {
+          $('#notification').empty();
+      });
+  });
 }
-
