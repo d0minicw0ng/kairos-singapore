@@ -14,15 +14,18 @@
   .leadership-img {
     max-height: 140px;
   }
-  .leadership-p {
-    height: 170px;
-  }
-  .leadership-p-big {
-    height: 380px;
+  .col-md-4.col-lg-4 {
+    .leadership-p {
+      height: 170px;
+    }
+    .leadership-p-big {
+      height: 380px;
+    }
   }
 }
 
 #intro-video {
+  min-width: 970px;
   height: 400px;
   background-color: #000000;
 }
