@@ -9,11 +9,25 @@ class User < ActiveRecord::Base
   include FlagShihTzu
   # The keys must not be changed once in use, or you will get incorrect results.
   # maximum flag is 16
-  has_flags 1 => :clean_tech, 2 => :health_care, 3 => :big_data, column: 'industries'
+  has_flags 1 => :clean_tech, 2 => :health_care, 3 => :big_data, 4 => :information_technology_and_services, 5 => :venture_capital_and_private_equity, 6 => :management_consulting, 7 => :government_administration, 8 => :biomedical_sciences, 9 => :medical_devices, 10 => :education, 11 => :professional_training_and_coaching, 12 => :media_production, 13 => :non_profit_organization, 14 => :artificial_intelligence, 15 => :logistics_and_supply_chain, 16 => :others, column: 'industries'
+
   INDUSTRIES = {
-    'clean_tech' => 'Clean Tech',
-    'health_care' => 'Health Care',
-    'big_data' => 'Big Data'
+    'clean_tech'                          => 'Clean Tech',
+    'health_care'                         => 'Health Care',
+    'big_data'                            => 'Big Data',
+    'information_technology_and_services' => 'Information Technology & Services',
+    'venture_capital_and_private_equity'  => 'Venture Capital & Private Equity',
+    'management_consulting'               => 'Management Consulting',
+    'government_administration'           => 'Government Administration',
+    'biomedical_sciences'                 => 'Biomedical Science',
+    'medical_devices'                     => 'Medical Devices',
+    'education'                           => 'Education',
+    'professional_training_and_coaching'  => 'Professional Training and Coaching',
+    'media_production'                    => 'Media Production',
+    'non_profit_organization'             => 'NGO',
+    'artificial_intelligence'             => 'Artificial Intelligence',
+    'logistics_and_supply_chain'          => 'Logistics & Supply Chain',
+    'others'                              => 'Others'
   }
 
   def industries
