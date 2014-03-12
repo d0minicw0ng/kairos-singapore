@@ -14,13 +14,15 @@
     <div class="pull-left">
       <h2 class="media-heading"><%= @user.first_name %> <%= @user.last_name %></h2>
       <h4><%= @user.job_title %> at <%= @user.company %></h4>
-      <h4><%= @user.email %><h4>
+      <h4><%= @user.email %></h4>
       <hr style="margin:8px auto">
 
-      <span class="label label-primary"><%= @user.member_type %></span>
-      <% @user.industries.each do |industry| %>
-        <span class='label label-success'><%= industry %></span>
-      <% end %>
+      <div id='user-labels'>
+        <span class="label label-primary"><%= @user.member_type %></span>
+        <% @user.industries.each do |industry| %>
+          <span class='label label-success'><%= industry %></span>
+        <% end %>
+      </div>
     </div>
     <div class="pull-right">
       <%= image_tag @user.avatar.url(:medium), style: 'width: 200px; height: 200px;' %>
