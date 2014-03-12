@@ -15,8 +15,8 @@ class User < ActiveRecord::Base
     'clean_tech'                          => 'Clean Tech',
     'health_care'                         => 'Health Care',
     'big_data'                            => 'Big Data',
-    'information_technology_and_services' => 'Information Technology & Services',
-    'venture_capital_and_private_equity'  => 'Venture Capital & Private Equity',
+    'information_technology_and_services' => 'Information Technology and Services',
+    'venture_capital_and_private_equity'  => 'Venture Capital and Private Equity',
     'management_consulting'               => 'Management Consulting',
     'government_administration'           => 'Government Administration',
     'biomedical_sciences'                 => 'Biomedical Science',
@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
     'media_production'                    => 'Media Production',
     'non_profit_organization'             => 'NGO',
     'artificial_intelligence'             => 'Artificial Intelligence',
-    'logistics_and_supply_chain'          => 'Logistics & Supply Chain',
+    'logistics_and_supply_chain'          => 'Logistics and Supply Chain',
     'others'                              => 'Others'
   }
 
