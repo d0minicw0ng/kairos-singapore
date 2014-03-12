@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   has_flags 1 => :clean_tech, 2 => :health_care, 3 => :big_data, column: 'industries'
   INDUSTRIES = {
     'clean_tech' => 'Clean Tech',
-    'health_care' => 'Healthcare',
+    'health_care' => 'Health Care',
     'big_data' => 'Big Data'
   }
 
