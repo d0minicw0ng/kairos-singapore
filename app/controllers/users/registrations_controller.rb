@@ -8,7 +8,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     # FIXME: Of course this is not nice, fix this when you have time. Move this into a Service?
     industries = params[:user].delete(:industries).reject {|i| i.blank?}.map {|i| i.downcase.parameterize.underscore}
     build_resource(sign_up_params)
-    industries.each {|i| resource.send("#{industry}=", true)}
+    industries.each {|industry| resource.send("#{industry}=", true)}
 
     if resource.save
       yield resource if block_given?
