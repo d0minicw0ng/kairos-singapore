@@ -18,15 +18,7 @@ Kairos::Application.routes.draw do
     resources :comments
   end
 
-  devise_for :users
-#   devise_scope :user do
-#     authenticated :user do
-#       root to: 'statics#about'
-#     end
-#     unauthenticated :user do
-#       root to: 'statics#about'
-#     end
-#   end
+  devise_for :users, controllers: {registrations: 'users/registrations'}
   resources :users, only: [:show, :edit, :update]
   get '/dashboard', to: 'users#dashboard', as: :user_root
 
