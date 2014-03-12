@@ -72,6 +72,7 @@ en:
     biography: Biography
     profile_updated: Your profile has been updated!
     edit_profile: Edit Your Profile
+    change_your_password: Change Your Password
   register:
     individual: Register as an Individual
     project: Register for Your Startup
