@@ -75,20 +75,20 @@
     opacity:1}">
 </div>
 
-<div class='row' id='contact-us'>
+<div class='row' id='contact-us' data-bind='with: ContactUsViewModel'>
   <div class='container'>
     <h1><i class='fa fa-keyboard-o'></i> <%= t(:'contact_us.contact_us') %></h1>
     <%= form_tag({}, {method: :post}) do %>
       <%= content_tag :div, class: 'form-group' do %>
-        <%= text_field_tag 'subject', nil, class: 'form-control', placeholder: t(:'contact_us.subject_placeholder') %>
+        <%= text_field_tag 'subject', nil, class: 'form-control', placeholder: t(:'contact_us.subject_placeholder'), data: {bind: 'value: subject'} %>
       <% end %>
 
       <%= content_tag :div, class: 'form-group' do %>
-        <%= text_area_tag 'body', nil, class: 'form-control', rows: 4, placeholder: t(:'contact_us.message_placeholder') %>
+        <%= text_area_tag 'message', nil, class: 'form-control', rows: 4, placeholder: t(:'contact_us.message_placeholder'), data: {bind: 'value: message'} %>
       <% end %>
 
       <%= content_tag :div, class: 'form-group' do %>
-        <%= submit_tag t(:'common.send'), class: 'btn btn-success' do %>
+        <%= submit_tag t(:'common.send'), class: 'btn btn-success', data: {bind: 'click: sendMessage'} do %>
         <% end %>
       <% end %>
     <% end %>
@@ -97,6 +97,7 @@
 
 <script type='text/javascript'>
     $(document).ready(function() {
+        ko.applyBindings();
         $('div#footer').css('margin-top', '0px');
     });
 </script>
