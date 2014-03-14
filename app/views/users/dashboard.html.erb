@@ -53,9 +53,10 @@
               <li>
                 <%= link_to user_url(user), style: 'font-size: 13px;' do %>
                   <%= image_tag user.avatar.url(:thumb), class: 'small-img' %>
-                  <%= user.first_name && user.last_name ? "#{user.first_name} #{user.last_name}" : user.username %>
+                  <%= user.first_name && user.last_name ?
+                    truncate("#{user.first_name} #{user.last_name}", length: 15) : truncate(user.username, length: 15) %>
                   <span style='margin-left: 30px;'>
-                    <%= "#{user.job_title} #{t(:'common.at')} #{user.company}" %>
+                    <%= truncate("#{user.job_title} #{t(:'common.at')} #{user.company}", length: 45) %>
                     <span class='label label-success'><%= user.member_type %></span>
                   </span>
                 <% end %>
