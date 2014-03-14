@@ -7,7 +7,7 @@
           <h3 class="panel-title"><%= t(:'events.upcoming') %></h3>
         </div>
         <div class="panel-body tab-content-container-fixed">
-          <ul>
+          <ul id='dashboard-events'>
             <% @events.each do |event| %>
               <li>
                 <%= link_to event_url(event) do %>
