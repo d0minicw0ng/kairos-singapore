@@ -189,3 +189,9 @@ ul#user-projects {
   height: 50px;
   margin-right: 10px;
 }
+
+ul#dashboard-users {
+  li a:hover {
+    text-decoration: none;
+  }
+}
