@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
 
   before_filter :authenticate_user!
+  before_filter :verify_committee, except: [:show]
 
   def new
     @event = Event.new
@@ -56,5 +57,13 @@ class EventsController < ApplicationController
       :country,
       :zip_code
     )
+  end
+
+  # Probably should be in Application Controller or another file.
+  def verify_committee
+    unless current_user.try(:member_type) == 'committee'
+      flash[:alert] = t(:'common.no_right')
+      redirect_to root_url
+    end
   end
 end
