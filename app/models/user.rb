@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
     'education'                           => 'Education',
     'professional_training_and_coaching'  => 'Professional Training and Coaching',
     'media_production'                    => 'Media Production',
-    'non_profit_organization'             => 'NGO',
+    'non_profit_organization'             => 'Non Profit Organization',
     'artificial_intelligence'             => 'Artificial Intelligence',
     'logistics_and_supply_chain'          => 'Logistics and Supply Chain',
     'others'                              => 'Others'

@@ -42,7 +42,7 @@
         <% end %>
 
         <%= content_tag :div, class: 'form-group' do %>
-          <%= f.label :avatar %>
+          <%= f.label :avatar, t(:'users.profile_picture') %>
           <%= f.file_field :avatar %>
         <% end %>
 
