@@ -42,10 +42,10 @@
         <% end %>
 
        <!-- NOTE: I think we should always store one photo only -->
-       <%#  <%= content_tag :div, class: 'form-group' do %>
-       <%#    <%= f.label :avatar %>
-       <%#    <%= f.file_field :avatar %>
-       <%#  <% end %>
+        <%= content_tag :div, class: 'form-group' do %>
+          <%= f.label :avatar %>
+          <%= f.file_field :avatar %>
+        <% end %>
 
         <div>
           <%= f.submit t(:'common.save'), class: 'btn btn-success' %>
