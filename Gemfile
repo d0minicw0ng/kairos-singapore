@@ -49,6 +49,7 @@ gem 'font-awesome-rails'
 gem 'knockoutjs-rails'
 gem 'hermitage'
 gem 'sidekiq'
+gem 'unicorn'
 
 group :development, :test do
   gem 'rspec-rails'
