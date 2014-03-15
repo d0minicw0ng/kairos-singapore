@@ -1,7 +1,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
 
-  # prepend_before_filter :require_no_authentication, only: [:cancel]
-  # before_filter :verify_admin, only: [:new, :create]
+  prepend_before_filter :require_no_authentication, only: [:cancel]
+  before_filter :verify_admin, only: [:new, :create]
   before_filter :update_sanitized_params, if: :devise_controller?
 
   def create
