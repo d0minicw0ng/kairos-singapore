@@ -22,11 +22,6 @@
         <% end %>
 
         <%= content_tag :div, class: 'form-group' do %>
-          <%= f.label :member_type %><br />
-          <%= f.select :member_type, options_for_select(%w{mentor innovator committee}, 'innovator'), class: 'member-type' %>
-        <% end %>
-
-        <%= content_tag :div, class: 'form-group' do %>
           <%= f.label :company %><br />
           <%= f.text_field :company, class: 'form-control' %>
         <% end %>
