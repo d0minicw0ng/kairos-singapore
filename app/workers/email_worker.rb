@@ -1,5 +1,5 @@
 class EmailWorker
-  include Sidekiq::Worker
+  # include Sidekiq::Worker
 
   def perform(mailer_class, method, data)
     mailer_class = mailer_class.constantize
