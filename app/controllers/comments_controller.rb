@@ -10,8 +10,7 @@ class CommentsController < ApplicationController
 
     if @comment.save
       #FIXME: If we have other mailers, we need to set a ActionMailer default_url_options instead
-      # EmailWorker.perform_async('CommentMailer', :new_comment_notification, {comment_id: @comment.id, host_with_port: request.host_with_port})
-      EmailWorker.perform('CommentMailer', :new_comment_notification, {comment_id: @comment.id, host_with_port: request.host_with_port})
+      EmailWorker.perform_async('CommentMailer', :new_comment_notification, {comment_id: @comment.id, host_with_port: request.host_with_port})
       render json: @comment.to_json(include: {user: {methods: [:thumb_url]}})
     else
       render json: { errors: @comment.errors.full_messages }
