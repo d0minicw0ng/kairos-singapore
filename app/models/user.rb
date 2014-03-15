@@ -74,6 +74,8 @@ class User < ActiveRecord::Base
 
   has_many :votes
 
+  has_many :events
+
   def registered_for_event?(event)
     user_event_registrations.map(&:event_id).include?(event.id)
   end

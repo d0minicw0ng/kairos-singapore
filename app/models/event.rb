@@ -11,6 +11,8 @@ class Event < ActiveRecord::Base
 
   has_many :comments, as: :commentable, dependent: :destroy
 
+  belongs_to :user
+
   extend FriendlyId
   friendly_id :name, use: :slugged
 
