@@ -16,10 +16,8 @@
   }
   .col-md-4.col-lg-4 {
     .leadership-p {
-      height: 170px;
     }
     .leadership-p-big {
-      height: 380px;
     }
   }
 }
@@ -45,6 +43,7 @@
 // events/show.html.erb
 .register {
   margin-top: 25px;
+/*   max-width: 700px; */
 }
 
 #select-project-form {
