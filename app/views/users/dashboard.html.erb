@@ -28,7 +28,10 @@
     <div class='col-md-5'>
       <div class='panel panel-success'>
         <div class='panel-heading'>
-          <h3 class='panel-title'><%= t(:'articles.articles') %></h3>
+          <h3 class='panel-title'>
+            <%= t(:'articles.articles') %>
+            <%= link_to t(:'articles.write_an_article'), new_article_url, class: 'pull-right' %>
+          </h3>
         </div>
         <div class='panel-body tab-content-container-fixed'>
           <%= render partial: 'articles/articles_tab', locals: {articles: @articles} %>
@@ -70,7 +73,10 @@
     <div class='col-md-5'>
       <div class='panel panel-info'>
         <div class='panel-heading'>
-          <h3 class='panel-title'><%= t(:'projects.startups') %></h3>
+          <h3 class='panel-title'>
+            <%= t(:'projects.startups') %>
+            <%= link_to t(:'projects.add_your_startup'), new_project_url, class: 'pull-right' %>
+          </h3>
         </div>
         <div class='panel-body tab-content-container-fixed'>
           <%= render partial: 'projects/projects_tab', locals: {projects: @projects} %>

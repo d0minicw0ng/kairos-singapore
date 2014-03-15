@@ -31,6 +31,7 @@ en:
     message_placeholder: Please enter your message here
   projects:
     new_project: New Project
+    add_your_startup: Add Your Startup
     edit_project: Edit Project
     project_saved: Your project has been created!
     project_updated: Your project has been updated!
@@ -59,6 +60,7 @@ en:
     add: Add Image
   articles:
     new_article: New Article
+    write_an_article: Write An Article
     edit_article: Edit Article
     article_saved: Your article has been created!
     article_updated: Your article has been updated!
