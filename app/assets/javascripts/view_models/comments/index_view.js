@@ -2,7 +2,7 @@ function CommentsListViewModel() {
     var self = this;
 
     self.hasComments = function() {
-        $('ul.comments li').length > 0;
+        return $('ul.comments-container li.comment').length > 0;
     }
 }
 
