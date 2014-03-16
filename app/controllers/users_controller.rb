@@ -11,7 +11,12 @@ class UsersController < ApplicationController
   end
 
   def update
+    #FIXME: This piece of code is written at 12am after Manchester United lost 3-0 to Liverpool, home game. Bare with me.
+    industries = params[:user].delete(:industries).reject {|i| i.blank?}.map {|i| i.downcase.parameterize.underscore}
     @user = User.friendly.find(params[:id])
+    @user.industries.each {|industry| @user.send("#{industry.downcase.parameterize.underscore}=", false)}
+    industries.each {|industry| @user.send("#{industry}=", true)}
+
     if @user.update_attributes(user_params)
       flash[:notice] = t(:'users.profile_updated')
       redirect_to user_url(@user)

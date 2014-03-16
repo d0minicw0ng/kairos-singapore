@@ -37,6 +37,14 @@
         <% end %>
 
         <%= content_tag :div, class: 'form-group' do %>
+          <%= f.label :industries %>
+          <%= f.select :industries,
+            User::INDUSTRIES.values,
+            { selected: @user.industries },
+            { multiple: true, id: 'user-industries' } %>
+        <% end %>
+
+        <%= content_tag :div, class: 'form-group' do %>
           <%= f.label :avatar, t(:'users.profile_picture') %>
           <%= f.file_field :avatar %>
         <% end %>
