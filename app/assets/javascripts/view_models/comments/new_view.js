@@ -20,7 +20,7 @@ function NewCommentViewModel(userId) {
             var listItem = HandlebarsTemplates['comments/show']({
               comment: comment
             });
-            $('ul.comments').append(listItem);
+            $('ul.comments-container').append(listItem);
             $('input#comment_content').val('');
         });
     }

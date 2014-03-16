@@ -1,7 +1,7 @@
 <hr class="featurette-divider">
 <h1><i class='fa fa-comments'></i> <%= t(:'comments.comments') %></h1>
 <div data-bind='with: CommentsListViewModel'>
-  <ul class='media-list comments-container' data-bind='css: { comments: hasComments }'>
+  <ul class='media-list comments-container' data-bind='css: { comments: commentsLength() > 0 }'>
     <% if comments.length > 0 %>
       <% comments.each do |comment| %>
         <li class='media comment' id='comment_<%= comment.id %>'>

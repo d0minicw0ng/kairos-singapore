@@ -1,8 +1,8 @@
 function CommentsListViewModel() {
     var self = this;
 
-    self.hasComments = function() {
-        return $('ul.comments-container li.comment').length > 0;
+    self.commentsLength = function() {
+        return $('ul.comments-container li.comment').length;
     }
 }
 
