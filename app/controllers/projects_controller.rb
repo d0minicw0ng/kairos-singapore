@@ -67,6 +67,7 @@ class ProjectsController < ApplicationController
   def get_nested_tag_and_user_ids
     @tag_ids = get_nested_ids(:project_tags, :tag_ids)
     @user_ids = get_nested_ids(:user_projects, :user_ids)
+    @user_ids << current_user.id unless @user_ids.include?(current_user.id)
   end
 
   def create_project_tags_and_user_projects(project, tag_ids, user_ids)
