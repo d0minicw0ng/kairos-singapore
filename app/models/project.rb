@@ -1,6 +1,6 @@
 class Project < ActiveRecord::Base
 
-  validates_presence_of :title, :description, :youtube_video_id
+  validates_presence_of :title, :description
 
   has_many :comments, as: :commentable, dependent: :destroy
 

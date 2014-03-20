@@ -1,47 +1,49 @@
-<div class='container'>
-  <div class='row'>
-    <div id='project-video-controls' data-bind='with: ProjectVideoViewModel'>
-      <span class='volume-on' data-bind='click: unmute'>
-        <i class="fa fa-volume-up fa-3x"></i>
-      </span>
+<% unless @project.youtube_video_id.blank? %>
+  <div class='container'>
+    <div class='row'>
+      <div id='project-video-controls' data-bind='with: ProjectVideoViewModel'>
+        <span class='volume-on' data-bind='click: unmute'>
+          <i class="fa fa-volume-up fa-3x"></i>
+        </span>
 
-      <span class='volume-off' data-bind='click: mute'>
-        <i class="fa fa-volume-off fa-3x"></i>
-      </span>
+        <span class='volume-off' data-bind='click: mute'>
+          <i class="fa fa-volume-off fa-3x"></i>
+        </span>
 
-      <span class='pause' data-bind='click: pause'>
-        <i class="fa fa-pause fa-3x"></i>
-      </span>
+        <span class='pause' data-bind='click: pause'>
+          <i class="fa fa-pause fa-3x"></i>
+        </span>
 
-      <span class='play' data-bind='click: play'>
-        <i class="fa fa-play fa-3x"></i>
-      </span>
-    </div>
-    <% if @project.users.include?(current_user) %>
-      <div class='pull-right' style='margin-top: -40px'>
-        <%= link_to t(:'projects.edit_project'), edit_project_url(@project), class: 'btn btn-info' %>
+        <span class='play' data-bind='click: play'>
+          <i class="fa fa-play fa-3x"></i>
+        </span>
       </div>
-    <% end %>
+      <% if @project.users.include?(current_user) %>
+        <div class='pull-right' style='margin-top: -40px'>
+          <%= link_to t(:'projects.edit_project'), edit_project_url(@project), class: 'btn btn-info' %>
+        </div>
+      <% end %>
+    </div>
   </div>
-</div>
 
-<!-- FIXME: make the content into sections of different color -->
-<div id='project-video'>
-  <a id="bgndVideo"
-    class="player"
-    data-property="{
-      videoURL:'http://youtu.be/<%= @project.youtube_video_id %>',
-      containment: 'body',
-      autoPlay:true,
-      mute:true,
-      loop: true,
-      startAt:0,
-      opacity:1,
-      showControls: false,
-      showYTLogo: false,
-      quality: 'highres'}">
-  </a>
-</div>
+  <!-- FIXME: make the content into sections of different color -->
+  <div id='project-video'>
+    <a id="bgndVideo"
+      class="player"
+      data-property="{
+        videoURL:'http://youtu.be/<%= @project.youtube_video_id %>',
+        containment: 'body',
+        autoPlay:true,
+        mute:true,
+        loop: true,
+        startAt:0,
+        opacity:1,
+        showControls: false,
+        showYTLogo: false,
+        quality: 'highres'}">
+    </a>
+  </div>
+<% end %>
 
 
 <div class='row' id='project-container'>
@@ -99,7 +101,9 @@
 
 <script type='text/javascript'>
     $(document).ready(function() {
-        $('.player').mb_YTPlayer();
+        if ($('.player').length){
+            $('.player').mb_YTPlayer();
+        }
         $('.project-member').tooltip();
         //FIXME: This fixes the problem with the margin between the project content and footer,
         // showing parts of the video. But probably not the best solution?
