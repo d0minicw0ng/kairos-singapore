@@ -1,14 +1,57 @@
-<h3>Hello, <%= @receiver.username %>!</h3>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<!-- If you delete this meta tag, Half Life 3 will never be released. -->
+<meta name="viewport" content="width=device-width" />
 
-<% if @is_creator %>
-  <p>Your <%= @event_type %> has a new comment!</p>
-<% else %>
-  <p>The <%= @event_type %> you have previously commented on has a new comment!</p>
-<% end %>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Kairos Society ASEAN</title>
 
-<p>Click <a href='<%= @comment_url %>'>here</a> to go to the comment</p>
+<link rel="stylesheet" type="text/css" href="email.css" />
 
-<div>
-  <p>Your Sincerely,</p>
-  <p>Kairos Society ASEAN</p>
-</div>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<%= render partial: 'shared_mailer/header' %>
+
+<!-- BODY -->
+<table class="body-wrap">
+  <tr>
+    <td></td>
+    <td class="container" bgcolor="#FFFFFF">
+
+      <div class="content">
+      <table>
+        <tr>
+          <td>
+            <h3>Hello, <%= @receiver.username %>!</h3>
+            <% if @is_creator %>
+              <p class='lead'>Your <%= @event_type %> has a new comment!</p>
+            <% else %>
+              <p class='lead'>The <%= @event_type %> you have previously commented on has a new comment!</p>
+            <% end %>
+
+            <!-- Callout Panel -->
+            <div class="callout">
+              <p>Click <a href='<%= @comment_url %>'>here</a> to go to the comment</p>
+            </div><!-- /Callout Panel -->
+
+            <p>
+              <p>Your Sincerely,</p>
+              <p>Kairos Society ASEAN</p>
+            </p>
+            <%= render partial: 'shared_mailer/social_media' %>
+          </td>
+        </tr>
+      </table>
+      </div><!-- /content -->
+    </td>
+    <td></td>
+  </tr>
+</table><!-- /BODY -->
+
+</body>
+</html>
+
+

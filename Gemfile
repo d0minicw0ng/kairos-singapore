@@ -50,6 +50,8 @@ gem 'knockoutjs-rails'
 gem 'hermitage'
 gem 'sidekiq'
 gem 'unicorn'
+gem 'premailer-rails'
+gem 'nokogiri'
 
 group :development, :test do
   gem 'rspec-rails'

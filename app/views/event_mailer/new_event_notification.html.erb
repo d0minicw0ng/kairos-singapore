@@ -1,47 +1,85 @@
-<p>Hello,<p>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<!-- If you delete this meta tag, Half Life 3 will never be released. -->
+<meta name="viewport" content="width=device-width" />
 
-<p>
-  There is an upcoming Kairos Society event and you definitely don't want to miss out!<br />
-  Register <a href='<%= @event_url %>'>here</a> before the seats run out!
-</p>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Kairos Society ASEAN</title>
 
-<p>
-  <div>Event Details</div>
+<link rel="stylesheet" type="text/css" href="email.css" />
 
-  <br />
+</head>
 
-  <div>
-    <div><%= t(:'events.name') %></div>
-    <div><%= @event.name %></div>
-  </div>
+<body bgcolor="#FFFFFF">
 
-  <br />
+<%= render partial: 'shared_mailer/header' %>
 
-  <div>
-    <div><%= t(:'events.description') %></div>
-    <div><%= @event.description.html_safe %></div>
-  </div>
+<!-- BODY -->
+<table class="body-wrap">
+  <tr>
+    <td></td>
+    <td class="container" bgcolor="#FFFFFF">
 
-  <br />
+      <div class="content">
+      <table>
+        <tr>
+          <td>
+            <h3>Hello,</h3>
+            <p class="lead">
+              There is an upcoming Kairos Society event and you definitely don't want to miss out!<br />
+              Register <a href='<%= @event_url %>'>here</a> before the seats run out!
+            </p>
 
-  <div>
-    <div><%= t(:'events.location') %></div>
-    <div><%= @event.venue_name %></div>
-    <address>
-      <% Event::ADDRESS_COMPONENTS.each do |component| %>
-        <% if @event.send(component) %>
-          <div><%= @event.send(component) %></div>
-        <% end %>
-      <% end %>
-    </address>
-  </div>
+            <!-- Callout Panel -->
+            <div class="callout">
+              <p>Event Details</p>
 
-  <br />
-</p>
+              <br />
 
-<div>
-  <p>Your Sincerely,</p>
-  <p>Kairos Society ASEAN</p>
-</div>
+              <p>
+                <p><%= t(:'events.name') %></p>
+                <p><%= @event.name %></p>
+              </p>
 
+              <br />
+
+              <p>
+                <p><%= t(:'events.description') %></p>
+                <p><%= @event.description.html_safe %></p>
+              </p>
+
+              <br />
+
+              <p>
+                <p><%= t(:'events.location') %></p>
+                <p><%= @event.venue_name %></p>
+                <address>
+                  <% Event::ADDRESS_COMPONENTS.each do |component| %>
+                    <% if @event.send(component) %>
+                      <p><%= @event.send(component) %></p>
+                    <% end %>
+                  <% end %>
+                </address>
+              </p>
+
+              <br />
+            </div><!-- /Callout Panel -->
+
+            <p>
+              <p>Your Sincerely,</p>
+              <p>Kairos Society ASEAN</p>
+            </p>
+            <%= render partial: 'shared_mailer/social_media' %>
+          </td>
+        </tr>
+      </table>
+      </div><!-- /content -->
+    </td>
+    <td></td>
+  </tr>
+</table><!-- /BODY -->
+
+</body>
+</html>
 
