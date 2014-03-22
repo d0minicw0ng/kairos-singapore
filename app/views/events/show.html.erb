@@ -37,7 +37,7 @@
       <div id='select-project-form'>
         <%= select_tag 'Projects', options_from_collection_for_select(current_user.projects, 'id', 'title'), id: 'project-event-select' %>
         <%= link_to t(:'register.choose_project'),
-          '#', 
+          '#',
           class: 'btn btn-success project-register-event-final',
           data: {'event-id' => @event.id} %>
       </div>

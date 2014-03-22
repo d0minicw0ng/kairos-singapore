@@ -1,0 +1,47 @@
+<p>Hello,<p>
+
+<p>
+  There is an upcoming Kairos Society event and you definitely don't want to miss out!<br />
+  Register <a href='<%= @event_url %>'>here</a> before the seats run out!
+</p>
+
+<p>
+  <div>Event Details</div>
+
+  <br />
+
+  <div>
+    <div><%= t(:'events.name') %></div>
+    <div><%= @event.name %></div>
+  </div>
+
+  <br />
+
+  <div>
+    <div><%= t(:'events.description') %></div>
+    <div><%= @event.description.html_safe %></div>
+  </div>
+
+  <br />
+
+  <div>
+    <div><%= t(:'events.location') %></div>
+    <div><%= @event.venue_name %></div>
+    <address>
+      <% Event::ADDRESS_COMPONENTS.each do |component| %>
+        <% if @event.send(component) %>
+          <div><%= @event.send(component) %></div>
+        <% end %>
+      <% end %>
+    </address>
+  </div>
+
+  <br />
+</p>
+
+<div>
+  <p>Your Sincerely,</p>
+  <p>Kairos Society ASEAN</p>
+</div>
+
+

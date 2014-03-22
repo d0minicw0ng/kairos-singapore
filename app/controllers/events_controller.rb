@@ -11,6 +11,7 @@ class EventsController < ApplicationController
     @event = current_user.events.build(event_params)
 
     if @event.save
+      EmailWorker.perform_async('EventMailer', :new_event_notification, {event_id: @event.id, host_with_port: request.host_with_port})
       redirect_to event_url(@event)
     else
       render :new
