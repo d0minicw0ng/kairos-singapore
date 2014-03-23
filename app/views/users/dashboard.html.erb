@@ -63,7 +63,7 @@
                   </div>
                   <div class='col-md-7' style='margin-top:15px;'>
                     <span>
-                      <%= truncate("#{user.job_title} #{t(:'common.at')} #{user.company}", length: 35) %>
+                      <%= user.company %>
                       <span class='label label-success'><%= user.member_type %></span>
                     </span>
                   </div>
