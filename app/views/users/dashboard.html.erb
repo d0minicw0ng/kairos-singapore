@@ -54,15 +54,21 @@
           <ul id='dashboard-users'>
             <% @users.each do |user| %>
               <li>
-                <%= link_to user_url(user), style: 'font-size: 13px;' do %>
-                  <%= image_tag user.avatar.url(:thumb), class: 'small-img' %>
-                  <%= user.first_name && user.last_name ?
-                    truncate("#{user.first_name} #{user.last_name}", length: 15) : truncate(user.username, length: 15) %>
-                  <span style='margin-left: 30px;'>
-                    <%= truncate("#{user.job_title} #{t(:'common.at')} #{user.company}", length: 45) %>
-                    <span class='label label-success'><%= user.member_type %></span>
-                  </span>
-                <% end %>
+                <div class='row'>
+                  <div class='col-md-5'>
+                    <%= link_to user_url(user), style: 'font-size: 13px;' do %>
+                      <%= image_tag user.avatar.url(:thumb), class: 'small-img' %>
+                      <%= user.first_name && user.last_name ?
+                        truncate("#{user.first_name} #{user.last_name}", length: 15) : truncate(user.username, length: 15) %>
+                  </div>
+                  <div class='col-md-7' style='margin-top:15px;'>
+                    <span>
+                      <%= truncate("#{user.job_title} #{t(:'common.at')} #{user.company}", length: 35) %>
+                      <span class='label label-success'><%= user.member_type %></span>
+                    </span>
+                  </div>
+                  <% end %>
+                </div>
               </li>
               <br />
             <% end %>
