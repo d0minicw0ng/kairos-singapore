@@ -62,7 +62,7 @@ class EventsController < ApplicationController
 
   # Probably should be in Application Controller or another file.
   def verify_committee
-    unless current_user.try(:member_type) != 'committee'
+    unless current_user.try(:member_type) == 'committee'
       flash[:alert] = t(:'common.no_right')
       redirect_to root_url
     end
