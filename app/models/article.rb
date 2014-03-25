@@ -2,8 +2,6 @@ class Article < ActiveRecord::Base
   validates_presence_of :title, :body, :user_id
   belongs_to :user
   has_many :comments, as: :commentable, dependent: :destroy
-  has_many :article_tags, dependent: :destroy
-  has_many :tags, through: :article_tags
 
   has_many :images, as: :imageable, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true

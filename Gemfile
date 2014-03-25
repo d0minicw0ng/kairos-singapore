@@ -52,6 +52,7 @@ gem 'sidekiq'
 gem 'unicorn'
 gem 'premailer-rails'
 gem 'nokogiri'
+gem 'acts-as-taggable-on'
 
 group :development, :test do
   gem 'rspec-rails'

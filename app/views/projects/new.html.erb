@@ -25,13 +25,8 @@
           <%= render partial: 'images/nested_form', locals: {f: f} %>
 
           <%= content_tag :div, class: 'form-group' do %>
-            <%= f.label :project_tags, t(:'projects.tags') %><br />
-            <%= f.fields_for :project_tags do |pt| %>
-              <%= pt.select 'tag_ids',
-                @tags.collect { |t| [t.name, t.id] },
-                {},
-                { multiple: true, id: 'project-tag' } %>
-            <% end %>
+            <%= f.label :tag_list, t(:'projects.tags') %><br />
+            <%= f.select :tag_list, options_for_select(@tags), {}, {multiple: true, id: 'project-tag' } %>
           <% end %>
 
           <%= content_tag :div, class: 'form-group' do %>

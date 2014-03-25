@@ -22,14 +22,13 @@
             <%= f.text_field :youtube_video_id, class: 'form-control' %>
           <% end %>
 
+          <!-- FIXME: There is a bug that causes selected not selecting anything, need to investigate asap-->
           <%= content_tag :div, class: 'form-group' do %>
-            <%= f.label :project_tags, t(:'projects.tags') %><br />
-            <%= f.fields_for :project_tags do |pt| %>
-              <%= pt.select 'tag_ids',
-                @tags.collect { |t| [t.name, t.id] },
-                { selected: @project.tags.map(&:id) },
-                { multiple: true, id: 'project-tag' } %>
-            <% end %>
+            <%= f.label :tag_list, t(:'projects.tags') %><br />
+            <%= f.select :tag_list,
+              options_for_select(@tags),
+              {selected: @project.tags},
+              {multiple: true, id: 'project-tag'} %>
           <% end %>
 
           <%= content_tag :div, class: 'form-group' do %>

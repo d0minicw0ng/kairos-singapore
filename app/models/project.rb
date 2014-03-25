@@ -4,9 +4,6 @@ class Project < ActiveRecord::Base
 
   has_many :comments, as: :commentable, dependent: :destroy
 
-  has_many :project_tags, dependent: :destroy, inverse_of: :project
-  has_many :tags, through: :project_tags
-
   has_many :images, as: :imageable, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true
 
@@ -19,4 +16,6 @@ class Project < ActiveRecord::Base
 
   extend FriendlyId
   friendly_id :title, use: :slugged
+
+  acts_as_taggable
 end
