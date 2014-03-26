@@ -26,7 +26,10 @@
 
           <%= content_tag :div, class: 'form-group' do %>
             <%= f.label :tag_list, t(:'projects.tags') %><br />
-            <%= f.select :tag_list, options_for_select(@tags), {}, {multiple: true, id: 'project-tag' } %>
+            <%= f.select :tag_list,
+              @tags,
+              {},
+              {multiple: true, id: 'project-tag'} %>
           <% end %>
 
           <%= content_tag :div, class: 'form-group' do %>
