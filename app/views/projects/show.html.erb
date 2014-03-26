@@ -1,6 +1,6 @@
-<% unless @project.youtube_video_id.blank? %>
-  <div class='container'>
-    <div class='row'>
+<div class='container'>
+  <div class='row'>
+    <% unless @project.youtube_video_id.blank? %>
       <div id='project-video-controls' data-bind='with: ProjectVideoViewModel'>
         <span class='volume-on' data-bind='click: unmute'>
           <i class="fa fa-volume-up fa-3x"></i>
@@ -18,14 +18,16 @@
           <i class="fa fa-play fa-3x"></i>
         </span>
       </div>
-      <% if @project.users.include?(current_user) %>
-        <div class='pull-right' style='margin-top: -40px'>
-          <%= link_to t(:'projects.edit_project'), edit_project_url(@project), class: 'btn btn-info' %>
-        </div>
-      <% end %>
-    </div>
+    <% end %>
+    <% if @project.users.include?(current_user) %>
+      <div class='pull-right' id='edit-project' style='margin-top: -40px'>
+        <%= link_to t(:'projects.edit_project'), edit_project_url(@project), class: 'btn btn-info' %>
+      </div>
+    <% end %>
   </div>
+</div>
 
+<% unless @project.youtube_video_id.blank? %>
   <!-- FIXME: make the content into sections of different color -->
   <div id='project-video'>
     <a id="bgndVideo"
@@ -44,7 +46,6 @@
     </a>
   </div>
 <% end %>
-
 
 <div class='row' id='project-container'>
   <div class='page-header'>
@@ -92,9 +93,6 @@
     </div>
   <% end %>
 
-
-
-
   <%= render partial: 'comments/comments', object: @project.comments %>
   <%= render partial: 'comments/new', locals: { parent: @project } %>
 </div>
@@ -108,5 +106,10 @@
         //FIXME: This fixes the problem with the margin between the project content and footer,
         // showing parts of the video. But probably not the best solution?
         $('div#footer').css('margin-top', '0px');
+        //FIXME: Another sloppy line of code to quickfix the alignment of edit project button,
+        //Is it too trivial to have its own ViewModel to determine the visibility of a specific CSS class?
+        if ($('#project-video-controls').length == 0){
+            $('#edit-project').css('margin-top', '0px');
+        }
     });
 </script>
