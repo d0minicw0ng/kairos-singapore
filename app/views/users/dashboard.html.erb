@@ -1,7 +1,8 @@
 <div class='container'>
   <h1>
     <%= t(:'users.dashboard') %>
-    <%= link_to t(:'projects.add_your_startup'), new_project_url, class: 'pull-right btn btn-info' %>
+    <%= link_to t(:'projects.add_your_startup'), new_project_url, class: 'pull-right btn btn-info', style: 'margin-left: 10px' %>
+    <%= link_to t(:'articles.write_an_article'), new_article_url, class: 'pull-right btn btn-success' %>
   </h1>
   <div class='row'>
     <div class='col-md-7'>
@@ -33,7 +34,6 @@
         <div class='panel-heading'>
           <h3 class='panel-title'>
             <%= t(:'articles.articles') %>
-            <%= link_to t(:'articles.write_an_article'), new_article_url, class: 'pull-right' %>
           </h3>
         </div>
         <div class='panel-body tab-content-container-fixed'>
