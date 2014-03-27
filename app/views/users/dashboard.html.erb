@@ -1,5 +1,8 @@
 <div class='container'>
-  <h1><%= t(:'users.dashboard') %></h1>
+  <h1>
+    <%= t(:'users.dashboard') %>
+    <%= link_to t(:'projects.add_your_startup'), new_project_url, class: 'pull-right btn btn-info' %>
+  </h1>
   <div class='row'>
     <div class='col-md-7'>
       <div class="panel panel-info">
