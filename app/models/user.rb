@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
     'venture_capital_and_private_equity'  => 'Venture Capital and Private Equity',
     'management_consulting'               => 'Management Consulting',
     'government_administration'           => 'Government Administration',
-    'biomedical_sciences'                 => 'Biomedical Science',
+    'biomedical_sciences'                 => 'Biomedical Sciences',
     'medical_devices'                     => 'Medical Devices',
     'education'                           => 'Education',
     'professional_training_and_coaching'  => 'Professional Training and Coaching',
