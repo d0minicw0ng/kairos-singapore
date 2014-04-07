@@ -14,7 +14,7 @@
           <ul id='dashboard-events'>
             <% @events.each do |event| %>
               <li>
-                <%= link_to event_url(event) do %>
+                <%= link_to event_url(event), style: 'font-size: 18px;' do %>
                   <%= event.name %>
                   <span class='pull-right'>
                     <%= event.starts_at.to_date.to_formatted_s(:long) %>
@@ -24,6 +24,7 @@
                 <% end %>
                 <%= event.description.html_safe %>
               </li>
+              <hr class='featurette'>
             <% end %>
           </ul>
         </div>
