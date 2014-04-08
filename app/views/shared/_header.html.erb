@@ -21,7 +21,7 @@
         <% end %>
         <li><%= link_to t(:'common.about'), about_url %></li>
         <li><%= link_to t(:'common.fellows'), fellows_url %></li>
-        <% if current_user.admin %>
+        <% if current_user.try(:admin) %>
           <li><%= link_to 'Unapproved Users', unapproved_users_url %></li>
         <% end %>
         <!--<li><%#= link_to t(:'common.news'), '#' %></li>-->
