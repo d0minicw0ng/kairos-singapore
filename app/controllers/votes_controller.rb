@@ -1,6 +1,6 @@
 class VotesController < ApplicationController
 
-  before_filter :authenticate_user!
+  before_filter :authenticate_approved_current_user
 
   def create
     params[:vote][:project_event_registration_id] = get_registration_id_from_project_and_event_id

@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
 
-  before_filter :authenticate_user!
+  before_filter :authenticate_approved_current_user 
   before_action :get_user_ids, only: [:create, :update]
   before_action :get_all_tags_and_users, only: [:new, :edit]
 

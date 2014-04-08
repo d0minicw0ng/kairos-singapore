@@ -18,7 +18,10 @@ Kairos::Application.routes.draw do
     resources :comments
   end
 
-  devise_for :users, controllers: {registrations: 'users/registrations'}
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+    sessions: 'users/sessions'
+  }
   resources :users, only: [:show, :edit, :update]
   get '/dashboard', to: 'users#dashboard', as: :user_root
 

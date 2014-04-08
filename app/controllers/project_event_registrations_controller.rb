@@ -1,6 +1,6 @@
 class ProjectEventRegistrationsController < ApplicationController
 
-  before_filter :authenticate_user!
+  before_filter :authenticate_approved_current_user
 
   def create
     @registration = ProjectEventRegistration.create(project_event_registration_params)

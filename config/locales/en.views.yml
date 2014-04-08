@@ -17,6 +17,7 @@ en:
     no_number: Oops. Looks like these guys don't want to be called when they are coding.
     at: at
     no_right: Sorry! You do not have the right to visit this page.
+    not_yet_approved: Sorry! Your membership has not yet been approved.
   about_us:
     leadership_team: Leadership Team
     president: President
@@ -79,6 +80,7 @@ en:
     profile_picture: Profile Picture
     edit_profile: Edit Your Profile
     change_your_password: Change Your Password
+    member_request_submitted: Your member request has been submitted. We will let you know when your membership is approved.
   register:
     individual: Register as an Individual
     project: Register for Your Startup

@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
 
-  before_filter :authenticate_user!
+  before_filter :authenticate_approved_current_user
 
   def create
     @commentable = find_commentable

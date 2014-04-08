@@ -1,7 +1,6 @@
 class Users::RegistrationsController < Devise::RegistrationsController
 
   prepend_before_filter :require_no_authentication, only: [:cancel]
-  before_filter :verify_admin, only: [:new, :create]
   before_filter :update_sanitized_params, if: :devise_controller?
 
   def create
@@ -19,9 +18,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
       EmailWorker.perform_async('ContactUsMailer', :new_user_one_time_password, {email: resource.email, password: password})
       yield resource if block_given?
       if resource.active_for_authentication?
-        set_flash_message :notice, :signed_up if is_flashing_format?
         sign_up(resource_name, resource)
-        respond_with resource, location: after_sign_up_path_for(resource)
+        #NOTE: Hacky way to sign user out after signing up. Do not want to spend
+        #too much time in devise documentation.
+        Devise.sign_out_all_scopes ? sign_out : sign_out(resource_name)
+
+        flash[:notice] = t(:'users.member_request_submitted')
+        redirect_to root_url
       else
         set_flash_message :notice, :"signed_up_but_#{resource.inactive_message}" if is_flashing_format?
         expire_data_after_sign_in!
@@ -34,14 +37,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   private
-
-  # NOTE: This is probably a common method among different controller
-  def verify_admin
-    unless current_user.try(:admin)
-      flash[:alert] = t(:'common.no_right')
-      redirect_to root_url
-    end
-  end
 
   def update_sanitized_params
     devise_parameter_sanitizer.for(:sign_up) do |u|

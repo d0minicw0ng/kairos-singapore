@@ -1,6 +1,6 @@
 class UserProjectController < ApplicationController
 
-  before_filter :authenticate_user!
+  before_filter :authenticate_approved_current_user
 
   def create
     @user_project = UserProject.create(user_project_params)

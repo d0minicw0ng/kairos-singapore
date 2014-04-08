@@ -1,6 +1,6 @@
 class UserEventRegistrationsController < ApplicationController
 
-  before_filter :authenticate_user!
+  before_filter :authenticate_approved_current_user
 
   def create
     @registration = UserEventRegistration.create(user_event_registration_params)
