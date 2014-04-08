@@ -41,6 +41,7 @@ class User < ActiveRecord::Base
   validates :member_type, inclusion: %w(mentor innovator committee)
   validates_presence_of :company, :job_title, :biography, :username, :first_name, :last_name
 
+  scope :approved, -> {where('approved = ?', true)}
 
   has_attached_file :avatar,
     styles: {
