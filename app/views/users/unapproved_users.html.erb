@@ -1,0 +1,44 @@
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-12'>
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          <h3 class="panel-title">Unapproved Users</h3>
+        </div>
+        <div class="panel-body tab-content-container-fixed">
+          <ul id='dashboard-users'>
+            <% @users.each do |user| %>
+              <li>
+                <div class='row'>
+                  <div class='col-md-5'>
+                    <%= link_to user_url(user), style: 'font-size: 13px;' do %>
+                      <%= image_tag user.avatar.url(:thumb), class: 'small-img' %>
+                      <%= user.first_name && user.last_name ?
+                        truncate("#{user.first_name} #{user.last_name}", length: 15) : truncate(user.username, length: 15) %>
+                  </div>
+                  <div class='col-md-7' style='margin-top:15px;'>
+                    <span><%= user.company %></span>
+                    <%= link_to 'Approve User', approve_user_url(user.id), class: 'btn btn-success', method: :put, remote: true %>
+                  </div>
+                  <% end %>
+                </div>
+              </li>
+              <br />
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type='text/javascript'>
+    $("a[data-remote]").on("ajax:success", function(e, data, status, xhr){
+        var message = HandlebarsTemplates['alerts/success']({
+          message: 'This user has been approved'
+        });
+        $('#notification').append(message);
+        clearNotification();
+        $(this).parents('li').remove();
+    });
+</script>

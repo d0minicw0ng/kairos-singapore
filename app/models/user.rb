@@ -42,6 +42,7 @@ class User < ActiveRecord::Base
   validates_presence_of :company, :job_title, :biography, :username, :first_name, :last_name
 
   scope :approved, -> {where('approved = ?', true)}
+  scope :unapproved, -> {where('approved = ?', false)}
 
   has_attached_file :avatar,
     styles: {

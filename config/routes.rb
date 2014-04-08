@@ -24,6 +24,8 @@ Kairos::Application.routes.draw do
   }
   resources :users, only: [:show, :edit, :update]
   get '/dashboard', to: 'users#dashboard', as: :user_root
+  put '/user/:id/approve', to: 'users#approve', as: :approve_user
+  get '/unapproved_users', to: 'users#unapproved_users', as: :unapproved_users
 
   resources :events, except: [:destroy] do
     resources :comments

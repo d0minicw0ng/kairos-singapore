@@ -25,6 +25,18 @@ class UsersController < ApplicationController
     end
   end
 
+  #NOTE: unapproved_users and approve should be in admin controller, but I really have no time to do this now.
+  def unapproved_users
+    @users = User.unapproved
+  end
+
+  def approve
+    user = User.find(params[:id])
+    user.update_attributes(approved: true)
+    EmailWorker.perform_async('ContactUsMailer', :user_approved, {email: user.email, name: user.first_name})
+    render json: {}, status: :ok
+  end
+
   def dashboard
     @events = Event.registerable.order('starts_at DESC')
     @users = User.approved
