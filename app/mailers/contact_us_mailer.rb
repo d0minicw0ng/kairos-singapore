@@ -5,10 +5,4 @@ class ContactUsMailer < ActionMailer::Base
     @message = data['message']
     mail(to: ['dominic.wong.617@gmail.com', 'sjm1988@hotmail.com'], subject: data['subject'])
   end
-
-  def new_user_one_time_password(data)
-    @email = data['email']
-    @password = data['password']
-    mail(to: ['dominic.wong.617@gmail.com', 'sjm1988@hotmail.com'], subject: 'New User with one time password')
-  end
 end

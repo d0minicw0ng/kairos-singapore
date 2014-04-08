@@ -9,13 +9,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     build_resource(sign_up_params)
     industries.each {|industry| resource.send("#{industry}=", true)}
 
-    # Generate password token (with all these codes I probably need a service)
-    password = Devise.friendly_token.first(20)
-    resource.password = password
-    resource.password_confirmation = password
-
     if resource.save
-      EmailWorker.perform_async('ContactUsMailer', :new_user_one_time_password, {email: resource.email, password: password})
       yield resource if block_given?
       if resource.active_for_authentication?
         sign_up(resource_name, resource)

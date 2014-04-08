@@ -27,6 +27,16 @@
         <% end %>
 
         <%= content_tag :div, class: 'form-group' do %>
+          <%= f.label :password %><br />
+          <%= f.password_field :password, autocomplete: 'off', class: 'form-control' %>
+        <% end %>
+
+        <%= content_tag :div, class: 'form-group' do %>
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control' %>
+        <% end %>
+
+        <%= content_tag :div, class: 'form-group' do %>
           <%= f.label :member_type %><br />
           <%= f.select :member_type, options_for_select(%w{mentor innovator committee}, 'innovator'), class: 'member-type' %>
         <% end %>
