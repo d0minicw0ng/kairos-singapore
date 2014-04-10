@@ -5,7 +5,7 @@ class EventMailer < ActionMailer::Base
     @event = Event.find(data['event_id'])
     @event_url = event_url(data['host_with_port'], data['event_id'])
     receivers = User.all.map(&:email)
-    mail(to: receivers, subject: "New Kairos Event - #{@event.name}")
+    mail(to: receivers, subject: "New Announcement - #{@event.name}")
   end
 
   private
