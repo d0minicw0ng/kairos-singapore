@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   before_filter :authenticate_approved_current_user
+  before_filter :authenticate_admin, only: [:unapproved_users]
 
   def show
     @user = User.includes([{articles: :comments}, :projects]).friendly.find(params[:id])

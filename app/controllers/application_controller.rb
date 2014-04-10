@@ -12,4 +12,11 @@ class ApplicationController < ActionController::Base
       redirect_to root_url
     end
   end
+
+  def authenticate_admin
+    if !current_user.try(:admin)
+      flash[:error] = t(:'common.no_right')
+      redirect_to root_url
+    end
+  end
 end
