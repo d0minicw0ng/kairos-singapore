@@ -32,24 +32,8 @@
 
             <!-- Callout Panel -->
             <div class="callout">
-              <p>Event Details</p>
-
-              <br />
-
-              <p>
-                <p><%= t(:'events.name') %></p>
-                <p><%= @event.name %></p>
-              </p>
-
-              <br />
-
-              <p>
-                <p><%= t(:'events.description') %></p>
-                <p><%= @event.description.html_safe %></p>
-              </p>
-
-              <br />
-
+              <p><%= @event.name %></p> <br />
+              <p><%= @event.description.html_safe %></p> <br />
               <p>
                 <p><%= t(:'events.location') %></p>
                 <p><%= @event.venue_name %></p>
@@ -60,9 +44,7 @@
                     <% end %>
                   <% end %>
                 </address>
-              </p>
-
-              <br />
+              </p><br />
             </div><!-- /Callout Panel -->
 
             <p>
