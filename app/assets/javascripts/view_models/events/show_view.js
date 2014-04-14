@@ -108,20 +108,30 @@ function ProjectRegisterEventViewModel() {
 
 function EventMapViewModel(latitude, longitude) {
     handler = Gmaps.build('Google');
-    handler.buildMap({ provider: {}, internal: {id: 'event-map'}}, function(){
-        markers = handler.addMarkers([
-            {
-                "lat": $('#event-map').data('latitude'),
-                "lng": $('#event-map').data('longitude'),
-                "picture": {
-                    "url": "https://addons.cdn.mozilla.net/img/uploads/addon_icons/13/13028-64.png",
-                    "width":  36,
-                    "height": 36
-                },
-                "infowindow":'hello'
-            }
-        ]);
-        handler.bounds.extendWith(markers);
-        handler.fitMapToBounds();
-    });
+
+    var lat, lng;
+    lat = $('#event-map').data('latitude');
+    lng = $('#event-map').data('longitude');
+
+    if (lat && lng) {
+        handler.buildMap({ provider: {}, internal: {id: 'event-map'}}, function(){
+            markers = handler.addMarkers([
+                {
+                    "lat": lat,
+                    "lng": lng,
+                    "picture": {
+                        "url": "https://addons.cdn.mozilla.net/img/uploads/addon_icons/13/13028-64.png",
+                        "width":  36,
+                        "height": 36
+                    },
+                    "infowindow":'hello'
+                }
+            ]);
+            handler.bounds.extendWith(markers);
+            handler.fitMapToBounds();
+        });
+    } else {
+        //FIXME: kinda shady, but it works for now.
+        $('#event-map').css('height', '100px');
+    }
 }
