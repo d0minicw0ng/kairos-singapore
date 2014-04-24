@@ -54,9 +54,10 @@ class User < ActiveRecord::Base
   validates_attachment :avatar,
     presence: true,
     content_type: {
-      content_type: ['image/png', 'image/jpg', 'image/jpeg']
+      content_type: ['image/png', 'image/jpg', 'image/jpeg'],
+      message: 'must be of .png, .jpg, or .jpeg format.'
     },
-    size: { in: 0..2.megabytes, message: 'Your profile picture must be smaller than 2 megabytes.' }
+    size: { in: 0..2.megabytes, message: 'must be smaller than 2 megabytes.' }
 
   def thumb_url
     avatar.url(:thumb)
