@@ -42,7 +42,6 @@ gem 'tinymce-rails' # WYSIWYG editor
 gem 'select2-rails'
 gem 'friendly_id', '5.0.0.rc2'
 gem 'rails_12factor', group: :production # Logging and static assets config
-gem 'debugger'
 gem 'gmaps4rails'
 gem 'geocoder'
 gem 'font-awesome-rails'
@@ -53,6 +52,10 @@ gem 'unicorn'
 gem 'premailer-rails'
 gem 'nokogiri'
 gem 'acts-as-taggable-on'
+
+group :development do
+  gem 'debugger'
+end
 
 group :development, :test do
   gem 'rspec-rails'
