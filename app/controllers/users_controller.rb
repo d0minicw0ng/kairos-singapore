@@ -61,6 +61,7 @@ class UsersController < ApplicationController
       :job_title,
       :linkedin_url,
       :biography,
+      :country_id,
       :avatar)
   end
 end
