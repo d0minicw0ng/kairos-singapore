@@ -90,6 +90,13 @@ GEM
       activerecord (~> 4.0.0)
     geocoder (1.1.9)
     gmaps4rails (2.1.2)
+    haml (4.0.5)
+      tilt
+    haml-rails (0.5.1)
+      actionpack (~> 4.0.0)
+      activesupport (~> 4.0.0)
+      haml (>= 3.1, < 5.0)
+      railties (~> 4.0.0)
     handlebars_assets (0.15)
       execjs (>= 1.2.9)
       multi_json
@@ -225,6 +232,7 @@ DEPENDENCIES
   friendly_id (= 5.0.0.rc2)
   geocoder
   gmaps4rails
+  haml-rails
   handlebars_assets
   hermitage
   jquery-rails

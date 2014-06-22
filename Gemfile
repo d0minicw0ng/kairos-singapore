@@ -52,6 +52,7 @@ gem 'unicorn'
 gem 'premailer-rails'
 gem 'nokogiri'
 gem 'acts-as-taggable-on'
+gem 'haml-rails'
 
 group :development do
   gem 'debugger'
