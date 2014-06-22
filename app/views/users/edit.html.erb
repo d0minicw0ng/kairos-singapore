@@ -32,6 +32,11 @@
         <% end %>
 
         <%= content_tag :div, class: 'form-group' do %>
+          <%= f.label :linkedin_url %><br />
+          <%= f.text_field :linkedin_url, class: 'form-control' %>
+        <% end %>
+
+        <%= content_tag :div, class: 'form-group' do %>
           <%= f.label :biography %>
           <%= f.text_area :biography, class: 'form-control tinymce tinymce-text-area' %>
         <% end %>
