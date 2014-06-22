@@ -81,6 +81,9 @@ class User < ActiveRecord::Base
 
   belongs_to :country
 
+  belongs_to :referrer, class_name: 'User', foreign_key: 'referred_by_id'
+  has_many :referred_members, class_name: 'User', foreign_key: 'referred_by_id'
+
   def registered_for_event?(event)
     user_event_registrations.map(&:event_id).include?(event.id)
   end
@@ -90,4 +93,7 @@ class User < ActiveRecord::Base
     Vote.where(project_event_registration_id: registration.id, user_id: id).count != 0
   end
 
+  def name
+    "#{first_name} #{last_name}"
+  end
 end

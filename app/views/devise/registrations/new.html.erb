@@ -78,6 +78,14 @@
         <% end %>
 
         <%= content_tag :div, class: 'form-group' do %>
+          <%= f.label :referred_by_id, 'Referrer' %>
+          <%= f.select :referred_by_id,
+            User.all.collect {|u| [u.name, u.id] },
+            {},
+            { id: 'user-referred-by' } %>
+        <% end %>
+
+        <%= content_tag :div, class: 'form-group' do %>
           <%= f.label :avatar, t(:'users.profile_picture') %>
           <%= f.file_field :avatar %>
         <% end %>

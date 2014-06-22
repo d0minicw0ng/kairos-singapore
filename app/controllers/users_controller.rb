@@ -62,6 +62,7 @@ class UsersController < ApplicationController
       :linkedin_url,
       :biography,
       :country_id,
+      :referred_by_id,
       :avatar)
   end
 end
