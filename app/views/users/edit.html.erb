@@ -6,7 +6,7 @@
       <%= form_for @user, html: { role: 'form', multipart: true } do |f| %>
         <%= render partial: 'shared/errors', locals: {object: @user} %>
 
-        <%= render partial: 'form', locals: {f: f} %>
+        <%= render partial: 'form', locals: {f: f, edit: true} %>
 
         <div>
           <%= f.submit t(:'common.save'), class: 'btn btn-success' %>
