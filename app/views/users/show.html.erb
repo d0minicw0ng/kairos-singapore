@@ -15,6 +15,13 @@
       <h2 class="media-heading"><%= @user.first_name %> <%= @user.last_name %></h2>
       <h4><%= @user.job_title %> at <%= @user.company %></h4>
       <h4><%= @user.email %></h4>
+      <% if @user.linkedin_url %>
+        <h4><i class="fa fa-linkedin-square"></i> <a href="<%= @user.linkedin_url %>" target='_blank'>Linkedin Profile</a></h4>
+      <% end %>
+      <h4><%= @user.country.try(:name) %></h4>
+      <% if @user.referrer %>
+        <h4>Referred By <%= "#{@user.referrer.first_name} #{@user.referrer.last_name}" %></h4>
+      <% end %>
       <hr style="margin:8px auto">
 
       <div id='user-labels'>
