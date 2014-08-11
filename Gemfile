@@ -52,7 +52,7 @@ gem 'acts-as-taggable-on'
 gem 'haml-rails'
 
 group :development do
-  # gem 'debugger'
+  gem 'byebug'
 end
 
 group :development, :test do
