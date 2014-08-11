@@ -1,5 +1,9 @@
 Kairos::Application.routes.draw do
 
+  namespace :api do
+    get '/users', to: 'users#index'
+    get '/tags/skills', to: 'tags#skills'
+  end
 
   # Static Pages
   get '/about', to: 'statics#about', as: 'about'
@@ -26,6 +30,7 @@ Kairos::Application.routes.draw do
   get '/dashboard', to: 'users#dashboard', as: :user_root
   put '/user/:id/approve', to: 'users#approve', as: :approve_user
   get '/unapproved_users', to: 'users#unapproved_users', as: :unapproved_users
+  get '/search_users', to: 'users#search', as: :users_search
 
   resources :events, except: [:destroy] do
     resources :comments

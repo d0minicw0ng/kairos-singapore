@@ -1,0 +1,13 @@
+.container
+  .row
+    .col-md-12
+      .panel.panel-success
+        .panel-heading
+          %h3.panel-title Search
+        .panel-body.tab-content-container-fixed(data-bind="with: UserSearchViewModel")
+          %ul#dashboard-users
+
+:javascript
+  $(document).ready(function() {
+      ko.applyBindings();
+  });

@@ -52,7 +52,10 @@
     <div class='col-md-7'>
       <div class="panel panel-success">
         <div class="panel-heading">
-          <h3 class="panel-title"><%= t(:'users.community') %></h3>
+          <h3 class="panel-title">
+            <%= t(:'users.community') %>
+            <%= link_to t(:'users.advanced_search'), users_search_url, class: 'pull-right' %>
+          </h3>
         </div>
         <div class="panel-body tab-content-container-fixed">
           <ul id='dashboard-users'>
