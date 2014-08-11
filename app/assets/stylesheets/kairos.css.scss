@@ -58,11 +58,13 @@
   margin-left: 10px;
 }
 
-.project-register-event, .project-unregister-event {
+.project-register-event,
+.project-unregister-event {
   width: 215px;
 }
 
-.user-register-event, .user-unregister-event {
+.user-register-event,
+.user-unregister-event {
   width: 190px;
 }
 
@@ -103,7 +105,10 @@
   font-size: 20px !important;
 }
 
-.volume-on, .volume-off, .play, .pause {
+.volume-on,
+.volume-off,
+.play,
+.pause {
   margin-right: 20px;
   color: #FFFFFF;
 }
@@ -153,7 +158,9 @@ ul.comments {
   }
 }
 
-#user-profile, .tab-content-container, .tab-content-container-fixed {
+#user-profile,
+.tab-content-container,
+.tab-content-container-fixed {
   max-width: 750px;
 }
 
@@ -161,7 +168,8 @@ ul.comments {
   max-width: 700px;
 }
 
-.tab-content-container, .tab-content-container-fixed {
+.tab-content-container,
+.tab-content-container-fixed {
   background-color: #FFFFFF;
   padding: 20px;
   max-height: 500px;
@@ -197,7 +205,10 @@ ul#user-projects {
   margin-right: 10px;
 }
 
-ul#dashboard-users, ul#dashboard-events, ul#user-articles, ul#user-projects {
+ul#dashboard-users,
+ul#dashboard-events,
+ul#user-articles,
+ul#user-projects {
   li a:hover {
     text-decoration: none;
   }
