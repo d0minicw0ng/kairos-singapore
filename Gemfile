@@ -1,8 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.0.0'
-
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
+ruby '2.1.2'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -29,7 +26,7 @@ gem 'jquery-rails'
 # Deploy with Capistrano
 # gem 'capistrano'
 
-gem 'rails', '4.0.0'
+gem 'rails', '4.1.0'
 gem 'handlebars_assets' # JS template engine
 gem 'figaro' # For ENV variables
 gem 'pg' #postgresql
@@ -40,7 +37,7 @@ gem 'aws-sdk', '~> 1.32.0'
 gem 'nested_form' 
 gem 'tinymce-rails' # WYSIWYG editor
 gem 'select2-rails'
-gem 'friendly_id', '5.0.0.rc2'
+gem 'friendly_id', github: 'norman/friendly_id', branch: 'master'
 gem 'rails_12factor', group: :production # Logging and static assets config
 gem 'gmaps4rails'
 gem 'geocoder'
@@ -55,7 +52,7 @@ gem 'acts-as-taggable-on'
 gem 'haml-rails'
 
 group :development do
-  gem 'debugger'
+  # gem 'debugger'
 end
 
 group :development, :test do

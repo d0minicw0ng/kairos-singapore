@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/norman/friendly_id.git
+  revision: 97ed06e4d4c4c9a57117c1e1c3c85eba94682844
+  branch: master
+  specs:
+    friendly_id (5.0.4)
+      activerecord (>= 4.0.0)
+
+GIT
   remote: git://github.com/thoughtbot/paperclip.git
   revision: b57208ab843b08f47b95b50b4a1f9175d9a35d98
   specs:
@@ -11,35 +19,36 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    actionmailer (4.0.0)
-      actionpack (= 4.0.0)
-      mail (~> 2.5.3)
-    actionpack (4.0.0)
-      activesupport (= 4.0.0)
-      builder (~> 3.1.0)
-      erubis (~> 2.7.0)
+    actionmailer (4.1.0)
+      actionpack (= 4.1.0)
+      actionview (= 4.1.0)
+      mail (~> 2.5.4)
+    actionpack (4.1.0)
+      actionview (= 4.1.0)
+      activesupport (= 4.1.0)
       rack (~> 1.5.2)
       rack-test (~> 0.6.2)
-    activemodel (4.0.0)
-      activesupport (= 4.0.0)
-      builder (~> 3.1.0)
-    activerecord (4.0.0)
-      activemodel (= 4.0.0)
-      activerecord-deprecated_finders (~> 1.0.2)
-      activesupport (= 4.0.0)
-      arel (~> 4.0.0)
-    activerecord-deprecated_finders (1.0.3)
-    activesupport (4.0.0)
-      i18n (~> 0.6, >= 0.6.4)
-      minitest (~> 4.2)
-      multi_json (~> 1.3)
+    actionview (4.1.0)
+      activesupport (= 4.1.0)
+      builder (~> 3.1)
+      erubis (~> 2.7.0)
+    activemodel (4.1.0)
+      activesupport (= 4.1.0)
+      builder (~> 3.1)
+    activerecord (4.1.0)
+      activemodel (= 4.1.0)
+      activesupport (= 4.1.0)
+      arel (~> 5.0.0)
+    activesupport (4.1.0)
+      i18n (~> 0.6, >= 0.6.9)
+      json (~> 1.7, >= 1.7.7)
+      minitest (~> 5.1)
       thread_safe (~> 0.1)
-      tzinfo (~> 0.3.37)
+      tzinfo (~> 1.1)
     acts-as-taggable-on (3.0.2)
       rails (>= 3, < 5)
     addressable (2.3.5)
-    arel (4.0.2)
-    atomic (1.1.15)
+    arel (5.0.1.20140414130214)
     aws-sdk (1.32.0)
       json (~> 1.4)
       nokogiri (>= 1.4.4)
@@ -47,7 +56,7 @@ GEM
     bcrypt (3.1.7)
     bcrypt-ruby (3.1.5)
       bcrypt (>= 3.1.3)
-    builder (3.1.4)
+    builder (3.2.2)
     celluloid (0.15.2)
       timers (~> 1.1.0)
     climate_control (0.0.3)
@@ -61,16 +70,9 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.7.0)
-    columnize (0.3.6)
     connection_pool (1.2.0)
     css_parser (1.3.5)
       addressable
-    debugger (1.6.6)
-      columnize (>= 0.3.1)
-      debugger-linecache (~> 1.2.0)
-      debugger-ruby_core_source (~> 1.3.2)
-    debugger-linecache (1.2.0)
-    debugger-ruby_core_source (1.3.2)
     devise (3.2.3)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
@@ -86,17 +88,15 @@ GEM
     flag_shih_tzu (0.3.10)
     font-awesome-rails (4.0.3.1)
       railties (>= 3.2, < 5.0)
-    friendly_id (5.0.0.rc2)
-      activerecord (~> 4.0.0)
     geocoder (1.1.9)
     gmaps4rails (2.1.2)
     haml (4.0.5)
       tilt
-    haml-rails (0.5.1)
-      actionpack (~> 4.0.0)
-      activesupport (~> 4.0.0)
+    haml-rails (0.5.3)
+      actionpack (>= 4.0.1)
+      activesupport (>= 4.0.1)
       haml (>= 3.1, < 5.0)
-      railties (~> 4.0.0)
+      railties (>= 4.0.1)
     handlebars_assets (0.15)
       execjs (>= 1.2.9)
       multi_json
@@ -108,27 +108,27 @@ GEM
       rails (>= 3.2)
     hike (1.2.3)
     htmlentities (4.3.1)
-    i18n (0.6.9)
+    i18n (0.6.11)
     jquery-rails (3.1.0)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.8.1)
     kgio (2.8.0)
-    knockoutjs-rails (3.0.0)
-      railties (>= 3.1, < 4.1)
+    knockoutjs-rails (3.1.0.1)
+      railties (>= 3.1, < 5)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.25.1)
     mini_portile (0.5.2)
-    minitest (4.7.5)
-    multi_json (1.8.4)
+    minitest (5.4.0)
+    multi_json (1.10.1)
     nested_form (0.3.2)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
     orm_adapter (0.5.0)
     pg (0.17.1)
-    polyglot (0.3.4)
+    polyglot (0.3.5)
     premailer (1.8.2)
       css_parser (>= 1.3.5)
       htmlentities (>= 4.0.0)
@@ -138,26 +138,28 @@ GEM
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
-    rails (4.0.0)
-      actionmailer (= 4.0.0)
-      actionpack (= 4.0.0)
-      activerecord (= 4.0.0)
-      activesupport (= 4.0.0)
+    rails (4.1.0)
+      actionmailer (= 4.1.0)
+      actionpack (= 4.1.0)
+      actionview (= 4.1.0)
+      activemodel (= 4.1.0)
+      activerecord (= 4.1.0)
+      activesupport (= 4.1.0)
       bundler (>= 1.3.0, < 2.0)
-      railties (= 4.0.0)
-      sprockets-rails (~> 2.0.0)
+      railties (= 4.1.0)
+      sprockets-rails (~> 2.0)
     rails_12factor (0.0.2)
       rails_serve_static_assets
       rails_stdout_logging
     rails_serve_static_assets (0.0.2)
     rails_stdout_logging (0.0.3)
-    railties (4.0.0)
-      actionpack (= 4.0.0)
-      activesupport (= 4.0.0)
+    railties (4.1.0)
+      actionpack (= 4.1.0)
+      activesupport (= 4.1.0)
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     raindrops (0.11.0)
-    rake (10.1.1)
+    rake (10.3.2)
     redis (3.0.6)
     redis-namespace (1.4.1)
       redis (~> 3.0.4)
@@ -186,7 +188,7 @@ GEM
       json
       redis (>= 3.0.6)
       redis-namespace (>= 1.3.1)
-    sprockets (2.11.0)
+    sprockets (2.12.1)
       hike (~> 1.2)
       multi_json (~> 1.0)
       rack (~> 1.0)
@@ -195,9 +197,8 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (~> 2.8)
-    thor (0.18.1)
-    thread_safe (0.2.0)
-      atomic (>= 1.1.7, < 2)
+    thor (0.19.1)
+    thread_safe (0.3.4)
     tilt (1.4.1)
     timers (1.1.0)
     tinymce-rails (4.0.16)
@@ -205,7 +206,8 @@ GEM
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
-    tzinfo (0.3.38)
+    tzinfo (1.2.2)
+      thread_safe (~> 0.1)
     uglifier (2.4.0)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
@@ -224,12 +226,11 @@ DEPENDENCIES
   acts-as-taggable-on
   aws-sdk (~> 1.32.0)
   coffee-rails
-  debugger
   devise
   figaro
   flag_shih_tzu
   font-awesome-rails
-  friendly_id (= 5.0.0.rc2)
+  friendly_id!
   geocoder
   gmaps4rails
   haml-rails
@@ -242,7 +243,7 @@ DEPENDENCIES
   paperclip!
   pg
   premailer-rails
-  rails (= 4.0.0)
+  rails (= 4.1.0)
   rails_12factor
   rspec-rails
   sass-rails
