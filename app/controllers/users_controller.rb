@@ -63,6 +63,8 @@ class UsersController < ApplicationController
       :biography,
       :country_id,
       :referred_by_id,
-      :avatar)
+      :avatar,
+      skill_list: []
+    )
   end
 end

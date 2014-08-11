@@ -63,7 +63,7 @@ class ProjectsController < ApplicationController
   end
 
   def get_all_tags_and_users
-    @tags = ActsAsTaggableOn::Tag.all
+    @tags = ActsAsTaggableOn::Tag.where(tag_type: "industry")
     @users = User.all
   end
 

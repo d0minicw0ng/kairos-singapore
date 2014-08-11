@@ -3,6 +3,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   prepend_before_filter :require_no_authentication, only: [:cancel]
   before_filter :update_sanitized_params, if: :devise_controller?
 
+  before_action :get_skill_list, only: [:new, :create]
+
   def create
     # FIXME: Of course this is not nice, fix this when you have time. Move this into a Service?
     industries = params[:user].delete(:industries).reject {|i| i.blank?}.map {|i| i.downcase.parameterize.underscore}
@@ -46,7 +48,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
        :job_title,
        :biography,
        :avatar,
-       :industries)
+       :industries,
+       :linkedin_url,
+       :country_id,
+       skill_list: []
+      )
     end
+  end
+
+  def get_skill_list
+    @skills = ActsAsTaggableOn::Tag.where tag_type: "skill"
   end
 end
