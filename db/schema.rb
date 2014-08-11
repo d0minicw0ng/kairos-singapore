@@ -20,8 +20,8 @@ ActiveRecord::Schema.define(version: 20140622071318) do
     t.integer  "user_id",    null: false
     t.string   "title",      null: false
     t.text     "body",       null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "slug"
   end
 
@@ -32,8 +32,8 @@ ActiveRecord::Schema.define(version: 20140622071318) do
     t.string   "content",          null: false
     t.integer  "commentable_id",   null: false
     t.string   "commentable_type", null: false
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "countries", force: true do |t|
@@ -47,8 +47,8 @@ ActiveRecord::Schema.define(version: 20140622071318) do
     t.text     "description", null: false
     t.datetime "starts_at",   null: false
     t.datetime "ends_at",     null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "venue_name"
     t.string   "street_one"
     t.string   "street_two"
@@ -65,8 +65,8 @@ ActiveRecord::Schema.define(version: 20140622071318) do
   add_index "events", ["slug"], name: "index_events_on_slug", unique: true, using: :btree
 
   create_table "images", force: true do |t|
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
@@ -78,16 +78,16 @@ ActiveRecord::Schema.define(version: 20140622071318) do
   create_table "project_event_registrations", force: true do |t|
     t.integer  "project_id",                     null: false
     t.integer  "event_id",                       null: false
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "state",      default: "pending", null: false
   end
 
   create_table "projects", force: true do |t|
     t.string   "title",            null: false
     t.text     "description",      null: false
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "youtube_video_id"
     t.string   "slug"
     t.string   "contact_email"
@@ -118,15 +118,15 @@ ActiveRecord::Schema.define(version: 20140622071318) do
     t.integer  "user_id",                        null: false
     t.integer  "event_id",                       null: false
     t.string   "state",      default: "pending", null: false
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "user_projects", force: true do |t|
     t.integer  "user_id",    null: false
     t.integer  "project_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
@@ -142,8 +142,8 @@ ActiveRecord::Schema.define(version: 20140622071318) do
     t.string   "last_sign_in_ip"
     t.integer  "failed_attempts",        default: 0,     null: false
     t.datetime "locked_at"
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "industries",             default: 0,     null: false
     t.string   "member_type",                            null: false
     t.string   "avatar_file_name"
@@ -171,8 +171,8 @@ ActiveRecord::Schema.define(version: 20140622071318) do
   create_table "votes", force: true do |t|
     t.integer  "user_id",                       null: false
     t.integer  "project_event_registration_id", null: false
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

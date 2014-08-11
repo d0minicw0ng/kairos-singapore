@@ -4,6 +4,7 @@ development:
   database: kairos_development
   pool: 5
   host: localhost
+  template: template0
 
 test:
   adapter: postgresql
@@ -11,11 +12,4 @@ test:
   database: kairos_test
   pool: 5
   host: localhost
-
-production:
-  adapter: postgresql
-  encoding: unicode
-  database: kairos_production
-  pool: 5
-  username: kairos_singapore
-  password: kairos_singapore
+  template: template0
