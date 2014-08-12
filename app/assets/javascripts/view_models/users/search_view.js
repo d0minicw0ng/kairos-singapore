@@ -1,4 +1,4 @@
-UserSearchViewModel = function() {
+function UserSearchViewModel() {
   var self = this;
   self.allUsers = ko.observableArray();
   self.skillList = ko.observableArray();
