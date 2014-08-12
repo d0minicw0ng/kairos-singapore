@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
   before_filter :authenticate_approved_current_user
   before_filter :authenticate_admin, only: [:unapproved_users]
+  before_filter :get_skill_list, only: [:edit, :update]
 
   def show
     @user = User.includes([{articles: :comments}, :projects]).friendly.find(params[:id])
@@ -69,5 +70,9 @@ class UsersController < ApplicationController
       :avatar,
       skill_list: []
     )
+  end
+
+  def get_skill_list
+    @skills = ActsAsTaggableOn::Tag.where tag_type: "skill"
   end
 end
