@@ -98,4 +98,22 @@ class User < ActiveRecord::Base
   def name
     "#{first_name} #{last_name}"
   end
+
+  def avatar_url(size=:thumb)
+    avatar.url size
+  end
+
+  def serializable_hash
+    super(
+      methods: [
+        :skill_list,
+        :avatar_url
+      ],
+      except: [
+        :created_at,
+        :updated_at,
+        :admin,
+        :approved,
+      ])
+  end
 end

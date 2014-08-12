@@ -1,11 +1,21 @@
-.container
+.container(data-bind="with: UserSearchViewModel")
   .row
     .col-md-12
       .panel.panel-success
         .panel-heading
           %h3.panel-title Search
-        .panel-body.tab-content-container-fixed(data-bind="with: UserSearchViewModel")
-          %ul#dashboard-users
+        .panel-body
+          Search By Skills
+          %select#user-search(data-bind="options: skillList, optionsText: 'name', optionsValue: 'name', selectedOptions: filters" multiple=true)
+        .panel-body.tab-content-container-fixed
+          %ul#dashboard-users(data-bind="foreach: users")
+            %li
+              .row
+                .col-md-5
+                  %a(data-bind="attr: { href: url }" style="font-size: 30px;")
+                    %img.small-img(data-bind="attr: { src: imageURL }")
+                    %span.display-name(data-bind="text: displayName")
+                .col-md-7(style="margin-top: 15px;")
 
 :javascript
   $(document).ready(function() {

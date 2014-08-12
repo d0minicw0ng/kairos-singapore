@@ -26,7 +26,6 @@
 //= require jquery.mb.YTPlayer
 //= require owl.carousel.min
 
-
 $(document).ready(function() {
     $('select').select2({
       width: 200
