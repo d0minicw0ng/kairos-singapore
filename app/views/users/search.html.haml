@@ -9,13 +9,14 @@
           %select#user-search(data-bind="options: skillList, optionsText: 'name', optionsValue: 'name', selectedOptions: filters" multiple=true)
         .panel-body.tab-content-container-fixed
           %ul#dashboard-users(data-bind="foreach: users")
-            %li
+            %li.user-row
               .row
-                .col-md-5
+                -# .col-md-5
+                .col-md-12
                   %a(data-bind="attr: { href: url }" style="font-size: 30px;")
                     %img.small-img(data-bind="attr: { src: imageURL }")
                     %span.display-name(data-bind="text: displayName")
-                .col-md-7(style="margin-top: 15px;")
+                -# .col-md-7(style="margin-top: 15px;")
 
 :javascript
   $(document).ready(function() {
