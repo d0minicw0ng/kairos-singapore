@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140811135539) do
+ActiveRecord::Schema.define(version: 20140902144913) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -131,38 +131,46 @@ ActiveRecord::Schema.define(version: 20140811135539) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "email",                  default: "",    null: false
-    t.string   "encrypted_password",     default: "",    null: false
+    t.string   "email",                   default: "",    null: false
+    t.string   "encrypted_password",      default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,     null: false
+    t.integer  "sign_in_count",           default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.integer  "failed_attempts",        default: 0,     null: false
+    t.integer  "failed_attempts",         default: 0,     null: false
     t.datetime "locked_at"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "industries",             default: 0,     null: false
-    t.string   "member_type",                            null: false
+    t.integer  "industries",              default: 0,     null: false
+    t.string   "member_type",                             null: false
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
-    t.string   "username",                               null: false
+    t.string   "username",                                null: false
     t.string   "slug"
     t.string   "job_title"
     t.string   "company"
     t.text     "biography"
     t.string   "first_name"
     t.string   "last_name"
-    t.boolean  "admin",                  default: false
-    t.boolean  "approved",               default: false
+    t.boolean  "admin",                   default: false
+    t.boolean  "approved",                default: false
     t.string   "linkedin_url"
     t.integer  "country_id"
     t.integer  "referred_by_id"
+    t.integer  "age"
+    t.text     "involvement_in_asean"
+    t.text     "problem_solving_skills"
+    t.text     "contribution_to_society"
+    t.text     "leadership_quality"
+    t.text     "industry_expertise"
+    t.text     "vision"
+    t.text     "entrepreneurial"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
