@@ -8,6 +8,46 @@
 
         <%= render partial: 'users/form', locals: {f: f, edit: false} %>
 
+        <%= content_tag :div, class: 'form-group' do %>
+          <%= f.label :age %><br />
+          <%= f.number_field :age, class: 'form-control' %>
+        <% end %>
+
+        <%= content_tag :div, class: 'form-group' do %>
+          <%= f.label :involvement_in_asean %>
+          <%= f.text_area :involvement_in_asean, class: 'form-control tinymce tinymce-text-area' %>
+        <% end %>
+
+        <%= content_tag :div, class: 'form-group' do %>
+          <%= f.label :problem_solving_skills %>
+          <%= f.text_area :problem_solving_skills, class: 'form-control tinymce tinymce-text-area' %>
+        <% end %>
+
+        <%= content_tag :div, class: 'form-group' do %>
+          <%= f.label :contribution_to_society %>
+          <%= f.text_area :contribution_to_society, class: 'form-control tinymce tinymce-text-area' %>
+        <% end %>
+
+        <%= content_tag :div, class: 'form-group' do %>
+          <%= f.label :leadership_quality %>
+          <%= f.text_area :leadership_quality, class: 'form-control tinymce tinymce-text-area' %>
+        <% end %>
+
+        <%= content_tag :div, class: 'form-group' do %>
+          <%= f.label :industry_expertise %>
+          <%= f.text_area :industry_expertise, class: 'form-control tinymce tinymce-text-area' %>
+        <% end %>
+
+        <%= content_tag :div, class: 'form-group' do %>
+          <%= f.label :vision %>
+          <%= f.text_area :vision, class: 'form-control tinymce tinymce-text-area' %>
+        <% end %>
+
+        <%= content_tag :div, class: 'form-group' do %>
+          <%= f.label :entrepreneurial %>
+          <%= f.text_area :entrepreneurial, class: 'form-control tinymce tinymce-text-area' %>
+        <% end %>
+
         <div>
           <%= f.submit "Sign up", class: 'btn btn-success' %>
         </div>
