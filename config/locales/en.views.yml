@@ -86,10 +86,20 @@ en:
     member_request_submitted: Your member request has been submitted. We will let you know when your membership is approved.
     skills: Skills
     advanced_search: Advanced Search
+    age_question: What is your age?
+    involvement_in_asean_question: Briefly describe your level of involvement in ASEAN.
+    problem_solving_skills_question: Recount an instance in the past in which you discovered an existing problem and went on to solve it. Tell us about your process of solving it.
+    contribution_to_society_question: Tell us of a time when you contribute to the society/your community. What did you do and what was the result?
+    leadership_quality_question: Describe an incident or period of time when you lead a team to overcome challenges
+    industry_expertise_question: List down your expertise and the industry you are familiar with.
+    vision_question: What do you see yourself achieving in the next 5 years? How do you see yourself contributing to Kairos Society (ASEAN) and gaining from being the membership?
+    entrepreneurial_question: Are you currently working on any startups? What are some industries you believe are ready now for disruption via innovation?
   register:
     individual: Register as an Individual
     project: Register for Your Startup
     event_registrants: Startups that are competing for a seat
+    next: Next
+    back: Back
   unregister:
     individual: Unregister
     project: Unregister for Your Startup

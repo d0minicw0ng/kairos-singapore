@@ -218,3 +218,15 @@ ul#user-projects {
 li.user-row {
   margin-bottom: 10px;
 }
+
+// registrations/new.html.erb
+#interview-questions,
+#submit-application-form,
+#back-to-basic-information {
+  display: none;
+}
+
+#go-to-interview-questions,
+#back-to-basic-information {
+  margin-bottom: 10px;
+}

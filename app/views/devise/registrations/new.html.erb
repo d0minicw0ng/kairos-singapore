@@ -1,62 +1,83 @@
-<div class='container well'>
+<div class='container well' data-bind="with: RegistrationFormViewModel">
   <div class='row'>
     <div class='col-xs-12 col-sm-6 col-md-8'>
-      <h2>Sign up</h2>
+      <h2 id="registration-form-title">Sign up</h2>
 
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= devise_error_messages! %>
 
-        <%= render partial: 'users/form', locals: {f: f, edit: false} %>
+        <div id="basic-information">
+          <%= render partial: 'users/form', locals: {f: f, edit: false} %>
+        </div>
 
-        <%= content_tag :div, class: 'form-group' do %>
-          <%= f.label :age %><br />
-          <%= f.number_field :age, class: 'form-control' %>
-        <% end %>
+        <div id="interview-questions">
+          <%= content_tag :div, class: 'form-group' do %>
+            <%= f.label :age, t(:'users.age_question') %><br />
+            <%= f.number_field :age, class: 'form-control' %>
+          <% end %>
 
-        <%= content_tag :div, class: 'form-group' do %>
-          <%= f.label :involvement_in_asean %>
-          <%= f.text_area :involvement_in_asean, class: 'form-control tinymce tinymce-text-area' %>
-        <% end %>
+          <%= content_tag :div, class: 'form-group' do %>
+            <%= f.label :involvement_in_asean, t(:'users.involvement_in_asean_question') %>
+            <%= f.text_area :involvement_in_asean, class: 'form-control  ' %>
+          <% end %>
 
-        <%= content_tag :div, class: 'form-group' do %>
-          <%= f.label :problem_solving_skills %>
-          <%= f.text_area :problem_solving_skills, class: 'form-control tinymce tinymce-text-area' %>
-        <% end %>
+          <%= content_tag :div, class: 'form-group' do %>
+            <%= f.label :problem_solving_skills, t(:'users.problem_solving_skills_question') %>
+            <%= f.text_area :problem_solving_skills, class: 'form-control  ' %>
+          <% end %>
 
-        <%= content_tag :div, class: 'form-group' do %>
-          <%= f.label :contribution_to_society %>
-          <%= f.text_area :contribution_to_society, class: 'form-control tinymce tinymce-text-area' %>
-        <% end %>
+          <%= content_tag :div, class: 'form-group' do %>
+            <%= f.label :contribution_to_society, t(:'users.contribution_to_society_question') %>
+            <%= f.text_area :contribution_to_society, class: 'form-control  ' %>
+          <% end %>
 
-        <%= content_tag :div, class: 'form-group' do %>
-          <%= f.label :leadership_quality %>
-          <%= f.text_area :leadership_quality, class: 'form-control tinymce tinymce-text-area' %>
-        <% end %>
+          <%= content_tag :div, class: 'form-group' do %>
+            <%= f.label :leadership_quality, t(:'users.leadership_quality_question') %>
+            <%= f.text_area :leadership_quality, class: 'form-control  ' %>
+          <% end %>
 
-        <%= content_tag :div, class: 'form-group' do %>
-          <%= f.label :industry_expertise %>
-          <%= f.text_area :industry_expertise, class: 'form-control tinymce tinymce-text-area' %>
-        <% end %>
+          <%= content_tag :div, class: 'form-group' do %>
+            <%= f.label :industry_expertise, t(:'users.industry_expertise_question') %>
+            <%= f.text_area :industry_expertise, class: 'form-control  ' %>
+          <% end %>
 
-        <%= content_tag :div, class: 'form-group' do %>
-          <%= f.label :vision %>
-          <%= f.text_area :vision, class: 'form-control tinymce tinymce-text-area' %>
-        <% end %>
+          <%= content_tag :div, class: 'form-group' do %>
+            <%= f.label :vision, t(:'users.vision_question') %>
+            <%= f.text_area :vision, class: 'form-control  ' %>
+          <% end %>
 
-        <%= content_tag :div, class: 'form-group' do %>
-          <%= f.label :entrepreneurial %>
-          <%= f.text_area :entrepreneurial, class: 'form-control tinymce tinymce-text-area' %>
-        <% end %>
+          <%= content_tag :div, class: 'form-group' do %>
+            <%= f.label :entrepreneurial, t(:'users.entrepreneurial_question') %>
+            <%= f.text_area :entrepreneurial, class: 'form-control  ' %>
+          <% end %>
+        </div>
 
-        <div>
+        <button id="go-to-interview-questions"
+          class="btn btn-success"
+          data-bind="click: showInterviewQuestions">
+          <%= t(:'register.next') %>
+        </button>
+
+        <button id="back-to-basic-information"
+          class="btn btn-success"
+          data-bind="click: showBasicInformation">
+          <%= t(:'register.back') %>
+        </button>
+
+        <div id="submit-application-form">
           <%= f.submit "Sign up", class: 'btn btn-success' %>
         </div>
       <% end %>
 
-      <%= render "devise/shared/links" %>
     </div>
   </div>
 </div>
 
 <%= tinymce_assets %>
 <%= tinymce %>
+
+<script type='text/javascript'>
+    $(document).ready(function() {
+        ko.applyBindings();
+    });
+</script>
