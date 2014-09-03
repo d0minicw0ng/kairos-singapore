@@ -51,6 +51,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
        :industries,
        :linkedin_url,
        :country_id,
+       :age,
+       :involvement_in_asean,
+       :problem_solving_skills,
+       :contribution_to_society,
+       :leadership_quality,
+       :industry_expertise,
+       :vision,
+       :entrepreneurial,
        skill_list: []
       )
     end
