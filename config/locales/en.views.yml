@@ -94,6 +94,7 @@ en:
     industry_expertise_question: List down your expertise and the industry you are familiar with.
     vision_question: What do you see yourself achieving in the next 5 years? How do you see yourself contributing to Kairos Society (ASEAN) and gaining from being the membership?
     entrepreneurial_question: Are you currently working on any startups? What are some industries you believe are ready now for disruption via innovation?
+    answers: Interview Answers
   register:
     individual: Register as an Individual
     project: Register for Your Startup
