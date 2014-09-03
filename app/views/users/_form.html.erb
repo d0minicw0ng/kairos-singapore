@@ -1,32 +1,32 @@
 <%= content_tag :div, class: 'form-group' do %>
-  <%= f.label :username %><br />
-  <%= f.text_field :username, autofocus: true, class: 'form-control' %>
+  <%= f.label :username, class: "required" %><br />
+  <%= f.text_field :username, autofocus: true, class: 'form-control', required: true %>
 <% end %>
 
 <%= content_tag :div, class: 'form-group' do %>
-  <%= f.label :first_name %><br />
-  <%= f.text_field :first_name, class: 'form-control' %>
+  <%= f.label :first_name, class: "required" %><br />
+  <%= f.text_field :first_name, class: 'form-control', required: true %>
 <% end %>
 
 <%= content_tag :div, class: 'form-group' do %>
-  <%= f.label :last_name %><br />
-  <%= f.text_field :last_name, class: 'form-control' %>
+  <%= f.label :last_name, class: "required" %><br />
+  <%= f.text_field :last_name, class: 'form-control', required: true %>
 <% end %>
 
 <%= content_tag :div, class: 'form-group' do %>
-  <%= f.label :email %><br />
-  <%= f.email_field :email, class: 'form-control' %>
+  <%= f.label :email, class: "required" %><br />
+  <%= f.email_field :email, class: 'form-control', required: true %>
 <% end %>
 
 <% if !edit %>
   <%= content_tag :div, class: 'form-group' do %>
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: 'off', class: 'form-control' %>
+    <%= f.label :password, class: "required" %><br />
+    <%= f.password_field :password, autocomplete: 'off', class: 'form-control', required: true %>
   <% end %>
 
   <%= content_tag :div, class: 'form-group' do %>
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control' %>
+    <%= f.label :password_confirmation, class: "required" %><br />
+    <%= f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control', required: true %>
   <% end %>
 <% end %>
 
@@ -36,13 +36,13 @@
 <% end %>
 
 <%= content_tag :div, class: 'form-group' do %>
-  <%= f.label :company %><br />
-  <%= f.text_field :company, class: 'form-control' %>
+  <%= f.label :company, class: "required" %><br />
+  <%= f.text_field :company, class: 'form-control', required: true %>
 <% end %>
 
 <%= content_tag :div, class: 'form-group' do %>
-  <%= f.label :job_title %><br />
-  <%= f.text_field :job_title, class: 'form-control' %>
+  <%= f.label :job_title, class: "required" %><br />
+  <%= f.text_field :job_title, class: 'form-control', required: true %>
 <% end %>
 
 <%= content_tag :div, class: 'form-group' do %>
@@ -51,8 +51,8 @@
 <% end %>
 
 <%= content_tag :div, class: 'form-group' do %>
-  <%= f.label :biography %>
-  <%= f.text_area :biography, class: 'form-control tinymce tinymce-text-area' %>
+  <%= f.label :biography, class: "required" %>
+  <%= f.text_area :biography, class: 'form-control tinymce tinymce-text-area', required: true %>
 <% end %>
 
 <%= content_tag :div, class: 'form-group' do %>
@@ -88,6 +88,6 @@
 <% end %>
 
 <%= content_tag :div, class: 'form-group' do %>
-  <%= f.label :avatar, t(:'users.profile_picture') %>
-  <%= f.file_field :avatar %>
+  <%= f.label :avatar, t(:'users.profile_picture'), class: "required" %>
+  <%= f.file_field :avatar, required: true %>
 <% end %>

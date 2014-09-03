@@ -41,7 +41,21 @@ class User < ActiveRecord::Base
   end
 
   validates :member_type, inclusion: %w(mentor innovator committee)
-  validates_presence_of :company, :job_title, :biography, :username, :first_name, :last_name
+  validates_presence_of :company,
+    :job_title,
+    :biography,
+    :username,
+    :first_name,
+    :last_name,
+    :email,
+    :age,
+    :involvement_in_asean,
+    :problem_solving_skills,
+    :contribution_to_society,
+    :leadership_quality,
+    :industry_expertise,
+    :vision,
+    :entrepreneurial
 
   scope :approved, -> {where('approved = ?', true)}
   scope :unapproved, -> {where('approved = ?', false)}

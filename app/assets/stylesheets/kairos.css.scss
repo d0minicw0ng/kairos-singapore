@@ -230,3 +230,10 @@ li.user-row {
 #back-to-basic-information {
   margin-bottom: 10px;
 }
+
+#registration-form {
+  .required:after {
+    content: " *";
+    color: red;
+  }
+}

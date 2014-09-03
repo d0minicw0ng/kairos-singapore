@@ -1,4 +1,4 @@
-<div class='container well' data-bind="with: RegistrationFormViewModel">
+<div class='container well' id="registration-form" data-bind="with: RegistrationFormViewModel">
   <div class='row'>
     <div class='col-xs-12 col-sm-6 col-md-8'>
       <h2 id="registration-form-title">Sign up</h2>
@@ -12,43 +12,43 @@
 
         <div id="interview-questions">
           <%= content_tag :div, class: 'form-group' do %>
-            <%= f.label :age, t(:'users.age_question') %><br />
-            <%= f.number_field :age, class: 'form-control' %>
+            <%= f.label :age, t(:'users.age_question'), class: "required" %><br />
+            <%= f.number_field :age, class: 'form-control', required: true %>
           <% end %>
 
           <%= content_tag :div, class: 'form-group' do %>
-            <%= f.label :involvement_in_asean, t(:'users.involvement_in_asean_question') %>
-            <%= f.text_area :involvement_in_asean, class: 'form-control  ' %>
+            <%= f.label :involvement_in_asean, t(:'users.involvement_in_asean_question'), class: "required" %>
+            <%= f.text_area :involvement_in_asean, class: 'form-control', required: true %>
           <% end %>
 
           <%= content_tag :div, class: 'form-group' do %>
-            <%= f.label :problem_solving_skills, t(:'users.problem_solving_skills_question') %>
-            <%= f.text_area :problem_solving_skills, class: 'form-control  ' %>
+            <%= f.label :problem_solving_skills, t(:'users.problem_solving_skills_question'), class: "required" %>
+            <%= f.text_area :problem_solving_skills, class: 'form-control', required: true %>
           <% end %>
 
           <%= content_tag :div, class: 'form-group' do %>
-            <%= f.label :contribution_to_society, t(:'users.contribution_to_society_question') %>
-            <%= f.text_area :contribution_to_society, class: 'form-control  ' %>
+            <%= f.label :contribution_to_society, t(:'users.contribution_to_society_question'), class: "required" %>
+            <%= f.text_area :contribution_to_society, class: 'form-control', required: true %>
           <% end %>
 
           <%= content_tag :div, class: 'form-group' do %>
-            <%= f.label :leadership_quality, t(:'users.leadership_quality_question') %>
-            <%= f.text_area :leadership_quality, class: 'form-control  ' %>
+            <%= f.label :leadership_quality, t(:'users.leadership_quality_question'), class: "required" %>
+            <%= f.text_area :leadership_quality, class: 'form-control', required: true %>
           <% end %>
 
           <%= content_tag :div, class: 'form-group' do %>
-            <%= f.label :industry_expertise, t(:'users.industry_expertise_question') %>
-            <%= f.text_area :industry_expertise, class: 'form-control  ' %>
+            <%= f.label :industry_expertise, t(:'users.industry_expertise_question'), class: "required" %>
+            <%= f.text_area :industry_expertise, class: 'form-control', required: true %>
           <% end %>
 
           <%= content_tag :div, class: 'form-group' do %>
-            <%= f.label :vision, t(:'users.vision_question') %>
-            <%= f.text_area :vision, class: 'form-control  ' %>
+            <%= f.label :vision, t(:'users.vision_question'), class: "required" %>
+            <%= f.text_area :vision, class: 'form-control', required: true %>
           <% end %>
 
           <%= content_tag :div, class: 'form-group' do %>
-            <%= f.label :entrepreneurial, t(:'users.entrepreneurial_question') %>
-            <%= f.text_area :entrepreneurial, class: 'form-control  ' %>
+            <%= f.label :entrepreneurial, t(:'users.entrepreneurial_question'), class: "required" %>
+            <%= f.text_area :entrepreneurial, class: 'form-control', required: true %>
           <% end %>
         </div>
 
